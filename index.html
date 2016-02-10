@@ -1,7 +1,38 @@
-<!DOCTYPE html> <html>
-<head lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>Deployment Test</title> </head>
+    <title>Widget Review Form</title>
+    <style> input, textarea {width: 400px;} </style>
+    <form>
+        <fieldset>
+            <legend>Please review our new widget. Thank you.</legend>
+            <table>
+                <tr>
+                    <td><label>Name:</label></td>
+                    <td><input type="text" name="name" value="" /></td>
+                </tr>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input type="email" name="email" value="" /></td>
+                </tr>
+                <tr>
+                    Date of Birth:
+                    <input type="date" name="bday">
+                </tr>
+                <tr>
+                    <td><label>Comment:</label></td>
+                    <td><textarea name="comments" cols="45" rows="5">
+</textarea></td>
+                </tr>
+                <tr>
+                    <td colspan=2><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</head>
 <body>
-<H1> It's Really ALIVE!!!</H1> </body>
+
+</body>
 </html>
