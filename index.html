@@ -2,37 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <header>Widget Co</header>
     <title>Widget Review Form</title>
-    <style> input, textarea {width: 400px;} </style>
-    <form>
-        <fieldset>
-            <legend>Please review our new widget. Thank you.</legend>
-            <table>
-                <tr>
-                    <td><label>Name:</label></td>
-                    <td><input type="text" name="name" value="" /></td>
-                </tr>
-                <tr>
-                    <td><label>Email:</label></td>
-                    <td><input type="email" name="email" value="" /></td>
-                </tr>
-                <tr>
-                    Date of Birth:
-                    <input type="date" name="bday">
-                </tr>
-                <tr>
-                    <td><label>Comment:</label></td>
-                    <td><textarea name="comments" cols="45" rows="5">
-</textarea></td>
-                </tr>
-                <tr>
-                    <td colspan=2><input type="submit" value="Submit" /></td>
-                </tr>
-            </table>
-        </fieldset>
-    </form>
 </head>
+
 <body>
 
+<form>
+    <fieldset>
+        <legend>Please review our new widget. Thank you.</legend>
+        <table>
+            <tr>
+                <td><label>Name:</label></td>
+                <td><input type="text" name="name" value="" /></td>
+            </tr>
+            <tr>
+                <td><label>Email:</label></td>
+                <td><input type="email" name="email" value="" /></td>
+            </tr>
+            <tr>
+                Date of Birth:
+                <input type="date" name="bday">
+            </tr>
+            <tr>
+                <td><label>Overall Comments about the widget:</label></td>
+                <td><textarea name="comments" cols="45" rows="5">
+</textarea></td>
+            </tr>
+            <tr>
+                <label for="location">Where did you buy our widget?:</label>
+                <select name="location">
+                    <option value="">Select store</option>
+                    <option value="currys">Currys</option>
+                    <option value="amazon">Amazon.co.uk</option>
+                    <option value="pcworld">PC World</option>
+                    <option value="argos">Argos</option>
+                </select>
+            </tr>
+            <tr>
+                <td colspan=2><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
 </body>
 </html>
