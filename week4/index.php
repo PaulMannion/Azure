@@ -49,8 +49,12 @@
         foreach($provisionedActivities as $x) {
             print "<p>$x</p>";
         }
-
-
+        // change entry 'Mugs'
+        $myArray[1] = "Hugs"; // modifies position 1 to "Hugs"
+        echo "<br>";
+        foreach($provisionedActivities as $x) {
+            print "<p>$x</p>";
+        }
         ?>
     </p>
     </body>
