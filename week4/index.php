@@ -51,11 +51,19 @@
         }
         // change entry 'Mugs'
         $provisionedActivities[1] = "Hugs"; // modifies position 1 to "Hugs"
-        unset($provisionedActivities[2]); // removes the array in position 2
+        unset($provisionedActivities[2]); // removes sausage rolls from the array in position 2
         echo "<br>";
         foreach($provisionedActivities as $x) {
             print "<p>$x</p>";
         }
+
+        // Product Calendar
+        for ($i = 1; $i < 30; $i++)
+        {
+            echo "<p>Today is the ".$i. " of the month. You can buy </p>";
+        }
+
+
         ?>
     </p>
     </body>
