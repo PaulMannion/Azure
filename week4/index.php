@@ -58,12 +58,13 @@
         }
 
         // Product Calendar
-        for ($i = 1; $i < 30; $i++)
+        for ($i = 1; $i < 31; $i++)
         {
-            echo "<p>Today is the ".$i. " of the month. You can buy </p>";
+            if ($i%4)==0{
+            $productsAllowed = "Sausage Rolls"
+            echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
         }
-
-
+        else echo "blah";
         ?>
     </p>
     </body>
