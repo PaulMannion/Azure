@@ -12,7 +12,7 @@
         echo 5 * 7;
         echo "<br>";
         $myname = "Paul";
-        $myage = 111;
+        $myage = 15;
         if ($myage >=21){
             print "Hello " . $myname . " you are " . $myage . " so you can buy specs, mugs and sausage rolls";
         }
