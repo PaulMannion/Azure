@@ -51,6 +51,7 @@
         }
         // change entry 'Mugs'
         $provisionedActivities[1] = "Hugs"; // modifies position 1 to "Hugs"
+        unset($provisionedActivities[2]); // removes the array in position 2
         echo "<br>";
         foreach($provisionedActivities as $x) {
             print "<p>$x</p>";
