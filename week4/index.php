@@ -43,6 +43,14 @@
                 echo "You don't want anything!?";
         }
 
+        // Arrays
+        $provisionedActivities = array("Specs", "Mugs", "Sausage Rolls"); // declares the array
+        echo "<br>";
+        foreach($provisionedActivities as $x) {
+            print "<p>$x</p>";
+        }
+
+
         ?>
     </p>
     </body>
