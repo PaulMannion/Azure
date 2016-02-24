@@ -67,6 +67,10 @@
                 $productsAllowed = "Specs and Mugs.";
                 echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
             }
+            elseif ($i%4!=0 and $i%3!=0 and $i%2==0){
+                $productsAllowed = "Specs.";
+                echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
+            }
         else echo "blah";
         ?>
     </p>
