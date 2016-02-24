@@ -28,7 +28,7 @@
         }
         // Switch display wanted goods
         $wantedgood = "mugs";
-
+        echo "<br>";
         switch ($wantedgood) {
             case "specs":
                 echo "You have to be 16 or over to buy specs";
