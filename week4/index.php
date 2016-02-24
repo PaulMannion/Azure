@@ -23,7 +23,7 @@
             print "Hello " . $myname . " you are " . $myage . " so you can buy specs";
         }
         else {
-            print "Hello " . $myname . " you are " . $myage . " too young to buy anything!";
+            print "Hello " . $myname . " you are only" . $myage . ". Too young to buy anything!";
         }
         ?>
     </p>
