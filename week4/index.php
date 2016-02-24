@@ -11,20 +11,7 @@
         echo "<br>";
         echo 5 * 7;
         echo "<br>";
-        $myname = "Paul";
-        $myage = 111;
-        if ($myage >=21){
-            echo "Hello " . $myname . " you are " . $myage . " so you can buy specs, mugs and sausage rolls";
-                }
-        elseif ($myage >=18 {
-            echo "Hello " . $myname . " you are " . $myage . " so you can buy specs and mugs.";
-        }
-        elseif ($myage >=16 {
-            echo "Hello " . $myname . " you are " . $myage . " so you can buy specs";
-        }
-        else {
-            echo "Hello " . $myname . " you are " . $myage . " too young to buy anything!";
-        }
+
         ?>
     </p>
     </body>
