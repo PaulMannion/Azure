@@ -24,7 +24,7 @@ if(empty($_POST["username"]) || empty($_POST["password"]))
 
     /**Now the important bit… we create an SQL statement ( a query)
      * that selects the uid of a user who has the username and password entered.
-     * This statement searches through out database and
+     * This statement searches through our database and
      * looks for a row where the username and password match an existing entry.
      */
 

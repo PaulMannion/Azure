@@ -8,7 +8,7 @@
 
 <body>
 <?php
-echo "<h1>Hello ".$_POST["username"]."</h1>";
+echo "<h1>Hello ".$_GET["username"]."</h1>";
 ?>
 <h1>Hello</h1>
 </body>
