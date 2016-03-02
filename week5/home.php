@@ -7,6 +7,9 @@
 </head>
 
 <body>
+<?php
+echo "<h1>Hello " .$_POST["username"]. "</h1>h1>";
+?>
 <h1>Hello</h1>
 </body>
 </html>
