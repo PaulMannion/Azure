@@ -1,9 +1,4 @@
-/**
- * Created by PhpStorm.
- * User: 1506100
- * Date: 02/03/2016
- * Time: 15:20
- */
+
 <!doctype html>
 <html>
 <head>
