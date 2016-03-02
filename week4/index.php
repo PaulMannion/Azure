@@ -58,23 +58,27 @@
         }
 
         // Product Calendar
-        for ($i = 1; $i < 31; $i++)
-            if ($i%4==0 and $i%3==0 and $i%2==0){
-            $productsAllowed = "Specs, Mugs and Sausage Rolls.";
-            echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
-        }
-            elseif ($i%4!=0 and $i%3==0 and $i%2==0){
-                $productsAllowed = "Specs and Mugs.";
-                echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
-            }
-            elseif ($i%4!=0 and $i%3!=0 and $i%2==0){
+        $i=1;
+        while($i<=31) {
+            if ($i % 2 == 0) {
                 $productsAllowed = "Specs.";
-                echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
-            }
-        else echo "blah";
+                    if (i$ % 3 == 0){
+                    $productsAllowed = "Specs and Mugs.";
+                         if (i$ % 4 == 0){
+                        $productsAllowed = "Specs, Mugs and Sausage Rolls.";
+                        }
+                    }
+                }
+            else
+                $productsAllowed = "nothing!";
+            echo "<p>Today is the " . $i . " of the month. You can buy " . $productsAllowed;
+            $i++;
+        }
         ?>
     </p>
     </body>
 </html>
 
 
+
+}
