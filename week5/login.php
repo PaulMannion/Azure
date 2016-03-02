@@ -27,9 +27,12 @@ if(empty($_POST["username"]) || empty($_POST["password"]))
      * This statement searches through out database and
      * looks for a row where the username and password match an existing entry.
      */
-}
- *
+
 $sql="SELECT uid FROM users WHERE username='$username' and password='$password'";
+
+    /**
+     * We now set up a variable, result, to hold the result of the query. These two lines run the query and return the result.
+     */
 
     $result=mysqli_query($db,$sql);
 
