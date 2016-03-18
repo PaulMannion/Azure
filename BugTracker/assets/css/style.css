@@ -1,0 +1,40 @@
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    background-color: lightsteelblue;
+}
+
+.TextWrap {
+    float: right;
+    margin: 0px;
+}
+
+div {
+    width: 320px;
+    padding: 10px;
+    border: 5px solid gray;
+    margin: 0;
+    background-color: aliceblue;
+}
+#bugContainer {
+    float: left;
+}
+
+img {
+    position: absolute;
+    width:150px;
+    height:150px;
+    border:5px solid gray;
+    margin:50;
+}
+
+div p  {
+    background-color: darkseagreen;
+}
+
+footer p{
+    text-align: center;
+    clear:both;
+}
