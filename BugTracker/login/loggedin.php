@@ -16,7 +16,6 @@
 	<h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
 	<nav>
 		<ul>
-			<li><a href="/BugTracker/index.html">Home Page</a></li>
 			<li><a href="logout.php" style="font-size:18px">Logout?</a></li>
 			<li><a href="/BugTracker/submit/newbug.php">Submit New Bug Report</a></li>
 		</ul>
