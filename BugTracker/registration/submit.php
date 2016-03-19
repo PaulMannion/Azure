@@ -5,7 +5,6 @@ if(isset($_POST["submit"]))
     $name = $_POST["name"];
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $password2 = $_POST["password2"];
 
     $name = mysqli_real_escape_string($db, $name);
     $email = mysqli_real_escape_string($db, $email);
@@ -18,14 +17,6 @@ if(isset($_POST["submit"]))
     if(mysqli_num_rows($result) == 1)
     {
         $msg = "Sorry...This email already exists...";
-    }
-
-    // check passwords not the same
-
-    else
-    {
-        if ($password != $password2);
-        $msg = "The passwords you entered do not match - please try again.";
     }
 
     else
