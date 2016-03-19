@@ -1,0 +1,42 @@
+label
+{
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size:20px;
+	font-weight:bold;
+}
+.input
+{
+	padding:5px;
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size:18px;
+}
+input[type=submit]
+{
+	padding:5px;
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size:18px;
+	font-weight:bold;
+	background:#999;
+	border:2px solid black;
+	color:#FFF;
+}
+fieldset
+{
+	width: 500px;
+}
+fieldset legend
+{
+	padding:2px;
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size:14px;
+	font-weight:bold;
+	background:#999;
+	border:2px solid black;
+	color:#FFF;
+}
+.error
+{
+	color:red;
+	font-family:Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+	font-size:16px;
+}
