@@ -18,7 +18,7 @@
 		<ul>
 			<li><a href="/BugTracker/index.html">Home Page</a></li>
 			<li><a href="logout.php" style="font-size:18px">Logout?</a></li>
-			<li><a href="/BugTracker/registration/register.php">Register</a></li>
+			<li><a href="submit/newbug.php">Submit New Bug Report</a></li>
 		</ul>
 	</nav>
 </header>

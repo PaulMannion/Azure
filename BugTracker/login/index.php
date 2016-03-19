@@ -3,7 +3,7 @@
 
 	if ((isset($_SESSION['username']) != '')) 
 	{
-		header('Location: home.php');
+		header('Location: loggedin.php');
 	}	
 ?>
 
