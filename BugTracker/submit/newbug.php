@@ -2,6 +2,7 @@
 
 	include("connection.php");
 	include("submit.php");
+	include("check.php");
 
 ?>
 <!doctype html>
