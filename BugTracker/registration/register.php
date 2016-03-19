@@ -29,6 +29,16 @@
 					</td>
 				</tr>
 				<tr>
+					<td height="23" style="font-weight: bold">
+						<div align="right">
+							<label for="password2">Type Password again</label>
+						</div>
+					</td>
+					<td>
+						<input name="password2" type="password" class="input" size="25" required />
+					</td>
+				</tr>
+				<tr>
 					<td style="font-weight: bold">
 							<div align="right">
 									<label for="email">Email</label>
@@ -48,7 +58,7 @@
 							<input name="password" type="password" class="input" size="25" required />
 					</td>
 				</tr>
-				
+
 				<tr>
 					<td height="23"></td>
 					<td>
