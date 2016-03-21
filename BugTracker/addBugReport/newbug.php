@@ -38,15 +38,6 @@
 					</td>
 				</tr>
 				<tr>
-					<td style="font-weight: bold">
-						<div align="right"><label for="comment">Comments</label></div>
-					</td>
-					<td style="font-weight: bold">
-						<textarea name="comment" rows="5" cols="45" required ></textarea>
-					</td>
-				</tr>
-
-				<tr>
 					<td height="23"></td>
 					<td>
 						<div align="right">
