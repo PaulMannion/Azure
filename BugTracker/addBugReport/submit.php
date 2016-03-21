@@ -3,7 +3,7 @@ $msg = "";
 if(isset($_POST["submit"]))
 {
     $bugTitle = $_POST["bugTitle"];
-    $bugDesc = "boo";
+    //$bugDesc = "boo";
     //$Comment = $_POST["Comment"];
     $thisUser = $_SESSION['user_id'];
 
@@ -15,7 +15,7 @@ if(isset($_POST["submit"]))
 
 
 
-        $query = mysqli_query($db, "INSERT INTO bugs (title, desc, postDate, userID) VALUES ('$bugTitle', '$bugDesc', current_date(), '$thisUser')")or die(mysqli_error($db));
+        $query = mysqli_query($db, "INSERT INTO bugs (title, postDate, userID) VALUES ('$bugTitle', current_date(), '$thisUser')")or die(mysqli_error($db));
        // $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')")or die(mysqli_error($db));
         if($query)
         {
