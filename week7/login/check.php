@@ -8,7 +8,7 @@ $ses_sql = mysqli_query($db,"SELECT username FROM users WHERE username='$user_ch
 $row=mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
 
 $login_user=$row['username'];
-$thisUserID=$row['userID'];
+$thisUserID=$row[21];
 
 if(!isset($user_check))
 {
