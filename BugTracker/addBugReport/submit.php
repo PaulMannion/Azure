@@ -2,32 +2,26 @@
 $msg = "";
 if(isset($_POST["submit"]))
 {
-    $title = $_POST["title"];
-    $comment = $_POST["comment"];
-    $password = $_POST["password"];
+    $bugTitle = $_POST["bugTitle"];
+    $bugDesc = $_POST["bugDesc"];
+    //$postDate = $_
+    //$Comment = $_POST["Comment"];
 
-    $name = mysqli_real_escape_string($db, $name);
-    $email = mysqli_real_escape_string($db, $email);
-    $password = mysqli_real_escape_string($db, $password);
-    $password = md5($password);
+    $bugTitle = mysqli_real_escape_string($db, $bugTitle);
+    $bugDesc = mysqli_real_escape_string($db, $bugDesc);
+   // $bugComment = mysqli_real_escape_string($db, $bugComment);
+
     
-    $sql="SELECT email FROM users WHERE email='$email'";
-    $result=mysqli_query($db,$sql);
-    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
-    if(mysqli_num_rows($result) == 1)
-    {
-        $msg = "Sorry...This email already exists...";
-    }
 
-    else
-    {
-        //echo $name." ".$email." ".$password;
-        $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')")or die(mysqli_error($db));
+
+
+        $query = mysqli_query($db, "INSERT INTO bugs (title, desc)VALUES ('$bugTitle', '$bugDesc')")or die(mysqli_error($db));
+       // $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')")or die(mysqli_error($db));
         if($query)
         {
-            $msg = "Thank You! you are now registered.";
+            $msg = "Thank You! Bug Submitted!";
         }
 
-    }
+
 }
 ?>
