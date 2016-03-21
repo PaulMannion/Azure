@@ -35,7 +35,10 @@
 					</td>
 					<td>
 						<input name="desc" type="text" class="input" size="500" required />
-						
+
+						Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
+
+
 					</td>
 				</tr>
 				<tr>
