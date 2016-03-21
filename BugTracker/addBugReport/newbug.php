@@ -34,19 +34,12 @@
 						<div align="right"><label for="name">Bug Description</label></div>
 					</td>
 					<td>
-						<input name="desc" type="text" class="input" size="500" required />
-
-						Comment: <textarea name="comment" rows="5" cols="40"><?php echo $comment;?></textarea>
-
-
+						<textarea name="comment" rows="5" cols="40"></textarea>
 					</td>
 				</tr>
 				<tr>
 					<td style="font-weight: bold">
-						<div align="right"><label for="name">Title</label></div>
-					</td>
-					<td>
-						<input name="title" type="text" class="input" size="25" required />
+						
 					</td>
 				</tr>
 				<tr>
