@@ -3,7 +3,7 @@ $msg = "";
 if(isset($_POST["submit"]))
 {
     $bugTitle = $_POST["bugTitle"];
-    $bugDesc = $_POST["bugDesc"];
+    $bugDesc = "boo";
     //$Comment = $_POST["Comment"];
     $thisUser = $_SESSION['user_id'];
 
