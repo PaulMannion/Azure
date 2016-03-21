@@ -34,7 +34,7 @@
 						<div align="right"><label for="name">Bug Description</label></div>
 					</td>
 					<td style="font-weight: bold">
-						<textarea name="comment" rows="5" cols="40" required ></textarea>
+						<textarea name="comment" rows="5" cols="45" required ></textarea>
 					</td>
 				</tr>
 				<tr>
