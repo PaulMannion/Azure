@@ -33,7 +33,7 @@
 					<td style="font-weight: bold">
 						<div align="right"><label for="name">Bug Description</label></div>
 					</td>
-					<td>
+					<td style="font-weight: bold">
 						<textarea name="comment" rows="5" cols="40" required ></textarea>
 					</td>
 				</tr>
