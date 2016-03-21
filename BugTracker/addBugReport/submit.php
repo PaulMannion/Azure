@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
     $bugTitle = $_POST["bugTitle"];
     //$bugDesc = "boo";
     //$Comment = $_POST["Comment"];
-    $thisUser = "21";
+    $thisUser = 21;
     //$login_user=$row['userID'];
 
     $bugTitle = mysqli_real_escape_string($db, $bugTitle);
