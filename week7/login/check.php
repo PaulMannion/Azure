@@ -11,6 +11,6 @@ $login_user=$row['username'];
 
 if(!isset($user_check))
 {
-header("Location: newbug.php");
+header("Location: index.php");
 }
 ?>
