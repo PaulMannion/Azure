@@ -16,7 +16,7 @@ if(isset($_POST["submit"]))
 
 
 
-        $query = mysqli_query($db, "INSERT INTO bugs (title, bugDesc, postDate, userID) VALUES ('$bugTitle', $bugDesc, current_date(), '$thisUser')")or die(mysqli_error($db));
+        $query = mysqli_query($db, "INSERT INTO bugs (title, bugDesc, postDate, userID) VALUES ('$bugTitle', '$bugDesc', current_date(), '$thisUser')")or die(mysqli_error($db));
        // $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')")or die(mysqli_error($db));
         if($query)
         {
