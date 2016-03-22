@@ -69,8 +69,17 @@
 	<?php
 			while($row = mysqli_fetch_row($result))
 			{
-			foreach($row as $cell)
-			echo "<td>$cell</td>";
+				$bugTitle = $row['title'];
+				$bugDesc = $row['bugDesc'];
+				$bugPost = $row['postDate'];
+				$bugFix = $row['fixDate'];
+				$bugFixed = $row['fixed'];
+
+				echo "<td>$bugTitle</td>";
+				echo "<td>$bugDesc</td>";
+				echo "<td>$bugPost</td>";
+				echo "<td>$bugFix</td>";
+				echo "<td>$bugFixed</td>";
 
 			echo "</tr>\n";
 		}
