@@ -29,7 +29,7 @@
 	<?php
 	$sql = "SELECT title, bugDesc, postDate, fixDate, fixed FROM bugs";
 	$result=mysqli_query($db,$sql);
-	$fields_num = mysqli_num_fields($result);
+	//$fields_num = mysqli_num_fields($result);
 
 	echo "<h1>Table: Bugs</h1>";
 	echo "<table border='1'><tr>";
@@ -67,7 +67,7 @@
 		<tr>
 
 	<?php
-			while($row = mysqli_fetch_row($result))
+			while($row = mysqli_fetch_assoc($result))
 			{
 				$bugTitle = $row['title'];
 				$bugDesc = $row['bugDesc'];
