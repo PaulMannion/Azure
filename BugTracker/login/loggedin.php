@@ -60,7 +60,7 @@
 		<tr>
 			<th>Bug Title</th>
 			<th>Bug Description</th>
-			<th>Date Posted</th>
+			<align-center><th>Date Posted</th></align-center>
 			<th>Date Fixed</th>
 			<th>Fixed (Y or N)</th>
 		</tr>
