@@ -29,15 +29,32 @@
 	<?php
 	$sql = "SELECT * FROM bugs";
 	$result=mysqli_query($db,$sql);
+	$fields_num = mysqli_num_fields($result);
 
-	while($row = mysqli_fetch_assoc($result)){
-		$bugTitle = $row['title'];
-		$bugID = $row['ID'];
-
-		echo '<a href="bug.php?id="'.$bugID.'>'.$bugTitle.'</a></br>';
-
+	echo "<h1>Table: Bugs</h1>";
+	echo "<table border='1'><tr>";
+	// printing table headers
+	for($i=0; $i<$fields_num; $i++)
+	{
+		$field = mysqli_fetch_field($result);
+		echo "<td>{$field->name}</td>";
 	}
+	echo "</tr>\n";
+	// printing table rows
+	while($row = mysqli_fetch_row($result))
+	{
+		echo "<tr>";
+
+		// $row is array... foreach( .. ) puts every element
+		// of $row to $cell variable
+		foreach($row as $cell)
+			echo "<td>$cell</td>";
+
+		echo "</tr>\n";
+	}
+	mysqli_free_result($result);
 	?>
+
 
 	<div id="bugContainer">
 		<h3>Bug Name 1</h3>
