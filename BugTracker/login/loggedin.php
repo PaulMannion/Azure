@@ -26,6 +26,19 @@
 	<h2>Welcome to my Bug Tracker!</h2>
 	<p>This website is used to keep track of all of my bugs</p>
 
+	<?php
+	$sql = "SELECT * FROM bugs";
+	$result=mysqli_query($db,$sql);
+
+	while($row = mysqli_fetch_assoc($result)){
+		$bugTitle = $row['title'];
+		$bugID = $row['ID'];
+
+		echo '<a href="bug.php?id="'.$bugID.'>'.$bugTitle.'</a></br>';
+
+	}
+	?>
+
 	<div id="bugContainer">
 		<h3>Bug Name 1</h3>
 		<img class="TextWrap" src="/BugTracker/assets/images/mug1.png" alt="bug">
