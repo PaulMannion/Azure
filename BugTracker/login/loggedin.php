@@ -78,7 +78,7 @@
 				echo "<td>$bugTitle</td>";
 				echo "<td>$bugDesc</td>";
 				echo "<td>$bugPost</td>";
-					if ($bugFix = null) {
+					if (empty($bugFix)) {
 						echo "<td>Not Fixed</td>";
 					} else {
 				echo "<td>$bugFix</td>";
