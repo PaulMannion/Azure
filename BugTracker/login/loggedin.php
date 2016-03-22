@@ -83,7 +83,7 @@
 					} else {
 				echo "<td>$bugFix</td>";
 				}
-					if ($bugFixed == 0) {
+					if (is_null($bugFixed)) {
 				echo "<td>No</td>";
 				} else {
 				echo "<td>Yes</td>";
