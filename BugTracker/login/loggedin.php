@@ -84,9 +84,9 @@
 				echo "<td>$bugFix</td>";
 				}
 					if (is_null($bugFixed)) {
-				echo "<td>No</td>";
+				echo "<td>Yes</td>";
 				} else {
-						echo "<td>Yes</td>";
+						echo "<td>No</td>";
 					}
 			echo "</tr>\n";
 		}
