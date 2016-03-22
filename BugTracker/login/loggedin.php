@@ -27,7 +27,7 @@
 	<p>This website is used to keep track of all of my bugs</p>
 
 	<?php
-	$sql = "SELECT * FROM bugs";
+	$sql = "SELECT title, bugDesc, postDate, fixDate, fixed FROM bugs";
 	$result=mysqli_query($db,$sql);
 	$fields_num = mysqli_num_fields($result);
 
