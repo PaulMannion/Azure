@@ -24,14 +24,14 @@
 
 <main>
 	<h2>Welcome to my Bug Tracker!</h2>
-	<p>This website is used to keep track of all of my bugs</p>
+	<p>Here is a list of all the bugs:</p>
 
 	<?php
 	$sql = "SELECT title, bugDesc, postDate, fixDate, fixed FROM bugs";
 	$result=mysqli_query($db,$sql);
 
 	?>
-	
+
 	<table id="bugs">
 		<tr>
 			<th>Bug Title</th>
