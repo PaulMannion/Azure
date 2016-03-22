@@ -34,12 +34,12 @@
 	echo "<h1>Table: Bugs</h1>";
 	echo "<table border='1'><tr>";
 	// printing table headers
-	for($i=0; $i<$fields_num; $i++)
+	/*for($i=0; $i<$fields_num; $i++)
 	{
 		$field = mysqli_fetch_field($result);
 		echo "<td>{$field->name}</td>";
 	}
-	echo "</tr>\n";
+	*/echo "</tr>\n";
 	// printing table rows
 	while($row = mysqli_fetch_row($result))
 	{
