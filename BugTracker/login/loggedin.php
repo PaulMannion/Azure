@@ -28,7 +28,7 @@
 	<p>Here is a list of all the bugs:</p>
 
 	<?php
-	$sql = "SELECT title, bugDesc, postDate, fixDate, fixed, isFixed FROM bugs";
+	$sql = "SELECT * FROM bugs";
 	$result=mysqli_query($db,$sql);
 
 	?>
