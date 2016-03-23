@@ -27,7 +27,7 @@ include("check.php");
     <p>Here is a list of all the users:</p>
 
     <?php
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT username, email, phone, joined, approved, admin FROM users";
     $result=mysqli_query($db,$sql);
 
     ?>
