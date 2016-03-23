@@ -6,9 +6,10 @@
 	if(isset($_POST["submit"]))
 	{
 		if(empty($_POST["username"]) || empty($_POST["password"]))
-		{
+			{
 			$error = "Both fields are required.";
-		}else
+			}
+		else
 		{
 			// Define $username and $password
 			$username=$_POST['username'];
@@ -23,48 +24,40 @@
 			$userApproved = 5;
 
 
-			//Check username and password from database
+			//Check username, password and is approved from database
+
 			$sql="SELECT userID FROM users WHERE username='$username' and password='$password' and approved='1' limit 1";
 			$result=mysqli_query($db,$sql);
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-			if(mysqli_num_rows($result) == 1)
-			//$userApproved=mysqli_fetch_object($result);
-
-			echo "<script type='text/javascript'>alert('$userApproved')</script>";
-
-			else echo "<script type='text/javascript'>alert('lunch')</script>";
-			//Check user has been approved before allowing entry
-
-	/*		if ($userApproved == 1)
-			{
-				echo "$userApproved";
-				$_SESSION['username'] = $username; // Initializing Session
-				header("location: loggedin.php"); // Redirecting To Other Page
-			}else
-			{
-				echo "$userApproved";
-				//header("location: /BugTracker/registration/nonapproved.html"); // Redirecting To Awaiting Approval Page
-			}
-
-			//Check username and password from database
-			$sql="SELECT userID FROM users WHERE username='$username' and password='$password'";
-			$result=mysqli_query($db,$sql);
-			$row=mysqli_fetch_array($result,MYSQLI_ASSOC) ;
-			
-			//If username and password exist in our database then create a session.
-			//Otherwise echo error.
+			//If username and password  and approval exist in database then create a session.
+			////Otherwise check for username/password error.
 
 			if(mysqli_num_rows($result) == 1)
-			{
-				$_SESSION['username'] = $username; // Initializing Session
-				header("location: loggedin.php"); // Redirecting To Other Page
-			}else
-			{
-				$error = "Incorrect username or password.";
-			}
-	*/
+					{
+					$_SESSION['username'] = $username; // Initializing Session
+					header("location: loggedin.php"); // Redirecting To Other Page
+					}
+			else
+					{
+
+				//Check username and password from database
+				$sql = "SELECT userID FROM users WHERE username='$username' and password='$password'";
+				$result = mysqli_query($db, $sql);
+				$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+				//If username and password exist in our database then must be awaiting approval --> redirect to "Awaiting Approval" page.
+				//Otherwise echo incorrect password/username error.
+
+					if (mysqli_num_rows($result) == 1)
+						{
+						header("location: /BugTracker/registration/nonapproved.html"); // Redirecting To Awaiting Approval Page
+						}
+					else
+						{
+						$error = "Incorrect username or password.";
+						}
+					}
 		}
 	}
-
 ?>
