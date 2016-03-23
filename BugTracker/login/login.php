@@ -28,7 +28,7 @@
 			$result=mysqli_query($db,$sql);
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-			if(mysqli_fetch_array($result) == 1)
+			if(mysqli_num_rows($result) == 1)
 			//$userApproved=mysqli_fetch_object($result);
 
 			echo "<script type='text/javascript'>alert('$userApproved')</script>";
