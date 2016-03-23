@@ -55,7 +55,7 @@
 						</div>
 					</td>
 					<td>
-						<input name="phone" type="number" class="input" size="11" required />
+						<input name="phone" type="tel" class="input" size="11" required />
 					</td>
 				</tr>
 				<tr>
