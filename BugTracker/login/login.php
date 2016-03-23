@@ -21,14 +21,14 @@
 			$password = mysqli_real_escape_string($db, $password);
 			$password = md5($password);
 
-			$userApproved = mysqli_result(mysqli_query("SELECT approved FROM users WHERE username='$username' and password='$password' LIMIT 1"),0);
+			//$userApproved = mysqli_result(mysqli_query("SELECT approved FROM users WHERE username='$username' and password='$password' LIMIT 1"),0);
 
 			//Check username and password from database
 			//$sql="SELECT approved FROM users WHERE username='$username' and password='$password' limit 1";
 			//$userApproved=mysqli_query($sql);
 			//$userApproved=mysqli_fetch_object($result);
 
-			echo "<script type='text/javascript'>alert('$userApproved'.'$username')</script>";
+			echo "<script type='text/javascript'>alert('$username')</script>";
 			//Check user has been approved before allowing entry
 
 	/*		if ($userApproved == 1)
