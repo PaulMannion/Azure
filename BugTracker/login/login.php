@@ -27,7 +27,7 @@
 			$userApproved=mysqli_query($sql);
 			//$userApproved=mysqli_fetch_object($result);
 
-			echo "<script type='text/javascript'>alert('$username')</script>";
+			echo "<script type='text/javascript'>alert('$userApproved')</script>";
 			//Check user has been approved before allowing entry
 
 	/*		if ($userApproved == 1)
