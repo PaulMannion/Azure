@@ -24,7 +24,7 @@
 
 
 			//Check username and password from database
-			$sql="SELECT approved FROM users WHERE username='$username' and password='$password' limit 1";
+			$sql="SELECT userID FROM users WHERE username='$username' and password='$password' and approved='1' limit 1";
 			$result=mysqli_query($db,$sql);
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
