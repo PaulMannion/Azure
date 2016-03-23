@@ -47,14 +47,13 @@
 	<?php
 			while($row = mysqli_fetch_assoc($result)) {
 				$bugTitle = $row['title'];
-				$bugID = $row['bugID'];
 				$bugDesc = $row['bugDesc'];
 				$bugPost = $row['postDate'];
 				$bugFix = $row['fixDate'];
 				$bugFixed = $row['fixed'];
 				$bugAuth = $row['isFixed'];
 
-	
+
 				echo "<td>$bugID</td>";
 				//echo '<td><a href="Bollocks"'.'"Fuckstick">'.'$bugTitle'.'</a></td>';
 				echo "<TD><a href='/BugTracker/showBugs/showBugs.php?id=$bugID'>".$bugTitle."</a></TD>";

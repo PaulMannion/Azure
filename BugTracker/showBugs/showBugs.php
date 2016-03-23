@@ -59,8 +59,8 @@
                 $bugFixed = $row['fixed'];
                 $bugAuth = $row['isFixed'];
 
-                //			echo "<td><a href="/BugTracker/showBugs/showBugs.php?id="'.$bugID.'>'.$bugTitle.'</a></td>";
-                echo '<td><a href="/BugTracker/showBugs/showBugs.php?id="'.$bugID.'>'.$bugTitle.'</a></td>';
+                
+                echo "<td>$bugTitle</td>";
                 echo "<td>$bugDesc</td>";
                 echo "<td>$bugPost</td>";
                 if (empty($bugFix)) {
