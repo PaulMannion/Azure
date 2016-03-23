@@ -16,7 +16,7 @@ include("check.php");
     <h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
     <nav>
         <ul>
-            <li><a href="logout.php" style="font-size:18px">Logout?</a></li>
+            <li><a href="/BugTracker/login/logout.php" style="font-size:18px">Logout?</a></li>
             <li><a href="/BugTracker/login/loggedin.php">List of Bugs</a></li>
         </ul>
     </nav>
