@@ -21,7 +21,7 @@
 			$password = mysqli_real_escape_string($db, $password);
 			$password = md5($password);
 
-			//Check username and password from database
+	/*		//Check username and password from database
 			$sql="SELECT approved FROM users WHERE username='$username' and password='$password' limit 1";
 			$result=mysqli_query($sql);
 			$userApproved=mysqli_fetch_object($result);
@@ -36,8 +36,8 @@
 			{
 				$error = "Incorrect username or password.";
 			}
-
-		/*	//Check username and password from database
+	*/
+			//Check username and password from database
 			$sql="SELECT userID FROM users WHERE username='$username' and password='$password'";
 			$result=mysqli_query($db,$sql);
 			$row=mysqli_fetch_array($result,MYSQLI_ASSOC) ;
@@ -53,7 +53,7 @@
 			{
 				$error = "Incorrect username or password.";
 			}
-		*/
+
 		}
 	}
 
