@@ -31,7 +31,7 @@
 
     <?php
 
-    $id="11";
+    $id=$_GET['id'];
 
     $sql="SELECT * FROM bugs WHERE bugID='$id'";
     $result=mysqli_query($db,$sql);
