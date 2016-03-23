@@ -20,11 +20,12 @@
 			$username = mysqli_real_escape_string($db, $username);
 			$password = mysqli_real_escape_string($db, $password);
 			$password = md5($password);
+			$userApproved = 5;
 
 
 			//Check username and password from database
 			$sql="SELECT approved FROM users WHERE username='$username' and password='$password' limit 1";
-			$userApproved=mysqli_query($db,$sql);
+			$result=mysqli_query($db,$sql);
 			//$userApproved=mysqli_fetch_object($result);
 
 			echo "<script type='text/javascript'>alert('$userApproved')</script>";
