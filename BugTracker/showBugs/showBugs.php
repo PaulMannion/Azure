@@ -3,8 +3,8 @@
 
 <?php
 
-include("/BugTracker/login/connection.php");
-include("/BugTracker/login/check.php");
+include("connection.php");
+include("check.php");
 
 
     $sql = "SELECT * FROM bugs WHERE bugID = ".$_GET["id"];
@@ -15,8 +15,8 @@ include("/BugTracker/login/check.php");
     $bugID = $row['ID'];
     $bugDesc = $row['desc'];
 
-    echo "<h2>".$bugTitle."<?h2>";
-    echo "<p>".$bugDesc."</p>p>";
+    echo "<h2>".$bugTitle."<h2>";
+    echo "<p>".$bugDesc."</p>";
 
    // echo '<a href="bug.php?id="'.$bugID.'>'.$bugTitle.'</a></br>';
  ?>
