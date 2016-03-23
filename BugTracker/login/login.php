@@ -24,7 +24,7 @@
 
 			//Check username and password from database
 			$sql="SELECT approved FROM users WHERE username='$username' and password='$password' limit 1";
-			$userApproved=mysqli_query($sql);
+			$userApproved=mysqli_query($db,$sql);
 			//$userApproved=mysqli_fetch_object($result);
 
 			echo "<script type='text/javascript'>alert('$userApproved')</script>";
