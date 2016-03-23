@@ -21,7 +21,7 @@
 			$password = mysqli_real_escape_string($db, $password);
 			$password = md5($password);
 
-			$userApproved = mysqli_result(mysqli_query("SELECT approved FROM users WHERE username='$username' and password='$password' LIMIT 1"),0);
+			$userApproved = mysqli_result(mysqli_query("SELECT approved FROM users WHERE username='$username' and password='$password' LIMIT 1"));
 
 			//Check username and password from database
 			//$sql="SELECT approved FROM users WHERE username='$username' and password='$password' limit 1";
