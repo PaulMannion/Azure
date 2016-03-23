@@ -117,12 +117,12 @@
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
-				if ($userAdm == 1) {
+				if ($userAdm === 1) {
 					echo "<td>Administrator</td>";
 				} else {
 					echo "<td></td>";
 				}
-				if ($userAuth == 1) {
+				if ($userAuth === 1) {
 					echo "<td>Authorised</td>";
 				} else {
 					echo "<td></td>";
