@@ -34,7 +34,8 @@
 				header("location: loggedin.php"); // Redirecting To Other Page
 			}else
 			{
-				header("location: /BugTracker/registration/nonapproved.html"); // Redirecting To Awaiting Approval Page
+				echo "$userApproved";
+				//header("location: /BugTracker/registration/nonapproved.html"); // Redirecting To Awaiting Approval Page
 			}
 	/*
 			//Check username and password from database
