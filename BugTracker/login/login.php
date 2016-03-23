@@ -34,7 +34,7 @@
 				header("location: loggedin.php"); // Redirecting To Other Page
 			}else
 			{
-				$error = "Incorrect username or password.";
+				header("location: nonapproved.html"); // Redirecting To Awaiting Approval Page
 			}
 	/*
 			//Check username and password from database
