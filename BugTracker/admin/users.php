@@ -52,6 +52,7 @@ include("check.php");
                 $userAuth = $row['approved'];
                 $userAdm = $row['admin'];
 
+                echo "something";
                 echo "<td>$userName</td>";
                 echo "<td>$userMail</td>";
                 echo "<td>$userPhone</td>";
