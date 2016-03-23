@@ -33,7 +33,7 @@ if(isset($_POST["submit"]))
         } else {
             // no duplicate user or email so register
 
-            $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')") or die(mysqli_error($db));
+            $query = mysqli_query($db, "INSERT INTO users (username, email, password, joined)VALUES ('$name', '$email', '$password', current_date())") or die(mysqli_error($db));
             if ($query) {
                 
                 header("location: nonapproved.html"); // Redirecting To Awaiting Approval Page
