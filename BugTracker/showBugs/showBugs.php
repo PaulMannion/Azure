@@ -7,7 +7,7 @@ include("connection.php");
 include("check.php");
 
 
-    $sql = "SELECT * FROM bugs WHERE bugID = 1";
+    $sql = "SELECT * FROM bugs WHERE bugID = '1'";
     $result=mysqli_query($db,$sql);
 
     $row = mysqli_fetch_assoc($result);
