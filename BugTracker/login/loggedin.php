@@ -65,11 +65,10 @@
 				} else {
 					echo "<td>Yes</td>";
 				}
-				echo "<td>$bugFix</td>";
 					if ($bugAuth == 1) {
 						echo "<td>Approved</td>";
 						} else {
-						echo "<td>' '</td>";
+						echo "<td></td>";
 						}
 
 				echo "</tr>\n";
