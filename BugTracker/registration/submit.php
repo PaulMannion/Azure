@@ -14,20 +14,29 @@ if(isset($_POST["submit"]))
     $password = md5($password);
     $phone = mysqli_real_escape_string($db, $phone);
 
+    // Check to see if username already exists
+
     $sql="SELECT username FROM users WHERE username='$name'";
     $result=mysqli_query($db,$sql);
     $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
+
     if(mysqli_num_rows($result) == 0) {
+
+        //no duplicate user so now check duplicate email address
+
         $sql = "SELECT email FROM users WHERE email='$email'";
         $result = mysqli_query($db, $sql);
         $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
         if (mysqli_num_rows($result) == 1) {
             $msg = "Sorry...This email already exists...";
         } else {
-            //echo $name." ".$email." ".$password;
+            // no duplicate user or email so register
+
             $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')") or die(mysqli_error($db));
             if ($query) {
-                $msg = "Thank You! you are now registered.";
+                //$msg = "Thank You! you are now registered.";
+                header("location: loggedin.php"); // Redirecting To Other Page
             }
         }
     }
