@@ -27,7 +27,7 @@
 	<p>Here is a list of all the bugs:</p>
 
 	<?php
-	$sql = "SELECT title, bugDesc, postDate, fixDate, fixed FROM bugs";
+	$sql = "SELECT title, bugDesc, postDate, fixDate, fixed, isFixed FROM bugs";
 	$result=mysqli_query($db,$sql);
 
 	?>
@@ -39,33 +39,41 @@
 			<th>Date Posted</th>
 			<th>Date Fixed</th>
 			<th>Fixed? (Y or N)</th>
+			<th>Admin Approved?</th>
 		</tr>
 		<tr>
 
 	<?php
-			while($row = mysqli_fetch_assoc($result))
-			{
+			while($row = mysqli_fetch_assoc($result)) {
 				$bugTitle = $row['title'];
 				$bugDesc = $row['bugDesc'];
 				$bugPost = $row['postDate'];
 				$bugFix = $row['fixDate'];
 				$bugFixed = $row['fixed'];
+				$bugAuth = $row['isFixed'];
 
 				echo "<td>$bugTitle</td>";
 				echo "<td>$bugDesc</td>";
 				echo "<td>$bugPost</td>";
-					if (empty($bugFix)) {
-						echo "<td>Not Fixed</td>";
-					} else {
-				echo "<td>$bugFix</td>";
-				}
-					if ($bugFixed == 0) {
-				echo "<td>No</td>";
+				if (empty($bugFix)) {
+					echo "<td>Not Fixed</td>";
 				} else {
-						echo "<td>Yes</td>";
-					}
-			echo "</tr>\n";
-		}
+					echo "<td>$bugFix</td>";
+				}
+				if ($bugFixed == 0) {
+					echo "<td>No</td>";
+				} else {
+					echo "<td>Yes</td>";
+				}
+				echo "<td>$bugFix</td>";
+					if ($bugAuth == 1) {
+						echo "<td>Approved</td>";
+						} else {
+						echo "<td>' '</td>";
+						}
+
+				echo "</tr>\n";
+			}
 
 	?>
 		</tr>
