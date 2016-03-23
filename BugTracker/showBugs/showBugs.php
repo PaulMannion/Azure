@@ -12,7 +12,7 @@ $id=31;
     $sql = "SELECT * FROM bugs WHERE bugID=" . $id . "";
     $result=mysqli_query($db,$sql);
 
-    $row = mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $bugTitle = $row['title'];
     $bugID = $row['bugID'];
     $bugDesc = $row['desc'];
