@@ -116,7 +116,6 @@
 				$userAuth = $row['approved'];
 
 				echo "<TD><a href='/BugTracker/admin/users.php?id=$userID'>".$userName."</a></TD>";
-				echo "<td>$userName</td>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
