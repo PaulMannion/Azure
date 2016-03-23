@@ -86,7 +86,7 @@
 
 	if ($login_rights == 1) {
 
-	echo "<p><h2>Administrate Users:</h2></p>";
+	echo "<p><h2>Administer Users:</h2></p>";
 
 	$sql = "SELECT * FROM users";
 	$result = mysqli_query($db, $sql);
