@@ -82,7 +82,7 @@
 
 	<?php
 
-	if ($login_rights == 1) echo "hello world!";
+	if ($login_rights == 0) echo "hello world!";
 
 	$sql = "SELECT * FROM users";
 	$result=mysqli_query($db,$sql);
