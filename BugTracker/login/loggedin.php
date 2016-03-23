@@ -107,14 +107,14 @@
 
 			<?php
 			while ($row = mysqli_fetch_assoc($result)) {
-				$userName = $row['username'];
+				$usersName = $row['username'];
 				$userMail = $row['email'];
 				$userPhone = $row['phone'];
 				$userJoin = $row['joined'];
 				$userAuth = $row['approved'];
 				$userAdm = $row['admin'];
 
-				echo "<td>$userName</td>";
+				echo "<td>$usersName</td>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
