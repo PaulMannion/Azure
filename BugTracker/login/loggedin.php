@@ -56,7 +56,7 @@
 
 	//			echo "<td><a href="/BugTracker/showBugs/showBugs.php?id="'.$bugID.'>'.$bugTitle.'</a></td>";
 				echo "<td>$bugID</td>";
-				echo '<a href="/BugTracker/showBugs/showBugs.php?id="' .$bugID. '>'.$bugTitle.'</a></br>';
+				echo '<a href="/BugTracker/showBugs/showBugs.php?id=".$bugID>'.$bugTitle.'</a>';
 				echo "<td>$bugDesc</td>";
 				echo "<td>$bugPost</td>";
 				if (empty($bugFix)) {
