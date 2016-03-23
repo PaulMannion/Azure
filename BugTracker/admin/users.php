@@ -52,7 +52,7 @@ include("check.php");
                 $userAuth = $row['approved'];
                 $userAdm = $row['admin'];
 
-                echo "something";
+                echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
                 echo "<td>$userName</td>";
                 echo "<td>$userMail</td>";
                 echo "<td>$userPhone</td>";
