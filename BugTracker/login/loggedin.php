@@ -81,9 +81,12 @@
 	</table>
 
 	<?php
+
+	if ($login_rights == 1) echo "hello world!";
+
 	$sql = "SELECT * FROM users";
 	$result=mysqli_query($db,$sql);
-	//echo "<script type='text/javascript'>alert('before php!')</script>";
+
 	?>
 
 	<table id="bugs">
@@ -98,7 +101,6 @@
 		<tr>
 
 			<?php
-			//echo "<script type='text/javascript'>alert('$result')</script>";
 			while($row = mysqli_fetch_assoc($result)) {
 				$userName = $row['username'];
 				$userMail = $row['email'];
@@ -107,7 +109,6 @@
 				$userAuth = $row['approved'];
 				$userAdm = $row['admin'];
 
-				echo "<script type='text/javascript'>alert('middle!')</script>";
 				echo "<td>$userName</td>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
@@ -125,7 +126,7 @@
 
 				echo "</tr>\n";
 			}
-			//echo "<script type='text/javascript'>alert('wtf!')</script>";
+
 			?>
 		</tr>
 
