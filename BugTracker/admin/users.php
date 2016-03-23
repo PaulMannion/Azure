@@ -18,6 +18,7 @@ include("check.php");
         <ul>
             <li><a href="logout.php" style="font-size:18px">Logout?</a></li>
             <li><a href="/BugTracker/login/loggedin.php">List of Bugs</a></li>
+
         </ul>
     </nav>
 </header>
