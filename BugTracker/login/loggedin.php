@@ -98,8 +98,9 @@
 			<th>email address</th>
 			<th>Phone</th>
 			<th>Date Joined</th>
-			<th>Authorised</th>
 			<th>Administrator</th>
+			<th>Authorised</th>
+
 		</tr>
 		<tr>
 
@@ -109,20 +110,20 @@
 				$userMail = $row['email'];
 				$userPhone = $row['phone'];
 				$userJoin = $row['joined'];
-				$userAuth = $row['approved'];
 				$userAdm = $row['admin'];
+				$userAuth = $row['approved'];
 
 				echo "<td>$usersName</td>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
-				if ($userAuth == 1) {
-					echo "<td>Authorised</td>";
+				if ($userAdm == 1) {
+					echo "<td>Administrator</td>";
 				} else {
 					echo "<td></td>";
 				}
-				if ($userAdm == 1) {
-					echo "<td>Administrator</td>";
+				if ($userAuth == 1) {
+					echo "<td>Authorised</td>";
 				} else {
 					echo "<td></td>";
 				}
