@@ -18,8 +18,10 @@
 		<ul>
 			<li><a href="logout.php" style="font-size:18px">Logout?</a></li>
 			<li><a href="/BugTracker/addBugReport/newbug.php">Submit New Bug Report</a></li>
-		<em></em><?php echo $login_rights;?>!</em>
-		<li><a href="/BugTracker/admin/users.php">Admin Users</a></li>
+			<?php if ($login_rights == 1) {
+				echo "<li><a href='/BugTracker/admin/users.php'>Admin Users</a></li>";
+			}
+			?>
 		</ul>
 	</nav>
 </header>
