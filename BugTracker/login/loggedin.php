@@ -54,7 +54,7 @@
 				$bugFixed = $row['fixed'];
 				$bugAuth = $row['isFixed'];
 
-	//			echo "<td><a href="/BugTracker/showBugs/showBugs.php?id="'.$bugID.'>'.$bugTitle.'</a></td>";
+	
 				echo "<td>$bugID</td>";
 				//echo '<td><a href="Bollocks"'.'"Fuckstick">'.'$bugTitle'.'</a></td>';
 				echo "<TD><a href='/BugTracker/showBugs/showBugs.php?id=$bugID'>".$bugTitle."</a></TD>";
