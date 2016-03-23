@@ -42,7 +42,7 @@ include("check.php");
             <th>Administrator</th>
         </tr>
         <tr>
-
+            echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
             <?php
             while($row = mysqli_fetch_assoc($result)) {
                 $userName = $row['username'];
