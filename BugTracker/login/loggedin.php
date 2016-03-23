@@ -47,6 +47,7 @@
 	<?php
 			while($row = mysqli_fetch_assoc($result)) {
 				$bugTitle = $row['title'];
+				$bugID = $row['bugID'];
 				$bugDesc = $row['bugDesc'];
 				$bugPost = $row['postDate'];
 				$bugFix = $row['fixDate'];
@@ -54,8 +55,6 @@
 				$bugAuth = $row['isFixed'];
 
 
-				echo "<td>$bugID</td>";
-				//echo '<td><a href="Bollocks"'.'"Fuckstick">'.'$bugTitle'.'</a></td>';
 				echo "<TD><a href='/BugTracker/showBugs/showBugs.php?id=$bugID'>".$bugTitle."</a></TD>";
 				echo "<td>$bugDesc</td>";
 				echo "<td>$bugPost</td>";
@@ -108,14 +107,16 @@
 
 			<?php
 			while ($row = mysqli_fetch_assoc($result)) {
-				$usersName = $row['username'];
+				$userName = $row['username'];
+				$userID = $row['userID'];
 				$userMail = $row['email'];
 				$userPhone = $row['phone'];
 				$userJoin = $row['joined'];
 				$userAdm = $row['admin'];
 				$userAuth = $row['approved'];
 
-				echo "<td>$usersName</td>";
+				echo "<TD><a href='/BugTracker/admin/users.php?id=$userID'>".$userName."</a></TD>";
+				echo "<td>$userName</td>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
