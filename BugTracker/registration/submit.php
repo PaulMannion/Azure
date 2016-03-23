@@ -36,7 +36,7 @@ if(isset($_POST["submit"]))
             $query = mysqli_query($db, "INSERT INTO users (username, email, password)VALUES ('$name', '$email', '$password')") or die(mysqli_error($db));
             if ($query) {
                 //$msg = "Thank You! you are now registered.";
-                header("location: loggedin.php"); // Redirecting To Other Page
+                header("location: nonapproved.html"); // Redirecting To Other Page
             }
         }
     }
