@@ -19,6 +19,7 @@ include("check.php");
     echo $bugDesc;
     echo "Comeon ye eejit";
     echo "I was passed the variable".$_GET["id"];
+    echo "<em>$bugID<em>";
 
    // echo '<a href="bug.php?id="'.$bugID.'>'.$bugTitle.'</a></br>';
  ?>
