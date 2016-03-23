@@ -49,8 +49,8 @@ include("check.php");
                 $userMail = $row['email'];
                 $userPhone = $row['phone'];
                 $userJoin = $row['joined'];
-                $userAuth = $row['approved'];
-                $userAdm = $row['admin'];
+                $userAuth = $row['admin'];
+                $userAdm = $row['approved'];
 
                 echo "<td>$userName</td>";
                 echo "<td>$userMail</td>";
