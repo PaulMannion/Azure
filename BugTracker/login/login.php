@@ -28,10 +28,10 @@
 			//$userApproved=mysqli_query($sql);
 			//$userApproved=mysqli_fetch_object($result);
 
-			echo "<script type='text/javascript'>alert('$userApproved')</script>";
+			echo "<script type='text/javascript'>alert('$userApproved'.'$username')</script>";
 			//Check user has been approved before allowing entry
 
-			if ($userApproved == 1)
+	/*		if ($userApproved == 1)
 			{
 				echo "$userApproved";
 				$_SESSION['username'] = $username; // Initializing Session
@@ -41,7 +41,7 @@
 				echo "$userApproved";
 				//header("location: /BugTracker/registration/nonapproved.html"); // Redirecting To Awaiting Approval Page
 			}
-	/*
+
 			//Check username and password from database
 			$sql="SELECT userID FROM users WHERE username='$username' and password='$password'";
 			$result=mysqli_query($db,$sql);
