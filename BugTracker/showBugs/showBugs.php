@@ -6,8 +6,10 @@
 include("connection.php");
 include("check.php");
 
+$id=$_GET["id"];
 
-    $sql = "SELECT * FROM bugs";
+
+    $sql = "SELECT * FROM bugs WHERE bugID=" . $id . "";
     $result=mysqli_query($db,$sql);
 
     $row = mysqli_fetch_assoc($result);
@@ -18,8 +20,8 @@ include("check.php");
     echo $bugTitle;
     echo $bugDesc;
     echo "Comeon ye eejit";
-    echo "I was passed the variable".$_GET["id"];
-    echo "<em>$bugID<em>";
+    echo "I was passed the variable" . $id ."";
+    echo "<em>$id<em>";
 
    // echo '<a href="bug.php?id="'.$bugID.'>'.$bugTitle.'</a></br>';
  ?>
