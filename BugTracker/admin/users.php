@@ -29,7 +29,7 @@ include("check.php");
     <?php
     $sql = "SELECT * FROM users";
     $result=mysqli_query($db,$sql);
-
+    echo "<script type='text/javascript'>alert('before php!')</script>";
     ?>
 
     <table id="bugs">
@@ -42,7 +42,7 @@ include("check.php");
             <th>Administrator</th>
         </tr>
         <tr>
-            echo "<script type='text/javascript'>alert('before php!')</script>";
+
             <?php
             while($row = mysqli_fetch_assoc($result)) {
                 $userName = $row['username'];
@@ -52,7 +52,7 @@ include("check.php");
                 $userAuth = $row['approved'];
                 $userAdm = $row['admin'];
 
-                echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
+                echo "<script type='text/javascript'>alert('middle!')</script>";
                 echo "<td>$userName</td>";
                 echo "<td>$userMail</td>";
                 echo "<td>$userPhone</td>";
@@ -70,7 +70,7 @@ include("check.php");
 
                 echo "</tr>\n";
             }
-
+            echo "<script type='text/javascript'>alert('wtf!')</script>";
             ?>
         </tr>
 
