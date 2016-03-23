@@ -15,8 +15,9 @@ include("check.php");
     $bugID = $row['bugID'];
     $bugDesc = $row['desc'];
 
-    echo "<h2>$bugTitle<h2>";
-    echo "<p>$bugDesc</p>";
+    echo $bugTitle;
+    echo $bugDesc;
+    echo "Comeon ye eejit";
 
    // echo '<a href="bug.php?id="'.$bugID.'>'.$bugTitle.'</a></br>';
  ?>
