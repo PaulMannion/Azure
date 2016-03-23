@@ -6,7 +6,7 @@
 include("connection.php");
 include("check.php");
 
-$id=11;
+$id=31;
 
 
     $sql = "SELECT * FROM bugs WHERE bugID=" . $id . "";
