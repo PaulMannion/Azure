@@ -82,10 +82,12 @@
 
 	<?php
 
-	if ($login_rights == 0) echo "hello world!";
+	if ($login_rights == 1) {
+
+	echo "<p><h2>Administrate Users:</h2></p>";
 
 	$sql = "SELECT * FROM users";
-	$result=mysqli_query($db,$sql);
+	$result = mysqli_query($db, $sql);
 
 	?>
 
@@ -101,7 +103,7 @@
 		<tr>
 
 			<?php
-			while($row = mysqli_fetch_assoc($result)) {
+			while ($row = mysqli_fetch_assoc($result)) {
 				$userName = $row['username'];
 				$userMail = $row['email'];
 				$userPhone = $row['phone'];
@@ -125,6 +127,8 @@
 				}
 
 				echo "</tr>\n";
+			}
+
 			}
 
 			?>
