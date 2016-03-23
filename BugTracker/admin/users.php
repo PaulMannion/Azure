@@ -44,6 +44,7 @@ include("check.php");
         <tr>
 
             <?php
+            echo "<script type='text/javascript'>alert('Is it working tho?')</script>";
             while($row = mysqli_fetch_assoc($result)) {
                 $userName = $row['username'];
                 $userMail = $row['email'];
