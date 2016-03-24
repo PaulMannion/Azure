@@ -5,7 +5,7 @@
 
     $id=$_GET['id'];
     $title=$_GET['title'];
-    $userID=$login_user;
+    $userID=$login_userID;
 ?>
 
 <!doctype html>

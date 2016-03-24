@@ -9,6 +9,7 @@ $row=mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
 
 $login_user=$row['username'];
 $login_rights=$row['admin'];
+$login_userID=$row['userID'];
 
 if(!isset($user_check))
 {
