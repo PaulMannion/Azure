@@ -48,7 +48,7 @@
 	<?php
 			while($row = mysqli_fetch_assoc($result)) {
 				$bugTitle = $row['title'];
-				//$bugID = $row['bugID'];
+				$bugID = $row['bugID'];
 				$bugDesc = $row['bugDesc'];
 				$bugPost = $row['postDate'];
 				$bugFix = $row['fixDate'];
@@ -59,8 +59,8 @@
 
 				echo "<TD><a href='/BugTracker/showBugs/showBugs.php?id=$bugID'>".$bugTitle."</a></TD>";
 				echo "<td>$bugDesc</td>";
-				echo "<td>$bugPost</td>";
 				echo "<td>$userName</td>";
+				echo "<td>$bugPost</td>";
 				if (empty($bugFix)) {
 					echo "<td>Not Fixed</td>";
 				} else {
