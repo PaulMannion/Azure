@@ -19,7 +19,7 @@
 <header>
     <h1>My Bug Tracker Website</h1>
     <h1><class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
-    <h1><class="hello">You sent me, <?php echo $_POST["id"];?></h1>
+    <h1><class="hello">You sent me, <?php echo $id;?></h1>
 
 
 
@@ -35,9 +35,9 @@
 <?php
 
 
-        $sql = "UPDATE users SET admin='1' WHERE userID= $id";
-        
-        if ($sql === TRUE) {
+        $query = mysqli_query($db, "UPDATE users SET admin='1' WHERE userID= $id" or die(mysqli_error($db)));
+
+        if ($query) {
             echo "Record updated successfully";
         } else {
             echo "Error updating record: ";
