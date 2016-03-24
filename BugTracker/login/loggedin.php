@@ -129,7 +129,7 @@
 
 					?>
 
-					<td><form name="form" method="POST" action="/BugTracker/admin/adm.php?id=$userID">
+					<td><form name="form" method="POST" action="/BugTracker/admin/adm.php?id=">
 						<input value="<?php echo $userID;?>" type="hidden" name="id">
 						<input type="submit" value="Make Admin">
 					</form></td>
