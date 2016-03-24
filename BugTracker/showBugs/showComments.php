@@ -32,7 +32,7 @@
 <main>
     <h2>Welcome to my Bug Tracker!</h2>
     <p>Here is a list of all the comments for the bug : <h2><?php echo $title;?>!</h2></p>
-    <p>The bugID is: <?php echo $id:?></p>
+    <p>The bugID is: <?php echo $id;?></p>
 
 
 
