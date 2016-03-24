@@ -131,7 +131,7 @@
 
 					<td><form name="form" method="POST" action="login.php">
 						<input value="<?php echo $userID;?>" type="hidden" name="search">
-						<input type="submit"  value="Update">
+						<input type="submit" value="Make Admin" style="width:200px; height:100px;font-size:80px;">
 					</form></td>
 
 					<?php
