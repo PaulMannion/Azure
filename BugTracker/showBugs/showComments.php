@@ -57,30 +57,11 @@
                 $commentDate = $row['postDate'];
                 $commentBy = $row['username'];
                 $commentDesc = $row['desc'];
-               // $bugFix = $row['fixDate'];
-               // $bugFixed = $row['fixed'];
-               // $bugAuth = $row['isFixed'];
 
                 
                 echo "<td>$commentDate</td>";
                 echo "<td>$commentBy</td>";
                 echo "<td>$commentDesc</td>";
-         /*       if (empty($bugFix)) {
-                    echo "<td>Not Fixed</td>";
-                } else {
-                    echo "<td>$bugFix</td>";
-                }
-                if ($bugFixed == 0) {
-                    echo "<td>No</td>";
-                } else {
-                    echo "<td>Yes</td>";
-                }
-                if ($bugAuth == 1) {
-                    echo "<td>Approved</td>";
-                } else {
-                    echo "<td></td>";
-                }
-            */
                 echo "</tr>\n";
             }
 
@@ -101,14 +82,14 @@
                         <div align="right"><label for="commentDesc">Comment</label></div>
                     </td>
                     <td>
-                        <input name="commentDesc" type="text" class="input" size="25" required />
+                        <textarea name="commentDesc" rows="5" cols="40" required></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td height="23"></td>
                     <td>
                         <div align="right">
-                            <input type="submit" name="submit" value="Submit New Bug!" />
+                            <input type="submit" name="submit" value="Submit New Comment!" />
                         </div>
                     </td>
                 </tr>
