@@ -20,11 +20,6 @@
 <header>
     <h1>My Bug Tracker Website</h1>
     <h1><class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
-    <h1><class="hello">You sent me, <?php echo $id;?></h1>
-    <h1><class="hello">You sent me, <?php echo $name;?></h1>
-
-
-
     <nav>
         <ul>
             <li><a href="/BugTracker/login/logout.php" style="font-size:18px">Logout?</a></li>
@@ -33,19 +28,22 @@
     </nav>
 </header>
 
+<h1>You sent me, <?php echo $id;?></h1>
+
+
 
 <?php
         $sql = "UPDATE users SET admin='1' WHERE userID=$id";
 
         if (mysqli_query($db, $sql)) {
-            echo "Record updated successfully";
+            echo "<h1>User, $name has succesfully been changed to be an administrator.</h1>";
         } else {
             echo "Error updating record: " . mysqli_error($db);
         }
 
 ?>
 
-
+        <h1><a href="/BugTracker/login/loggedin.php" style="font-size:18px">Return to Admin Page</a></li></h1>
 
 </body>
 </html>
