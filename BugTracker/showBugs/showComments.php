@@ -81,40 +81,10 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold">
-                        <div align="right"><label for="name">Username</label></div>
+                        <div align="right"><label for="name">Comment</label></div>
                     </td>
                     <td>
                         <input name="name" type="text" class="input" size="25" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">
-                        <div align="right">
-                            <label for="email">Email</label>
-                        </div>
-                    </td>
-                    <td>
-                        <input name="email" type="email" class="input" size="25" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td height="23" style="font-weight: bold">
-                        <div align="right">
-                            <label for="password">Password</label>
-                        </div>
-                    </td>
-                    <td>
-                        <input name="password" type="password" class="input" size="25" required />
-                    </td>
-                </tr>
-                <tr>
-                    <td height="23" style="font-weight: bold">
-                        <div align="right">
-                            <label for="phone">Phone</label>
-                        </div>
-                    </td>
-                    <td>
-                        <input name="phone" type="tel" class="input" size="11" required />
                     </td>
                 </tr>
                 <tr>
