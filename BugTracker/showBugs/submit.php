@@ -12,7 +12,7 @@ if(isset($_POST["submit"]))
     $desc = mysqli_real_escape_string($db, $desc);
 
 
-            $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), '$bugID', '$userID')") or die(mysqli_error($db));
+            $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), '$userID','$bugID')") or die(mysqli_error($db));
             if ($query) {
                 
                 header("location: /BugTracker/showBugs/showBugs.php"); // Redirecting To Awaiting Approval Page
