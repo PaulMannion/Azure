@@ -3,7 +3,7 @@
     include("connection.php");
     include("check.php");
 
-    $id=$_GET['id'];
+    //$id=$_GET['id'];
 
    // $sql="SELECT * FROM bugs WHERE bugID='$id'";
     //$result=mysqli_query($db,$sql);
@@ -23,7 +23,9 @@
 <header>
     <h1>My Bug Tracker Website</h1>
     <h1><class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
-    <h1><class="hello">You sent me,<?php echo $_POST["id"];?></h1>
+    <h1><class="hello">You sent me, <?php echo $_POST["id"];?></h1>
+
+
 
     <nav>
         <ul>
