@@ -117,7 +117,7 @@ body
 	color:#FFF;
 }
 
-.button1 {
+#buttonForm {
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
@@ -131,7 +131,7 @@ body
 	transition-duration: 0.4s;
 }
 
-.button1:hover {
+#buttonForm:hover {
 	background-color: #4CAF50; /* Green */
 	color: white;
 }
