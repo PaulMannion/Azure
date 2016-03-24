@@ -11,7 +11,7 @@ if(isset($_POST["submit"]))
     $desc = mysqli_real_escape_string($db, $desc);
 
 
-            $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), 11, 11)") or die(mysqli_error($db));
+            $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), '11', '11')") or die(mysqli_error($db));
             if ($query) {
                 
                 header("location: /BugTracker/login/login.php"); // Redirecting To Awaiting Approval Page
@@ -20,7 +20,7 @@ if(isset($_POST["submit"]))
 
         else
         {
-            $msg = "Sorry...This user already exists...";
+            $msg = "Sorry...Something Terrible has Happened...";
         }
 
 ?>
