@@ -36,7 +36,7 @@
         $sql = "UPDATE users SET admin='1' WHERE userID=$id";
 
         if (mysqli_query($db, $sql)) {
-            echo "<h1>User, $name has succesfully been changed to be an administrator.</h1>";
+            echo "<h1>User, $name is now an administrator.</h1>";
         } else {
             echo "Error updating record: " . mysqli_error($db);
         }

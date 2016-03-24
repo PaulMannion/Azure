@@ -123,10 +123,17 @@
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
 				if ($userAdm == 1) {
-					echo "<td>Administrator</td>";
-				} else {
-					//echo "<td></td>";
+					?>
 
+					<td><form name="form" method="POST" action="/BugTracker/admin/noadm.php">
+							<input value="<?php echo $userID;?>" type="hidden" name="id">
+							<input value="<?php echo $userName;?>" type="hidden" name="name">
+							<input type="submit" value="Remove Admin">
+						</form></td>
+
+					<?php
+
+				} else {
 					?>
 
 					<td><form name="form" method="POST" action="/BugTracker/admin/adm.php">
@@ -136,9 +143,6 @@
 					</form></td>
 
 					<?php
-
-
-
 				}
 				if ($userAuth == 1) {
 					echo "<td>Authorised</td>";
