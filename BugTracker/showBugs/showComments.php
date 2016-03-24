@@ -88,7 +88,7 @@
                         <div align="right"><label for="comments">Comment</label></div>
                     </td>
                     <td>
-                        <input name="desc" type="text" class="input" size="25" required />
+                        <input name="comText" type="text" class="input" size="25" required />
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
                     </td>
                 </tr>
