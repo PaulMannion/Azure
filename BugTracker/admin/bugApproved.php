@@ -4,6 +4,7 @@
     include("check.php");
 
     $id = $_POST["id"];
+    $title = $_POST["title"];
     $name = $_POST["name"];
 
 ?>
@@ -29,10 +30,10 @@
 </header>
 
 <?php
-        $sql = "UPDATE users SET admin='1' WHERE userID=$id";
+        $sql = "UPDATE bugs SET isFixed='1' WHERE bugID=$id";
 
         if (mysqli_query($db, $sql)) {
-            echo "<h1>User: $name is now an approved user.</h1>";
+            echo "<h1>Bug: $title submitted by $name has been approved as FIXED.</h1>";
         } else {
             echo "Error updating record: " . mysqli_error($db);
         }
