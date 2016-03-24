@@ -33,12 +33,12 @@
 
 
 <?php
-        $sql = "UPDATE users SET admin='1' WHERE userID=11";
+        $sql = "UPDATE users SET admin='1' WHERE userID=$id";
 
         if (mysqli_query($db, $sql)) {
             echo "Record updated successfully";
         } else {
-            echo "Error updating bacon: " . mysqli_error($db);
+            echo "Error updating tomato: " . mysqli_error($db);
         }
 
 ?>
