@@ -3,11 +3,7 @@
     include("connection.php");
     include("check.php");
 
-    //$id=$_GET['id'];
-
-   // $sql="SELECT * FROM bugs WHERE bugID='$id'";
-    //$result=mysqli_query($db,$sql);
-
+    $id = $_POST["id"];
 
 ?>
 
@@ -34,5 +30,22 @@
         </ul>
     </nav>
 </header>
+
+
+<?php
+
+
+        $sql = "UPDATE users SET admin='1' WHERE userID= $id";
+        
+        if ($sql === TRUE) {
+            echo "Record updated successfully";
+        } else {
+            echo "Error updating record: ";
+        }
+
+?>
+
+
+
 </body>
 </html>
