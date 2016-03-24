@@ -29,7 +29,7 @@
 </header>
 
 <?php
-        $sql = "UPDATE users SET admin='1' WHERE userID=$id";
+        $sql = "UPDATE users SET admin=1 WHERE userID=$id";
 
         if (mysqli_query($db, $sql)) {
             echo "<h1>User: $name is now an approved user.</h1>";
