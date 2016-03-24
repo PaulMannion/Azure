@@ -28,7 +28,7 @@
 
 <main>
     <h2>Welcome to my Bug Tracker!</h2>
-    <p>Here is a list of all the comments for the bug : <em><?php echo $title;?>!</em></p>
+    <p>Here is a list of all the comments for the bug : <em><?php echo $id;?>!</em></p>
 
 
 
