@@ -28,15 +28,12 @@
     </nav>
 </header>
 
-<h1>You sent me, <?php echo $id;?></h1>
-
-
 
 <?php
         $sql = "UPDATE users SET admin='0' WHERE userID=$id";
 
         if (mysqli_query($db, $sql)) {
-            echo "<h1>User, $name is no longer an administrator.</h1>";
+            echo "<h1>User: $name is no longer an administrator.</h1>";
         } else {
             echo "Error updating record: " . mysqli_error($db);
         }
