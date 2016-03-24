@@ -41,7 +41,7 @@
 
     
 
-    $sql="SELECT c.postDate,c.comment, u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
+    $sql="SELECT c.postDate,c.desc, u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
 
     $result=mysqli_query($db,$sql);
 
@@ -60,7 +60,7 @@
 
                 $commentDate = $row['postDate'];
                 $commentBy = $row['username'];
-                $commentDesc = $row['comment'];
+                $commentDesc = $row['desc'];
 
                 
                 echo "<td>$commentDate</td>";
@@ -85,10 +85,10 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold">
-                        <div align="right"><label for="comment">Comment</label></div>
+                        <div align="right"><label for="comments">Comment</label></div>
                     </td>
                     <td>
-                        <input name="comment" type="text" class="input" size="25" required />
+                        <input name="desc" type="text" class="input" size="25" required />
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
                     </td>
                 </tr>
