@@ -54,7 +54,7 @@
             while($row = mysqli_fetch_assoc($result)) {
 
                 $commentDate = $row['postDate'];
-                $commentBy = $row['userID'];
+                $commentBy = $row['username'];
                 $commentDesc = $row['desc'];
                // $bugFix = $row['fixDate'];
                // $bugFixed = $row['fixed'];
@@ -79,9 +79,9 @@
                 } else {
                     echo "<td></td>";
                 }
-
+            */
                 echo "</tr>\n";
-        */    }
+            }
 
             ?>
 
