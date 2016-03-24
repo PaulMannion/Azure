@@ -1,22 +1,26 @@
 <?php
-	include("check.php");
-
 $msg = "";
 if(isset($_POST["submit"]))
 {
-    $desc = $_POST["commentDesc"];
-    $bugID = $_POST["bugID"];
+    $desc = $_POST["name"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $phone = $_POST["phone"];
+    
 
     $desc = mysqli_real_escape_string($db, $desc);
-    $bugDesc = mysqli_real_escape_string($db, $bugDesc);
-    
-        $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), '$login_userID', $bugID)")or die(mysqli_error($db));
-       
-        if($query)
-        {
-            $msg = "Thank You! Comment Submitted!";
+
+
+            $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), 11, 11)") or die(mysqli_error($db));
+            if ($query) {
+                
+                header("location: showComments.php"); // Redirecting To Awaiting Approval Page
+            }
         }
 
+        else
+        {
+            $msg = "Sorry...This user already exists...";
+        }
 
-}
 ?>
