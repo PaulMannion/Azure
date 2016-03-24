@@ -31,16 +31,6 @@
 	$sql = "SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
 	$results=mysqli_query($db,$sql);
 
-	if ($results = mysqli_query($db, "SELECT commentID FROM comments")) {
-
-		/* determine number of rows result set */
-		$row_cnt = mysqli_num_rows($results);
-
-		echo "Result set has %d rows.\n", $row_cnt;
-
-		/* close result set */
-		mysqli_free_result($results);
-	}
 
 	?>
 
@@ -104,6 +94,18 @@
 							}
 			//					echo "<td></td>";
 						}
+
+				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
+
+					/* determine number of rows result set */
+					$row_cnt = mysqli_num_rows($results);
+
+					echo "<td>$row_cnt</td>";
+
+					/* close result set */
+					mysqli_free_result($results);
+				}
+
 
 				echo "</tr>\n";
 			}
