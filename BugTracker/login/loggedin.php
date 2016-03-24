@@ -161,7 +161,7 @@
 					<?php
 				}
 				if ($userAuth == 1) {
-					echo "<td>Authorised</td>";
+					echo "<td>Approved</td>";
 				} else {
 					?>
 
