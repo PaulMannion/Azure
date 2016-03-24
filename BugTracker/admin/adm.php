@@ -4,6 +4,7 @@
     include("check.php");
 
     $id = $_POST["id"];
+    $name = $_POST["name"];
 
 ?>
 
@@ -20,6 +21,7 @@
     <h1>My Bug Tracker Website</h1>
     <h1><class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
     <h1><class="hello">You sent me, <?php echo $id;?></h1>
+    <h1><class="hello">You sent me, <?php echo $name;?></h1>
 
 
 
@@ -38,7 +40,7 @@
         if (mysqli_query($db, $sql)) {
             echo "Record updated successfully";
         } else {
-            echo "Error updating tomato: " . mysqli_error($db);
+            echo "Error updating record: " . mysqli_error($db);
         }
 
 ?>

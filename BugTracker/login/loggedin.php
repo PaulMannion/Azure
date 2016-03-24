@@ -131,6 +131,7 @@
 
 					<td><form name="form" method="POST" action="/BugTracker/admin/adm.php">
 						<input value="<?php echo $userID;?>" type="hidden" name="id">
+							<input value="<?php echo $userName;?>" type="hidden" name="name">
 						<input type="submit" value="Make Admin">
 					</form></td>
 
