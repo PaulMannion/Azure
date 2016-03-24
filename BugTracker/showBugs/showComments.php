@@ -3,7 +3,7 @@
     include("check.php");
 
     $id=$_GET['id'];
-    $title=$GET['title'];
+    $title=$_GET['title'];
 ?>
 
 <!doctype html>
