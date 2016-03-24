@@ -5,6 +5,7 @@
 
     $id=$_GET['id'];
     $title=$_GET['title'];
+    $userID=$login_user;
 ?>
 
 <!doctype html>
@@ -39,7 +40,7 @@
 
     
 
-    $sql="SELECT c.postDate,c.desc,u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
+    $sql="SELECT c.postDate,c.desc, u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
 
     $result=mysqli_query($db,$sql);
 
@@ -83,10 +84,12 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold">
-                        <div align="right"><label for="name">Comment</label></div>
+                        <div align="right"><label for="desc">Comment</label></div>
                     </td>
                     <td>
-                        <input name="name" type="text" class="input" size="25" required />
+                        <input name="desc" type="text" class="input" size="25" required />
+                        <input value="<?php echo $id;?>" type="hidden" name="bugID">
+                        <input value="<?php echo $userID;?>" type="hidden" name="userID">
                     </td>
                 </tr>
                 <tr>
