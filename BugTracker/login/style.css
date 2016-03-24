@@ -107,7 +107,7 @@ body
 	padding:10px;
 	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
 }
-.button
+/*.button
 {
 	padding:10px;
 	width:100px;
@@ -116,8 +116,8 @@ body
 	font-size:20px;
 	color:#FFF;
 }
-
-.buttonForm {
+*/
+.button {
 	background-color: #4CAF50; /* Green */
 	border: none;
 	color: white;
@@ -126,6 +126,14 @@ body
 	text-decoration: none;
 	display: inline-block;
 	font-size: 16px;
+	border-radius: 12px;
+	webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+}
+
+.button:hover {
+	background-color: #4CAF50; /* Green */
+	color: white;
 }
 
  #bugs {
