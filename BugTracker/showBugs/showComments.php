@@ -90,6 +90,7 @@
                     <td>
                         <div align="right">
                             <input type="submit" name="submit" value="Submit New Comment!" />
+                            <input value="<?php echo $id; ?>" type="hidden" name="bugID">
                         </div>
                     </td>
                 </tr>
