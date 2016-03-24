@@ -92,7 +92,7 @@
 								} else {
 								echo "<td></td>";
 							}
-								echo "<td></td>";
+	//							echo "<td></td>";
 						}
 
 				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
