@@ -40,7 +40,7 @@
         if ($query) {
             echo "Record updated successfully";
         } else {
-            echo "Error updating record: ";
+            echo "Error updating bannana: ";
         }
 
 ?>
