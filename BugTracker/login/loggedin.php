@@ -28,7 +28,7 @@
 	<p>Here is a list of all the bugs:</p>
 
 	<?php
-	$sql = "SELECT * FROM bugs, users WHERE bugs.userID=users.userID";
+	$sql = "SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
 	$result=mysqli_query($db,$sql);
 
 	?>
@@ -47,8 +47,8 @@
 
 	<?php
 			while($row = mysqli_fetch_assoc($result)) {
-				$bugTitle = $row['bugs.title'];
-				$bugID = $row['bugs.bugID'];
+				$bugTitle = $row['title'];
+				$bugID = $row['bugID'];
 				$bugDesc = $row['bugs.bugDesc'];
 				$bugPost = $row['bugs.postDate'];
 				$bugFix = $row['bugs.fixDate'];
