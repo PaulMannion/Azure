@@ -92,20 +92,20 @@
 								} else {
 								echo "<td></td>";
 							}
-			//					echo "<td></td>";
+								echo "<td></td>";
 						}
 
-				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
+/*				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
 
-					/* determine number of rows result set */
+					// determine number of rows result set //
 					$row_cnt = mysqli_num_rows($results);
 
 					echo "<td>$row_cnt</td>";
 
-					/* close result set */
+					// close result set //
 					mysqli_free_result($results);
 				}
-
+*/
 
 				echo "</tr>\n";
 			}
