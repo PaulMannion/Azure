@@ -46,6 +46,20 @@ input[type=submit]
 	font-weight:bold;
 
 }
+input[type=submit2]
+{
+	background-color: #4CAF50;
+	width:30px;
+	border:0;
+	padding:10px;
+	color:#FFF;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:20px;
+	border-radius:5px;
+	margin-top:10px;
+	font-weight:bold;
+
+}
 .error
 {
 	color:red;
