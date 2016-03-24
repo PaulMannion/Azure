@@ -42,6 +42,7 @@
 			<th>Date Fixed</th>
 			<th>Fixed? (Y or N)</th>
 			<th>Admin Approved?</th>
+			<th>Comments</th>
 		</tr>
 		<tr>
 
