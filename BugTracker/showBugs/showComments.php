@@ -1,6 +1,9 @@
 <?php
     include("connection.php");
     include("check.php");
+
+    $id=$_GET['id'];
+    $title=$GET['title'];
 ?>
 
 <!doctype html>
@@ -25,14 +28,13 @@
 
 <main>
     <h2>Welcome to my Bug Tracker!</h2>
-    <p>Here is a list of all the comments for the bug :</p>
+    <p>Here is a list of all the comments for the bug : <em><?php echo $title;?>!</em></p>
 
 
 
     <?php
 
-    $id=$_GET['id'];
-    $title=$GET['title'];
+
     
     //"SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
     $sql="SELECT c.*,b.bugs FROM comments c, bugs b WHERE c.bugID=b.bugID order by 'postDate'";
