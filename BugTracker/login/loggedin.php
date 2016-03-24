@@ -125,7 +125,19 @@
 				if ($userAdm == 1) {
 					echo "<td>Administrator</td>";
 				} else {
-					echo "<td></td>";
+					//echo "<td></td>";
+
+					?>
+
+					<form name="form" method="POST" action="login.php">
+						<input value="<?php echo $userID;?>" type="hidden" name="search">
+						<input type="submit"  value="Update">
+					</form>
+
+					<?php
+
+
+
 				}
 				if ($userAuth == 1) {
 					echo "<td>Authorised</td>";
