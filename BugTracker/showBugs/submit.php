@@ -2,7 +2,7 @@
 $msg = "";
 if(isset($_POST["submit"]))
 {
-    $comText = $_POST["comText"];
+    $comDesc = $_POST["comText"];
     $bugID = $_POST["bugID"];
 
 
@@ -10,13 +10,13 @@ if(isset($_POST["submit"]))
     echo "<p>The userID is: $login_userID</p>";
     echo "<p>The comment is: $comText</p>";
 
-   // $comText = mysqli_real_escape_string($db, $comText);
+    $comDesc = mysqli_real_escape_string($db, $comDesc);
 
 
-            $query = mysqli_query($db, "INSERT INTO comments (comText, postDate, userID, bugID) VALUES ('$comText', current_date(), $login_userID, $bugID)") or die(mysqli_error($db));
+            $query = mysqli_query($db, "INSERT INTO comments (comText, postDate, userID, bugID) VALUES ('$comDesc', current_date(), $login_userID, $bugID)") or die(mysqli_error($db));
             if ($query) {
                 
-                header("location: /BugTracker/showBugs/showBugs.php"); // Redirecting To Awaiting Approval Page
+                header("location: /BugTracker/login/loggedin.php"); // Redirecting To Awaiting Approval Page
             }
         }
 
