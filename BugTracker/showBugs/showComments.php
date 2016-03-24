@@ -28,7 +28,7 @@
 
 <main>
     <h2>Welcome to my Bug Tracker!</h2>
-    <p>Here is a list of all the comments for the bug : <em><?php echo $title;?>!</em></p>
+    <p>Here is a list of all the comments for the bug : <h1><?php echo $title;?>!</h1></p>
 
 
 
@@ -37,7 +37,7 @@
 
     
     //"SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
-    $sql="SELECT c.*,b.bugs FROM comments c, bugs b WHERE c.bugID=b.bugID order by 'postDate'";
+    $sql="SELECT * FROM comments WHERE bugID=$id order by 'postDate'";
     $result=mysqli_query($db,$sql);
 
     ?>
