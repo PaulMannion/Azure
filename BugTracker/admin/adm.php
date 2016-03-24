@@ -35,12 +35,12 @@
 <?php
 
 
-        $query = mysqli_query($db, "UPDATE users SET admin='1' WHERE userID= $id" or die(mysqli_error($db)));
+        $query = mysqli_query($db, "UPDATE users SET admin='1' WHERE userID= 11" or die(mysqli_error($db)));
 
         if ($query) {
             echo "Record updated successfully";
         } else {
-            echo "Error updating bannana: ";
+            echo "Error updating record: ";
         }
 
 ?>
