@@ -37,7 +37,7 @@
 
     
 
-    $sql="SELECT c.postDate,c.desc,u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id order by 'postDate'";
+    $sql="SELECT c.postDate,c.desc,u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' DESC ";
 
     $result=mysqli_query($db,$sql);
 
