@@ -71,26 +71,57 @@
 
     </table>
 
+
     <form method="post" action="">
         <fieldset>
-            <legend>New Comment Submission</legend>
+            <legend>Registration Form</legend>
             <table width="400" border="0" cellpadding="10" cellspacing="10">
                 <tr>
                     <td colspan="2" align="center" class="error"><?php echo $msg;?></td>
                 </tr>
+                <tr>
                     <td style="font-weight: bold">
-                        <div align="right"><label for="commentDesc">Comment</label></div>
+                        <div align="right"><label for="name">Username</label></div>
                     </td>
                     <td>
-                        <textarea name="commentDesc" rows="5" cols="40" required></textarea>
+                        <input name="name" type="text" class="input" size="25" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">
+                        <div align="right">
+                            <label for="email">Email</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input name="email" type="email" class="input" size="25" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="23" style="font-weight: bold">
+                        <div align="right">
+                            <label for="password">Password</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input name="password" type="password" class="input" size="25" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="23" style="font-weight: bold">
+                        <div align="right">
+                            <label for="phone">Phone</label>
+                        </div>
+                    </td>
+                    <td>
+                        <input name="phone" type="tel" class="input" size="11" required />
                     </td>
                 </tr>
                 <tr>
                     <td height="23"></td>
                     <td>
                         <div align="right">
-                            <input type="submit" name="submit" value="Submit New Comment!" />
-                            <input value="<?php echo $id; ?>" type="hidden" name="bugID">
+                            <input type="submit" name="submit" value="Register!" />
                         </div>
                     </td>
                 </tr>
