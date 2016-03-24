@@ -32,7 +32,9 @@
     <?php
 
     $id=$_GET['id'];
-    "SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
+    $title=$GET['title'];
+    
+    //"SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
     $sql="SELECT c.*,b.bugs FROM comments c, bugs b WHERE c.bugID=b.bugID order by 'postDate'";
     $result=mysqli_query($db,$sql);
 
