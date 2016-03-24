@@ -39,7 +39,7 @@
     //"SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
    // $sql="SELECT * FROM comments WHERE bugID=$id order by 'postDate'";
    // $sql = "SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
-    $sql="SELECT c.postdate,c.desc,u.username FROM comments c, users u WHERE c.userID=u.userID order by 'postDate'";
+    $sql="SELECT c.postdate,c.desc,u.username FROM comments c, users u WHERE c.userID=u.userID order by 'c.postDate'";
 
     $result=mysqli_query($db,$sql);
 
