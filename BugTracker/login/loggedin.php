@@ -74,7 +74,7 @@
 				if ($bugAuth == 1) {
 						echo "<td>Approved</td>";
 						} else {
-							if ($login_rights == 1 and $bugFix == 1) {            // if user is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
+							if ($login_rights == 1 and $bugFixed == 1) {            // if user is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
 								?>
 
 								<td>
