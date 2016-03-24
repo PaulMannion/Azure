@@ -71,10 +71,26 @@
 				} else {
 					echo "<td>Yes</td>";
 				}
-					if ($bugAuth == 1) {
+				if ($bugAuth == 1) {
 						echo "<td>Approved</td>";
 						} else {
-						echo "<td></td>";
+							if ($login_rights == 1 and $bugFix == 1) {            // if user is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
+								?>
+
+								<td>
+									<form name="form" method="POST" action="/BugTracker/admin/bugApproved.php">
+										<input value="<?php echo $bugID; ?>" type="hidden" name="id">
+										<input value="<?php echo $bugTitle; ?>" type="hidden" name="title">
+										<input value="<?php echo $userName; ?>" type="hidden" name="name">
+										<input type="submit" value="Approve Fix">
+									</form>
+								</td>
+
+								<?php
+								} else {
+								echo "<td></td>";
+							}
+								echo "<td></td>";
 						}
 
 				echo "</tr>\n";
