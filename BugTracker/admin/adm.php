@@ -23,7 +23,7 @@
 <header>
     <h1>My Bug Tracker Website</h1>
     <h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
-    <h1> class="hello">You sent me, <em><?php echo $id;?>!</em></h1>
+    <h1>class="hello">You sent me, <em><?php echo $id;?>!</em></h1>
 
     <nav>
         <ul>
