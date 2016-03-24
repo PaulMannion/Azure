@@ -5,7 +5,7 @@
 
     $id=$_GET['id'];
     $title=$_GET['title'];
-    $userID=$login_userID;
+
 ?>
 
 <!doctype html>
@@ -89,7 +89,6 @@
                     <td>
                         <input name="desc" type="text" class="input" size="25" required />
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
-                        <input value="<?php echo $userID;?>" type="hidden" name="userID">
                     </td>
                 </tr>
                 <tr>
