@@ -14,7 +14,7 @@ if(isset($_POST["submit"]))
             $query = mysqli_query($db, "INSERT INTO comments (desc, postDate, userID, bugID) VALUES ('$desc', current_date(), 11, 11)") or die(mysqli_error($db));
             if ($query) {
                 
-                header("location: showComments.php"); // Redirecting To Awaiting Approval Page
+                header("location: /BugTracker/login/login.php"); // Redirecting To Awaiting Approval Page
             }
         }
 
