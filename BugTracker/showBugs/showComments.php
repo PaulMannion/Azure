@@ -22,6 +22,7 @@
         <ul>
             <li><a href="logout.php" style="font-size:18px">Logout?</a></li>
             <li><a href="/BugTracker/addBugReport/newbug.php">Submit New Bug Report</a></li>
+            li><a href="/BugTracker/showBugs/showBugs.php" style="font-size:18px">Show Bug Report</a></li>
         </ul>
     </nav>
 </header>
