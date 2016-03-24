@@ -10,7 +10,7 @@ if(isset($_POST["submit"]))
     echo "<p>The userID is: $login_userID</p>";
     echo "<p>The comment is: $comText</p>";
 
-    $comText = mysqli_real_escape_string($db, $comText);
+   // $comText = mysqli_real_escape_string($db, $comText);
 
 
             $query = mysqli_query($db, "INSERT INTO comments (comText, postDate, userID, bugID) VALUES ('$comText', current_date(), $login_userID, $bugID)") or die(mysqli_error($db));
