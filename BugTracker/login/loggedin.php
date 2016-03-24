@@ -28,7 +28,7 @@
 	<p>Here is a list of all the bugs:</p>
 
 	<?php
-	$sql = "SELECT * FROM bugs";
+	$sql = "SELECT * FROM bugs, users WHERE bugs.userID=users.userID";
 	$result=mysqli_query($db,$sql);
 
 	?>
@@ -37,6 +37,7 @@
 		<tr>
 			<th>Bug Title</th>
 			<th>Bug Description</th>
+			<th>Posted By</th>
 			<th>Date Posted</th>
 			<th>Date Fixed</th>
 			<th>Fixed? (Y or N)</th>
@@ -46,18 +47,20 @@
 
 	<?php
 			while($row = mysqli_fetch_assoc($result)) {
-				$bugTitle = $row['title'];
-				$bugID = $row['bugID'];
-				$bugDesc = $row['bugDesc'];
-				$bugPost = $row['postDate'];
-				$bugFix = $row['fixDate'];
-				$bugFixed = $row['fixed'];
-				$bugAuth = $row['isFixed'];
+				$bugTitle = $row['bugs.title'];
+				$bugID = $row['bugs.bugID'];
+				$bugDesc = $row['bugs.bugDesc'];
+				$bugPost = $row['bugs.postDate'];
+				$bugFix = $row['bugs.fixDate'];
+				$bugFixed = $row['bugs.fixed'];
+				$bugAuth = $row['bugs.isFixed'];
+				$userName = $row['users.username'];
 
 
 				echo "<TD><a href='/BugTracker/showBugs/showBugs.php?id=$bugID'>".$bugTitle."</a></TD>";
 				echo "<td>$bugDesc</td>";
 				echo "<td>$bugPost</td>";
+				echo "<td>$userName</td>";
 				if (empty($bugFix)) {
 					echo "<td>Not Fixed</td>";
 				} else {
