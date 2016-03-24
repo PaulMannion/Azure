@@ -147,7 +147,15 @@
 				if ($userAuth == 1) {
 					echo "<td>Authorised</td>";
 				} else {
-					echo "<td></td>";
+					?>
+
+					<td><form name="form" method="POST" action="/BugTracker/admin/approved.php">
+							<input value="<?php echo $userID;?>" type="hidden" name="id">
+							<input value="<?php echo $userName;?>" type="hidden" name="name">
+							<input type="submit" value="Approve" style="background-color:#0066FF!important">
+						</form></td>
+
+					<?php
 				}
 
 				echo "</tr>\n";
