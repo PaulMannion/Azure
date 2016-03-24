@@ -29,7 +29,7 @@
 
 	<?php
 	$sql = "SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
-	$results=mysqli_query($db,$sql);
+	$result=mysqli_query($db,$sql);
 
 
 	?>
@@ -95,7 +95,7 @@
 								echo "<td></td>";
 						}
 
-/*				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
+				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
 
 					// determine number of rows result set //
 					$row_cnt = mysqli_num_rows($results);
@@ -105,7 +105,7 @@
 					// close result set //
 					mysqli_free_result($results);
 				}
-*/
+
 
 				echo "</tr>\n";
 			}
