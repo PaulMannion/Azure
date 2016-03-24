@@ -100,7 +100,7 @@
 					// determine number of rows result set //
 					$row_cnt = mysqli_num_rows($results);
 
-					echo "<td><a href='/BugTracker/showBugs/showComments.php?id=$bugID&title=$bugTitle'>".$row_cnt."</a></TD>";
+					echo "<td><a href='/BugTracker/showBugs/showComments.php?id=$bugID.&title=$bugTitle'>".$row_cnt."</a></TD>";
 
 					// close result set //
 					mysqli_free_result($results);
