@@ -41,7 +41,7 @@
 
     
 
-    $sql="SELECT c.postDate,c.desc, u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
+    $sql="SELECT c.postDate,c.comText, u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
 
     $result=mysqli_query($db,$sql);
 
@@ -60,7 +60,7 @@
 
                 $commentDate = $row['postDate'];
                 $commentBy = $row['username'];
-                $commentDesc = $row['desc'];
+                $commentDesc = $row['comText'];
 
                 
                 echo "<td>$commentDate</td>";
