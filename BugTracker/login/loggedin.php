@@ -90,7 +90,7 @@
 								} else {
 								echo "<td></td>";
 							}
-								echo "<td></td>";
+			//					echo "<td></td>";
 						}
 
 				echo "</tr>\n";
