@@ -1,17 +1,17 @@
 <?php
 
-	include("connection.php");
-	include("check.php");
+//	include("connection.php");
+//	include("check.php");
 
 $msg = "";
 if(isset($_POST["upload"])) {
-    //   $url = $_POST["url"];
-    //   $bugID = $_POST["bugID"];
-    //   $userID = $_POST["userID"];
+       $url = $_POST["url"];
+       $bugID = $_POST["bugID"];
+       $userID = $_POST["userID"];
 
-    $url = "blah";
-    $bugID = 41;
-    $userID = 21;
+    //$url = "blah";
+    //$bugID = 41;
+    //$userID = 21;
 
     //$url = mysqli_real_escape_string($db, $url);
 

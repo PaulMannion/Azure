@@ -1,7 +1,7 @@
 <?php
     include("connection.php");
     include("check.php");
- //   include("submit.php");
+    include("submit.php");
 
     $id=$_GET['id'];
     $title=$_GET['title'];
@@ -69,7 +69,7 @@
 
     </table>
 
-
+<!--
     <form method="post" action="">
         <fieldset>
             <legend>Comment Submission Form</legend>
@@ -97,7 +97,8 @@
             </table>
         </fieldset>
     </form>
-
+-->
+    
 </main>
 
 <footer>
