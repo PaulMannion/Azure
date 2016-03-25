@@ -9,3 +9,7 @@ p {
     font-size: 16px;
     line-height: 25px;
 }
+
+body {
+    background: url(/BugTracker/img/confectionary.png) repeat 0 0;
+}
