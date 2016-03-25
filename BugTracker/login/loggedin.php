@@ -164,9 +164,9 @@
 				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
 
 					// determine number of rows result set //
-					$row_cnt = mysqli_num_rows($results);
+					$row_cntC = mysqli_num_rows($results);
 
-					echo "<td><a href='/BugTracker/showBugs/showComments.php?id=$bugID.&title=$bugTitle'>".$row_cnt."</a></TD>";
+					echo "<td><a href='/BugTracker/showBugs/showComments.php?id=$bugID.&title=$bugTitle'>".$row_cntC."</a></TD>";
 
 					// close result set //
 					mysqli_free_result($results);
@@ -177,9 +177,9 @@
 				if ($results = mysqli_query($db, "SELECT attachmentID FROM attachments WHERE bugID=$bugID")) {
 
 					// determine number of rows result set //
-					$row_cnt = mysqli_num_rows($results);
+					$row_cntA = mysqli_num_rows($results);
 
-					echo "<td><a href='/BugTracker/showBugs/showAttachments.php?id=$bugID.&title=$bugTitle'>".$row_cnt."</a></TD>";
+					echo "<td><a href='/BugTracker/showBugs/showAttachments.php?id=$bugID.&title=$bugTitle'>".$row_cntA."</a></TD>";
 
 					// close result set //
 					mysqli_free_result($results);
