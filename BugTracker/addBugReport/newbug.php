@@ -45,14 +45,6 @@
 						</div>
 					</td>
 				</tr>
-				<tr>
-					<td height="23"></td>
-					<td>
-						<div align="left">
-							<<a href='/BugTracker/index.html'>"Go Home"</a>>
-						</div>
-					</td>
-				</tr>
 			</table>
 		</fieldset>
 	</form>
