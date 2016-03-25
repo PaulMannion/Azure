@@ -67,16 +67,32 @@
     </table>
 
 
-    <form method="post" enctype="multipart/form-data">
-        <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
-            <tr>
-                <td width="246">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
-                    <input name="userfile" type="file" id="userfile">
-                </td>
-                <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
-            </tr>
-        </table>
+    <form method="post" action="">
+        <fieldset>
+            <legend>Attachment Submission Form</legend>
+            <table width="400" border="0" cellpadding="10" cellspacing="10">
+                <tr>
+                    <td colspan="2" align="center" class="error"><?php echo $msg;?></td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold">
+                        <div align="right"><label for="Paste URL">Comment</label></div>
+                    </td>
+                    <td>
+                        <input name="url" type="text" class="input" size="50" required />
+                        <input value="<?php echo $id;?>" type="hidden" name="bugID">
+                    </td>
+                </tr>
+                <tr>
+                    <td height="23"></td>
+                    <td>
+                        <div align="right">
+                            <input type="submit" name="upload" value="Upload!" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
     </form>
 
 </main>

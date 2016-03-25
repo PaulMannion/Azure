@@ -1,31 +1,30 @@
 <?php
-if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
+$msg = "";
+if(isset($_POST["upload"]))
 {
-    $fileName = $_FILES['userfile']['name'];
-    $tmpName  = $_FILES['userfile']['tmp_name'];
-    $fileSize = $_FILES['userfile']['size'];
-    $fileType = $_FILES['userfile']['type'];
+    $url = $_POST["url"];
+    $bugID = $_POST["bugID"];
 
-    $fp      = fopen($tmpName, 'r');
-    $content = fread($fp, filesize($tmpName));
-    $content = addslashes($content);
-    fclose($fp);
+    $url = mysqli_real_escape_string($db, $url);
 
- /*   if(!get_magic_quotes_gpc())
-    {
-        $fileName = addslashes($fileName);
+      echo "<p>The bugID is: $bugID</p>";
+      echo "<p>The userID is: $login_userID</p>";
+      echo "<p>The url is: $url</p>";
+
+
+
+
+    $query = mysqli_query($db, "INSERT INTO attachments (url, userID, bugID) VALUES ('$url', $login_userID, $bugID)") or die(mysqli_error($db));
+    if ($query) {
+
+        header("location: /BugTracker/login/loggedin.php"); // Redirecting To Awaiting Approval Page
     }
-   */
-
-    include 'library/config.php';
-    include 'library/opendb.php';
-
-    $query = "INSERT INTO attachments (name, size, type, content ) ".
-        "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
-
-    mysqli_query($query) or die('Error, query failed');
-    include 'library/closedb.php';
-
-    echo "<br>File $fileName uploaded<br>";
+    else
+    {
+        $msg = "Sorry...Something Terrible has Happened...";
+    }
 }
+
+
+
 ?>
