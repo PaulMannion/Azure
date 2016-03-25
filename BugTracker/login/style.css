@@ -159,6 +159,12 @@ body
 
 #bugs td, #bugs th {
 	border: 1px solid #ddd;
+	text-align: center;
+	padding: 8px;
+}
+
+#bugs td:first-child {
+	border: 1px solid #ddd;
 	text-align: left;
 	padding: 8px;
 }
