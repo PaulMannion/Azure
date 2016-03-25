@@ -65,11 +65,11 @@
         </tr>
 
     </table>
+    
 
-
-    <form method="post" action="">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
         <fieldset>
-            <legend>Comment Submission Form</legend>
+            <legend>Attach a text file to this bug</legend>
             <table width="400" border="0" cellpadding="10" cellspacing="10">
                 <tr>
                     <td colspan="2" align="center" class="error"><?php echo $msg;?></td>
@@ -79,15 +79,15 @@
                         <div align="right"><label for="comments">Comment</label></div>
                     </td>
                     <td>
-                        <textarea name="comText" rows="10" cols="60" required></textarea>
-                        <input value="<?php echo $id;?>" type="hidden" name="bugID">
+                        <input type="file" name="fileToUpload" id="fileToUpload">
+                        <input type="submit" value="Upload Image" name="submit">
                     </td>
                 </tr>
                 <tr>
                     <td height="23"></td>
                     <td>
                         <div align="right">
-                            <input type="submit" name="submit" value="Comment!" />
+                            <input type="submit" name="Upload File" value="Upload!" />
                         </div>
                     </td>
                 </tr>
