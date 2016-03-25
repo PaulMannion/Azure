@@ -15,8 +15,8 @@ if(isset($_POST["upload"]))
 
 
 
-
-    $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ($url, $userID, $bugID)") or die(mysqli_error($db));
+    //  $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ($url, $userID, $bugID)") or die(mysqli_error($db));
+        $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('httpblah', 21, 41)") or die(mysqli_error($db));
     if ($query) {
         
         echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
