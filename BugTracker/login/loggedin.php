@@ -20,7 +20,7 @@
 	</div>
 	<h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
 
-<div align="right">
+<div align="left">
 	<form name="form" method="POST" action="logout.php">
 		<input type="submit" value="Logout">
 	</form>
@@ -35,7 +35,7 @@
 				</tr>
 				<tr>
 					<td style="font-weight: bold">
-						<div align="right"><label for="bugTitle">Bug Title</label></div>
+						<div align="center"><label for="bugTitle">Bug Title</label></div>
 					</td>
 					<td>
 						<input name="bugTitle" type="text" class="input" size="25" required />
@@ -43,16 +43,16 @@
 				</tr>
 				<tr>
 					<td style="font-weight: bold">
-						<div align="right"><label for="bugDesc">Bug Description</label></div>
+						<div align="center"><label for="bugDesc">Bug Description</label></div>
 					</td>
 					<td>
-						<input name="bugDesc" type="text" class="input" size="25" required />
+						<input name="bugDesc" type="text" class="input" size="50" required />
 					</td>
 				</tr>
 				<tr>
 					<td height="23"></td>
 					<td>
-						<div align="right">
+						<div align="center">
 							<input type="submit" name="submit" value="Submit New Bug!" />
 						</div>
 					</td>
