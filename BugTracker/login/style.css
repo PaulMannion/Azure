@@ -170,7 +170,7 @@ body
 }
 
 #bugs tr:nth-child(even){
-	text-align: center;
+	text-align: left;
 	background-color: #f2f2f2
 }
 

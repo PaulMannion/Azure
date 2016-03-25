@@ -38,8 +38,8 @@
 	?>
 	
 	<table id="bugs">
-		<tr style="align=right!important">
-			<th style="align=right!important">Bug Titles</th>
+		<tr>
+			<th>Bug Title</th>
 			<th>Bug Description</th>
 			<th>Posted By</th>
 			<th>Date Posted</th>
