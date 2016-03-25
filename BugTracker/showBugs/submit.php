@@ -32,8 +32,6 @@ if(isset($_POST["submit"]))
     $url = $_POST["url"];
     $bugID = $_POST["bugID"];
 
-    $url = urlencode($url);
-
     $url = mysqli_real_escape_string($db, $url);
 
     echo "<p>The bugID is: $bugID</p>";
