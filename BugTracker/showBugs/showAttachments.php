@@ -65,25 +65,18 @@
         </tr>
 
     </table>
-    
 
-    <form action="upload.php" method="post" enctype="multipart/form-data">
-        <fieldset>
-            <legend>Attach a text file to this bug</legend>
-            <table width="400" border="0" cellpadding="10" cellspacing="10">
-                <tr>
-                    <td colspan="2" align="center" class="error"><?php echo $msg;?></td>
-                </tr>
-                <tr>
-                    <td style="font-weight: bold">
-                        <div align="right"><label for="comments">Comment</label></div>
-                    </td>
-                    <td>
-                        <input type="file" name="fileToUpload" id="fileToUpload">
-                        <input type="submit" value="Upload File" name="submit">
-                    </td>
-            </table>
-        </fieldset>
+
+    <form action="upload.php" method=="post" enctype="multipart/form-data">
+        <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
+            <tr>
+                <td width="246">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="2000000">
+                    <input name="userfile" type="file" id="userfile">
+                </td>
+                <td width="80"><input name="upload" type="submit" class="box" id="upload" value=" Upload "></td>
+            </tr>
+        </table>
     </form>
 
 </main>
