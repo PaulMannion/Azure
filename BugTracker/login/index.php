@@ -25,18 +25,16 @@
     <h1>A Bug Tracker Website</h1>
 
     <nav align="center">
-        <ul>
             <li><a href="index.html">Home Page</a></li>
             <li><a href="login/index.php">Login</a></li>
             <li><a href="registration/register.php">Register</a></li>
-        </ul>
     </nav>
 </header>
 
 <main>
 
 <div class="loginBox">
-    <h3>Login Form</h3>
+    <h3>Login</h3>
     <br><br>
     <form method="post" action="">
         <label>Username:</label><br>
@@ -51,7 +49,7 @@
 </main>
 
 <footer>
-    <p align="center">(c) 2016 1506100 Paul Mannion</p>
+    <p align="center">(c) 2016 Paul Mannion 1506100</p>
 </footer>
 
 </body>
