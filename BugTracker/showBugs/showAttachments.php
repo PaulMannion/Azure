@@ -32,6 +32,9 @@
                 <input type="submit" value="Back to Bugs"style="background-color:#0066FF!important">
             </form>
         </form>
+        <br>
+        <h3>Here is a list of all the attachments for bug: <em><?php echo $title;?></em></h3>
+        <br>
     </div>
 </header>
     <?php
