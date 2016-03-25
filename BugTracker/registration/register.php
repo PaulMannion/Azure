@@ -62,7 +62,7 @@
 					<td height="23"></td>
 					<td>
 						<div align="right">
-				  		<input type="submit" name="submit" value="Register!" />
+				  		<input type="submit" name="submit" value="Register!" /><br>
 						</form>
 						<form name="form" method="POST" action="/BugTracker/login/index.php">
 						<input type="submit" value="Cancel"style="background-color:#0066FF!important">
