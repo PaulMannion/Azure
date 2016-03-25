@@ -38,9 +38,9 @@
 	?>
 	
 	<table id="bugs">
-		<tr align="center">
-			<th align="center">Bug Title</th>
-			<th align="center">Bug Description</th>
+		<tr align="right">
+			<th>Bug Title</th>
+			<th>Bug Description</th>
 			<th>Posted By</th>
 			<th>Date Posted</th>
 			<th>Date Fixed</th>
