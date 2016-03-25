@@ -38,7 +38,7 @@
 	?>
 	
 	<table id="bugs">
-		<tr align="center">>
+		<tr align="center">
 			<th align="center">Bug Title</th>
 			<th align="center">Bug Description</th>
 			<th>Posted By</th>
