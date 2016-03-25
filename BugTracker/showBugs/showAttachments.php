@@ -55,7 +55,7 @@
                 $attachBy = $row['username'];
 
                 
-                echo "<td><a href='$attachUrl'>".$attachUrl."</a></td>"; 
+                echo "<td><a href='$attachUrl'>".$attachUrl." target=\"_blank\"</a></td>";
                 echo "<td>$attachBy</td>";
                 echo "</tr>\n";
             }
