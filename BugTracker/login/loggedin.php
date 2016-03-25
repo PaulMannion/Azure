@@ -26,11 +26,40 @@
 	</form>
 </div>
 
-	<div align="left">
-		<form name="form" method="POST" action="/BugTracker/addBugReport/newbug.php">
-		<input type="submit" value="Submit Bug Report"style="background-color:#0066FF!important">
-		</form>
-	</div>
+	<form method="post" action="">
+		<fieldset>
+			<legend align="right">Submit A Bug Report</legend>
+			<table width="400" border="0" cellpadding="10" cellspacing="10" align="center">
+				<tr>
+					<td colspan="2" align="center" class="error"><?php echo $msg;?></td>
+				</tr>
+				<tr>
+					<td style="font-weight: bold">
+						<div align="right"><label for="bugTitle">Bug Title</label></div>
+					</td>
+					<td>
+						<input name="bugTitle" type="text" class="input" size="25" required />
+					</td>
+				</tr>
+				<tr>
+					<td style="font-weight: bold">
+						<div align="right"><label for="bugDesc">Bug Description</label></div>
+					</td>
+					<td>
+						<input name="bugDesc" type="text" class="input" size="25" required />
+					</td>
+				</tr>
+				<tr>
+					<td height="23"></td>
+					<td>
+						<div align="right">
+							<input type="submit" name="submit" value="Submit New Bug!" />
+						</div>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+	</form>
 
 </header>
 
@@ -258,40 +287,7 @@
 
 	</table>
 
-	<form method="post" action="">
-		<fieldset>
-			<legend>Submit A Bug Report</legend>
-			<table width="400" border="0" cellpadding="10" cellspacing="10" align="center">
-				<tr>
-					<td colspan="2" align="center" class="error"><?php echo $msg;?></td>
-				</tr>
-				<tr>
-					<td style="font-weight: bold">
-						<div align="right"><label for="bugTitle">Bug Title</label></div>
-					</td>
-					<td>
-						<input name="bugTitle" type="text" class="input" size="25" required />
-					</td>
-				</tr>
-				<tr>
-					<td style="font-weight: bold">
-						<div align="right"><label for="bugDesc">Bug Description</label></div>
-					</td>
-					<td>
-						<input name="bugDesc" type="text" class="input" size="25" required />
-					</td>
-				</tr>
-				<tr>
-					<td height="23"></td>
-					<td>
-						<div align="right">
-							<input type="submit" name="submit" value="Submit New Bug!" />
-						</div>
-					</td>
-				</tr>
-			</table>
-		</fieldset>
-	</form>
+
 
 </main>
 
