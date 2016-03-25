@@ -2,7 +2,7 @@
 session_start();
 if(session_destroy())
 {
-header("Location: /BugTracker/index.html");
+header("Location: /BugTracker/login/login.php");
 }
 
 ?>
