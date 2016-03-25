@@ -31,7 +31,7 @@
 
 <main>
     <h2>Welcome to my Bug Tracker!</h2>
-    <h2>Here is a list of all the comments for the bug : <<?php echo $title;?>!</h2>
+    <p>Here is a list of all the comments for the bug : <<?php echo $title;?>!</p>
 
     <?php
 
