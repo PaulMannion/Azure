@@ -1,6 +1,11 @@
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Corben', Georgia, Times, serif;
+h1 {
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    line-height: 65px;
 }
-p, div {
-    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+
+p {
+    font-family: 'Vollkorn', Georgia, Times, serif;
+    font-size: 16px;
+    line-height: 25px;
 }
