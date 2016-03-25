@@ -33,14 +33,14 @@
         $sql = "UPDATE bugs SET fixDate = CURRENT_DATE(), fixed = 1 WHERE bugID=$id";
 
         if (mysqli_query($db, $sql)) {
-            echo "<h1>Bug: $title has been flagged as fixed. It needs to be approved by an administrator.</h1>";
+            echo "<h2>Bug: <b>$title</b> has been flagged as fixed. It needs to be approved by an administrator.</h2>";
         } else {
             echo "Error updating record: " . mysqli_error($db);
         }
 
 ?>
 
-        <h1><a href="/BugTracker/login/loggedin.php" style="font-size:18px">Return to Bug Page</a></li></h1>
+        <h2><a href="/BugTracker/login/loggedin.php" style="font-size:18px">Return to Bug Page</a></li></h2>
 
 </body>
 </html>

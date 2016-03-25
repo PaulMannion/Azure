@@ -46,7 +46,6 @@ input[type=submit]
 	font-weight:bold;
 
 }
-}
 .error
 {
 	color:red;
@@ -106,7 +105,7 @@ body
 .inputBox
 {
 	padding:10px;
-	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
 }
 .button
 {
@@ -138,7 +137,7 @@ body
 }
 
  #bugs {
-	 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	 font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
 	 border-collapse: collapse;
 	 width: 100%;
  }

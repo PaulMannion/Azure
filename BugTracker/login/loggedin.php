@@ -27,7 +27,7 @@
 	<h2>Welcome to my Bug Tracker!</h2>
 	<h2>Here is a list of all the bugs:</h2>
 
-	<h3>Too add a <em>comment</em> or <em>attachment</em> click on the link in the respective column.</h3>
+	<h3>Too add a <b>comment</b> or <b>attachment</b> click on the link in the respective column.</h3>
 
 	<?php
 	$sql = "SELECT b.*,u.username FROM bugs b, users u WHERE b.userID=u.userID";
