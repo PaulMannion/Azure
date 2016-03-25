@@ -74,7 +74,17 @@
 				// if a bug is not fixed and the current user matches bug owner's username then offer to 'Flag as Fixed'
 
 				if (($bugFixed == 0) and ($login_user == $userName)){
-					echo "<td>Flag to fix</td>";
+				//	echo "<td>Flag to fix</td>";
+
+					?>
+					
+					<td><form name="form" method="POST" action="/BugTracker/showBugs/flagFixed.php">
+							<input value="<?php echo $bugID;?>" type="hidden" name="id">
+							<input value="<?php echo $bugTitle;?>" type="hidden" name="title">
+							<input type="submit" value="Flag as Fixed">
+						</form></td>
+					
+					<?php
 				}
 				else if ($bugFixed == 0) {  // This bug belongs to someone else and is not fixed so display "No"
 					echo "<td>No</td>";
