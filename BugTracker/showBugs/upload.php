@@ -1,5 +1,8 @@
 <?php
 
+//	include("connection.php");
+//	include("check.php");
+
 $msg = "";
 if(isset($_POST["upload"]))
 {
@@ -25,7 +28,7 @@ if(isset($_POST["upload"]))
         
         echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
         header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
-    }
+ //   }
     else
     {
         $msg = "Sorry...Something Terrible has Happened...";
