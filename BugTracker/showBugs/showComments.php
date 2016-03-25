@@ -28,6 +28,9 @@
         <form name="form" method="POST" action="logout.php">
             <input type="submit" value="Logout">
         </form>
+        <form name="form" method="POST" action="/BugTracker/login/loggedin.php">
+            <input type="submit" value="Back to Bugs"style="background-color:#0066FF!important">
+        </form>
     </div>
 
     </header>

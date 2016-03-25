@@ -27,9 +27,12 @@
     <div align="left">
         <form name="form" method="POST" action="logout.php">
             <input type="submit" value="Logout">
+            <form name="form" method="POST" action="/BugTracker/login/loggedin.php">
+                <input type="submit" value="Back to Bugs"style="background-color:#0066FF!important">
+            </form>
         </form>
     </div>
-
+</header>
     <?php
 
     $sql="SELECT a.url, u.username FROM attachments a JOIN users u ON a.userID=u.userID WHERE a.bugID=$id";
