@@ -191,7 +191,7 @@
 				
 				// Display all the users
 
-				echo "<TD><a href='/BugTracker/admin/users.php?id=$userID'>".$userName."</a></TD>";
+				echo "<TD>$userName</TD>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";

@@ -67,7 +67,7 @@
     </table>
 
 
-    <form method="post" action="">
+    <form method="post" action="/BugTracker/showBugs/upload.php">
         <fieldset>
             <legend>Attachment Submission Form</legend>
             <table width="400" border="0" cellpadding="10" cellspacing="10">
