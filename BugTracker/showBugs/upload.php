@@ -14,7 +14,7 @@ if(isset($_POST["upload"]))
 
 
 
-    $query = mysqli_query($db, "INSERT INTO attachments (url, userID, bugID) VALUES ('$url', $login_userID, $bugID)") or die(mysqli_error($db));
+    $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('$url', $login_userID, $bugID)") or die(mysqli_error($db));
     if ($query) {
 
         header("location: /BugTracker/login/loggedin.php"); // Redirecting To Awaiting Approval Page
