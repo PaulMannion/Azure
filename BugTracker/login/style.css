@@ -159,15 +159,22 @@ body
 
 #bugs td, #bugs th {
 	border: 1px solid #ddd;
-	text-align: left;
+	text-align: center;
 	padding: 8px;
 }
 
-#bugs tr:nth-child(even){background-color: #f2f2f2}
+#bugs tr:nth-child(even){
+	text-align: center;
+	background-color: #f2f2f2
+}
 
-#bugs tr:hover {background-color: #ddd;}
+#bugs tr:hover {
+	background-color: #ddd;
+
+}
 
 #bugs th {
+	text-align: center;
 	padding-top: 12px;
 	padding-bottom: 12px;
 	background-color: #4CAF50;
