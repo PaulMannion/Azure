@@ -1,14 +1,13 @@
 <?php
 
-//	include("connection.php");
+	include("connection.php");
 	include("check.php");
 
 $msg = "";
-if(isset($_POST["upload"]))
-{
- //   $url = $_POST["url"];
- //   $bugID = $_POST["bugID"];
- //   $userID = $_POST["userID"];
+if(isset($_POST["upload"])) {
+    //   $url = $_POST["url"];
+    //   $bugID = $_POST["bugID"];
+    //   $userID = $_POST["userID"];
 
     $url = "blah";
     $bugID = 41;
@@ -22,18 +21,16 @@ if(isset($_POST["upload"]))
 
     echo "<script type='text/javascript'>alert('before sql statement')</script>";
 
-   // $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('$url', '$userID', '$bugID')") or die(mysqli_error($db));
+    // $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('$url', '$userID', '$bugID')") or die(mysqli_error($db));
 
-   // if ($query) {
-        
+    if ($query) {
+
         echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
-        header("location: /BugTracker/login/loggedin.php");} // Redirecting To Bug Display Page
- //   }
-    else
-    {
+        header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
+    } else {
         $msg = "Sorry...Something Terrible has Happened...";
     }
-
+}
         
 
 ?>
