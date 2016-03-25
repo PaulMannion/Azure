@@ -19,7 +19,7 @@ if(isset($_POST["upload"]))
     $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('$url', $userID, $bugID)") or die(mysqli_error($db));
     if ($query) {
         
-        echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
+       // echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
         header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
     }
     else
