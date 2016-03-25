@@ -1,7 +1,7 @@
 <?php
     include("connection.php");
     include("check.php");
-    include("submit.php");
+ //   include("submit.php");
 
     $id=$_GET['id'];
     $title=$_GET['title'];
