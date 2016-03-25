@@ -19,16 +19,14 @@ if(isset($_POST["upload"])) {
     echo "<p>The userID is: $userID</p>";
     echo "<p>The url is: $url</p>";
 
-    echo "<script type='text/javascript'>alert('before sql statement')</script>";
 
     $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('$url', '$userID', '$bugID')") or die(mysqli_error($db));
 
-    echo "<script type='text/javascript'>alert('after sql statement')</script>";
 
     if ($query) {
 
         echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
-     //   header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
+        header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
     } else {
 
         echo "<script type='text/javascript'>alert('We ended up here :-(')</script>";
