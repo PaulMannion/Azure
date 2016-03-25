@@ -30,6 +30,8 @@
         </form>
     </div>
 
+    </header>
+
     <?php
 
     $sql="SELECT c.postDate,c.comText, u.username FROM comments c JOIN users u ON c.userID=u.userID WHERE c.bugID=$id ORDER BY 'c.postDate' ASC ";
@@ -65,7 +67,6 @@
         </tr>
 
     </table>
-
 
     <form method="post" action="">
         <fieldset>
