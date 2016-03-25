@@ -19,11 +19,12 @@ if(isset($_POST["submit"]))
                 
                 header("location: /BugTracker/login/loggedin.php"); // Redirecting To Awaiting Approval Page
             }
+            else
+            {
+                $msg = "Sorry...Something Terrible has Happened...";
+            }
         }
 
-        else
-        {
-            $msg = "Sorry...Something Terrible has Happened...";
-        }
+        
 
 ?>
