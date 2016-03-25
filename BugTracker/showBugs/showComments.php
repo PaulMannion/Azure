@@ -69,7 +69,7 @@
 
     </table>
 
-<!--
+
     <form method="post" action="">
         <fieldset>
             <legend>Comment Submission Form</legend>
@@ -97,7 +97,7 @@
             </table>
         </fieldset>
     </form>
--->
+
     
 </main>
 
