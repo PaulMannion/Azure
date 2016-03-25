@@ -1,3 +1,18 @@
+h1 {
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+	font-size: 50px;
+	line-height: 65px;
+}
+
+p {
+	font-family: 'Vollkorn', Georgia, Times, serif;
+	font-size: 16px;
+	line-height: 25px;
+}
+
+body {
+	background: url(/BugTracker/img/confectionary.png) repeat 0 0;
+}
 .loginBox
 {
 	width:300px;
@@ -15,7 +30,7 @@
 	border-radius: 10px 10px 0 0;
 	margin: -10px -40px;
 	border-bottom:1px solid #999;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Vollkorn', Georgia, Times, serif;
 	font-size:24px;
 	font-weight:bold;
 }
@@ -23,14 +38,14 @@ input[type=text],input[type=password]
 {
 	width:280px;
 	padding:10px;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Vollkorn', Georgia, Times, serif;
 	font-size:20px;
 	margin-top:10px;
 }
 label
 {
 	font-size:20px;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Vollkorn', Georgia, Times, serif;
 }
 input[type=submit]
 {
@@ -39,7 +54,7 @@ input[type=submit]
 	border:0;
 	padding:5px;
 	color:#FFF;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Vollkorn', Georgia, Times, serif;
 	font-size:15px;
 	border-radius:5px;
 	margin-top:5px;
@@ -51,12 +66,12 @@ input[type=submit]
 	color:red;
 	margin-top:10px;
 	font-size:18px;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 }
 .hello
 {
 	font-size:36px;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
 }
 body
 {
@@ -105,7 +120,7 @@ body
 .inputBox
 {
 	padding:10px;
-	font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	font-family: 'Vollkorn', Georgia, Times, serif;
 }
 .button
 {
@@ -137,7 +152,7 @@ body
 }
 
  #bugs {
-	 font-family:Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	 font-family: 'Vollkorn', Georgia, Times, serif;
 	 border-collapse: collapse;
 	 width: 100%;
  }
