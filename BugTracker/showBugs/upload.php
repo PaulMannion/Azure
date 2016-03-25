@@ -20,12 +20,12 @@ if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
     include 'library/config.php';
     include 'library/opendb.php';
 
-  /*  $query = "INSERT INTO attachments (name, size, type, content ) ".
+    $query = "INSERT INTO attachments (name, size, type, content ) ".
         "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
 
     mysqli_query($query) or die('Error, query failed');
     include 'library/closedb.php';
 
-    echo "<br>File $fileName uploaded<br>"; */
+    echo "<br>File $fileName uploaded<br>";
 }
 ?>
