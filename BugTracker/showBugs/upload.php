@@ -12,7 +12,7 @@ if(isset($_POST["submit"])) {
   //  } else {
   //      echo "File is not an image.";
   //      $uploadOk = 0;
-    }
+  //  }
 }
 // Check if file already exists
 if (file_exists($target_file)) {
