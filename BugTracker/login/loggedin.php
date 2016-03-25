@@ -84,7 +84,7 @@
 							<input type="submit" value="Flag as Fixed">
 						</form></td>
 					
-					<?php
+					<?php $bugFixed == 1;
 				}
 				else if ($bugFixed == 0) {  // This bug belongs to someone else and is not fixed so display "No"
 					echo "<td>No</td>";
