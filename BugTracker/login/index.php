@@ -12,13 +12,15 @@
     <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
 
-    <link type="text/css" rel="stylesheet" href="assets/css/custom.css"/>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
 
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Login</title>
 
 
 </head>
+<body>
+<div align="center">
 <header>
     <h1>A Bug Tracker Website</h1>
 
@@ -35,9 +37,7 @@
     <h2>Welcome to my Bug Tracker!</h2>
     <p>This website is used to keep track of all of my bugs</p>
 
-<body>
-<div align="center">
-<h1 style="font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size:32px;">PHP Login Form with Session</h1>
+
 <div class="loginBox">
     <h3>Login Form</h3>
     <br><br>
