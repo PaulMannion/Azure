@@ -67,7 +67,7 @@
     </table>
 
 
-    <form action="upload.php" method=="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <table width="350" border="0" cellpadding="1" cellspacing="1" class="box">
             <tr>
                 <td width="246">
