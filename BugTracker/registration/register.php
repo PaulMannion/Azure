@@ -9,7 +9,7 @@
 <head>
 <meta charset="utf-8">
 <title>Registration Form</title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="/BugTracker/login/style.css">
 </head>
 
 <body>
@@ -63,14 +63,6 @@
 					<td>
 						<div align="right">
 				  		<input type="submit" name="submit" value="Register!" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td height="23"></td>
-					<td>
-						<div align="left">
-							<<a href='/BugTracker/index.html'>"Go Home"</a>>
 						</div>
 					</td>
 				</tr>
