@@ -31,7 +31,7 @@
 
 <main>
     <h2>Welcome to my Bug Tracker!</h2>
-    <p>Here is a list of all the comments for the bug : <<?php echo $title;?>!</p>
+    <p>Here is a list of all the comments for the bug : <?php echo $title;?>!</p>
 
     <?php
 
@@ -82,7 +82,7 @@
                         <div align="right"><label for="comments">Comment</label></div>
                     </td>
                     <td>
-                        <input name="comText" type="text" class="input" size="25" required />
+                        <textarea name="comText" rows="10" cols="60" required></textarea>
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
                     </td>
                 </tr>
