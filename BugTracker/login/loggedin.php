@@ -39,7 +39,7 @@
 	
 	<table id="bugs">
 		<tr style="align=right!important">
-			<th>Bug Title</th>
+			<th style="align=right!important">Bug Titles</th>
 			<th>Bug Description</th>
 			<th>Posted By</th>
 			<th>Date Posted</th>
