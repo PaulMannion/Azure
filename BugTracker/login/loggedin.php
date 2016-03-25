@@ -18,19 +18,14 @@
 	<h1>My Bug Tracker Website</h1>
 	</div>
 	<h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
-	<nav>
-		<ul>
-			<li><a href="logout.php" style="font-size:18px">Logout?</a></li>
-			<li><a href="/BugTracker/addBugReport/newbug.php">Submit New Bug Report</a></li>
-		</ul>
-	</nav>
-<div align="left">
+
+<div align="right">
 	<form name="form" method="POST" action="logout.php">
-		<input type="submit" value="Logout"style="background-color:#0066FF!important">
+		<input type="submit" value="Logout">
 	</form>
 </div>
 
-	<div align="right">
+	<div align="left">
 		<form name="form" method="POST" action="/BugTracker/addBugReport/newbug.php">
 		<input type="submit" value="Submit Bug Report"style="background-color:#0066FF!important">
 		</form>
