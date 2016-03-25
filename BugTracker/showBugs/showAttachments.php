@@ -13,25 +13,22 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
+    <!--	<link type="text/css" rel="stylesheet" href="assets/css/custom.css"/> -->
     <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body>
 
 <header>
-    <h1>My Bug Tracker Website</h1>
+    <div align="center">
+        <h1>My Bug Tracker Website</h1>
+    </div>
     <h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
-    <nav>
-        <ul>
-            <li><a href="/BugTracker/login/logout.php" style="font-size:18px">Logout?</a></li>
-            <li><a href="/BugTracker/addBugReport/newbug.php">Submit New Bug Report</a></li>
-            <li><a href="/BugTracker/login/loggedin.php" style="font-size:18px">Show Bug Report</a></li>
-        </ul>
-    </nav>
-</header>
 
-<main>
-    <h2>Welcome to my Bug Tracker!</h2>
-    <p>Here is a list of all the attachments for the bug : <?php echo $title;?>!</p>
+    <div align="left">
+        <form name="form" method="POST" action="logout.php">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
 
     <?php
 
@@ -69,8 +66,8 @@
 
     <form method="post" action="/BugTracker/showBugs/upload.php">
         <fieldset>
-            <legend>Attachment Submission Form</legend>
-            <table width="400" border="0" cellpadding="10" cellspacing="10">
+            <legend align="right">Attachment Submission Form</legend>
+            <table width="400" border="0" cellpadding="10" cellspacing="10" align="center">
                 <tr>
                     <td colspan="2" align="center" class="error"><?php echo $msg;?></td>
                 </tr>
