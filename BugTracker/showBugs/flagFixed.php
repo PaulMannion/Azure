@@ -30,7 +30,7 @@
 
 
 <?php
-        $sql = "UPDATE bugs SET fixDate = CURRENT_DATE(), fixed == 1 WHERE bugID=$id";
+        $sql = "UPDATE bugs SET fixDate = CURRENT_DATE(), fixed = 1 WHERE bugID=$id";
 
         if (mysqli_query($db, $sql)) {
             echo "<h1>Bug: $title has been flagged as fixed. It needs to be approved by an administrator.</h1>";
