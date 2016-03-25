@@ -7,13 +7,33 @@
 	}	
 ?>
 
-<!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>PHP Login Form with Session</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Corben:bold" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" type="text/css">
+
+    <link type="text/css" rel="stylesheet" href="assets/css/custom.css"/>
+
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+
 </head>
+<header>
+    <h1>A Bug Tracker Website</h1>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home Page</a></li>
+            <li><a href="login/index.php">Login</a></li>
+            <li><a href="registration/register.php">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>Welcome to my Bug Tracker!</h2>
+    <p>This website is used to keep track of all of my bugs</p>
 
 <body>
 <div align="center">
@@ -31,5 +51,12 @@
     <div class="error"><?php echo $error;?></div>
 </div>
 </div>
+</main>
+
+<footer>
+    <p>(c) 2016 1506100 Paul Mannion</p>
+</footer>
+
 </body>
 </html>
+
