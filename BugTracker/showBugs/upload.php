@@ -28,7 +28,7 @@ if(isset($_POST["upload"])) {
     if ($query) {
 
         echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
-        header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
+     //   header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
     } else {
 
         echo "<script type='text/javascript'>alert('We ended up here :-(')</script>";
