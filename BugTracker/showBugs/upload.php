@@ -23,6 +23,8 @@ if(isset($_POST["upload"])) {
 
     // $query = mysqli_query($db, "INSERT INTO attachments (URL, userID, bugID) VALUES ('$url', '$userID', '$bugID')") or die(mysqli_error($db));
 
+    echo "<script type='text/javascript'>alert('after sql statement')</script>";
+
     if ($query) {
 
         echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
