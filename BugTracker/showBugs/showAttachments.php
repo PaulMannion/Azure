@@ -87,7 +87,7 @@
                     <td height="23"></td>
                     <td>
                         <div align="right">
-                            <input type="submit" name="upload" value="Upload!" />
+                            <input type="submit" name="submit" value="Upload!" />
                         </div>
                     </td>
                 </tr>
