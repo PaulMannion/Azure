@@ -70,10 +70,16 @@
 				} else {
 					echo "<td>$bugFix</td>";
 				}
-				if ($bugFixed == 0) {
+
+				// if a bug is not fixed and the current user matches bug owner's username then offer to 'Flag as Fixed'
+
+				if (($bugFixed == 0) and ($login_user == $userName)){
+					echo "<td>Flag to fix</td>";
+				}
+				else if ($bugFixed == 0) {  // This bug belongs to someone else and is not fixed so display "No"
 					echo "<td>No</td>";
-				} else {
-					echo "<td>Yes</td>";
+				}else{
+					echo "<td>Yes</td>";  // The bug must be fixed so display "Yes"
 				}
 
 				// if user in table is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
