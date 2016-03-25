@@ -33,7 +33,7 @@
 
 
 	?>
-
+	
 	<table id="bugs">
 		<tr>
 			<th>Bug Title</th>
@@ -44,6 +44,7 @@
 			<th>Fixed? (Y or N)</th>
 			<th>Admin Approved?</th>
 			<th>Comments</th>
+			<th>Attachments</th>
 		</tr>
 		<tr>
 
@@ -57,7 +58,8 @@
 				$bugFixed = $row['fixed'];
 				$bugAuth = $row['isFixed'];
 				$userName = $row['username'];
-
+				
+				//display all the bugs
 
 				echo "<TD><a href='/BugTracker/showBugs/showBugs.php?id=$bugID'>".$bugTitle."</a></TD>";
 				echo "<td>$bugDesc</td>";
@@ -73,10 +75,13 @@
 				} else {
 					echo "<td>Yes</td>";
 				}
+
+				// if user in table is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
+				
 				if ($bugAuth == 1) {
 						echo "<td>Approved</td>";
 						} else {
-							if ($login_rights == 1 and $bugFixed == 1) {            // if user is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
+							if ($login_rights == 1 and $bugFixed == 1) {            
 								?>
 
 								<td>
@@ -95,6 +100,9 @@
 	//							echo "<td></td>";
 						}
 
+				
+				// Display the number of comments against each bug as a link to showComments.php
+				
 				if ($results = mysqli_query($db, "SELECT commentID FROM comments WHERE bugID=$bugID")) {
 
 					// determine number of rows result set //
@@ -106,6 +114,18 @@
 					mysqli_free_result($results);
 				}
 
+				// Display the number of attachments against each bug as a link to showAttachments.php
+				
+				if ($results = mysqli_query($db, "SELECT attachmentID FROM attachments WHERE bugID=$bugID")) {
+
+					// determine number of rows result set //
+					$row_cnt = mysqli_num_rows($results);
+
+					echo "<td><a href='/BugTracker/showBugs/showAttachments.php?id=$bugID.&title=$bugTitle'>".$row_cnt."</a></TD>";
+
+					// close result set //
+					mysqli_free_result($results);
+				}
 
 				echo "</tr>\n";
 			}
@@ -114,8 +134,11 @@
 		</tr>
 
 	</table>
-
+	
+	
 	<?php
+	
+	// Admin Users Section: Only Display if current user is flagged as an admin
 
 	if ($login_rights == 1) {
 
@@ -147,11 +170,16 @@
 				$userJoin = $row['joined'];
 				$userAdm = $row['admin'];
 				$userAuth = $row['approved'];
+				
+				// Display all the users
 
 				echo "<TD><a href='/BugTracker/admin/users.php?id=$userID'>".$userName."</a></TD>";
 				echo "<td>$userMail</td>";
 				echo "<td>$userPhone</td>";
 				echo "<td>$userJoin</td>";
+				
+				//If user in the table is an admin, display 'Remove Admin' button else display 'Make Admin' button.
+				 
 				if ($userAdm == 1) {
 					?>
 
@@ -174,6 +202,9 @@
 
 					<?php
 				}
+
+				//If user in the table is authorised, display 'Approved' else display 'Approve' button.
+				
 				if ($userAuth == 1) {
 					echo "<td>Approved</td>";
 				} else {

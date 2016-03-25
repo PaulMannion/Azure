@@ -13,7 +13,7 @@
 <body>
 
 <header>
-    <h1>My Bug Tracker Website</h1>
+    <h1>Is This page Used at al??????????????!!!!!!!!!!!!!!!!</h1>
     <h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
     <nav>
         <ul>
