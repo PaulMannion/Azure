@@ -8,7 +8,8 @@
 <head>
 <meta charset="utf-8">
 <title>Home</title>
-<link rel="stylesheet" href="style.css" type="text/css" />
+	<link type="text/css" rel="stylesheet" href="assets/css/custom.css"/>
+<!--	<link rel="stylesheet" href="style.css" type="text/css" /> -->
 </head>
 <body>
 
