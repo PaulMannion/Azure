@@ -25,7 +25,7 @@
     <h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
 
     <div align="left">
-        <form name="form" method="POST" action="logout.php">
+        <form name="form" method="POST" action="BugTracker/login/index.php">
             <input type="submit" value="Logout">
         </form>
         <form name="form" method="POST" action="/BugTracker/login/loggedin.php">
