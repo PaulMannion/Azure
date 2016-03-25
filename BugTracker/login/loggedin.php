@@ -61,7 +61,7 @@
 				
 				//display all the bugs
 
-				echo "<TD><$bugTitle</TD>";
+				echo "<TD>$bugTitle</TD>";
 				echo "<td>$bugDesc</td>";
 				echo "<td>$userName</td>";
 				echo "<td>$bugPost</td>";
