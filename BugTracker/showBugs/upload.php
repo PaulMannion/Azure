@@ -1,6 +1,6 @@
 <?php
 $msg = "";
-if(isset($_POST["submit"]))
+if(isset($_POST["upload"]))
 {
     $url = $_POST["url"];
     $bugID = $_POST["bugID"];

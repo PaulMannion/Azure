@@ -1,6 +1,6 @@
 <?php
 $msg = "";
-if(isset($_POST["potato"]))
+if(isset($_POST["submit"]))
 {
     $comDesc = $_POST["comText"];
     $bugID = $_POST["bugID"];
