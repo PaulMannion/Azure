@@ -76,10 +76,10 @@
                 </tr>
                 <tr>
                     <td style="font-weight: bold">
-                        <div align="right"><label for="Paste URL">Comment</label></div>
+                        <div align="right"><label for="url">Paste URL</label></div>
                     </td>
                     <td>
-                        <input name="url" type="text" class="input" size="50" required />
+                        <input name="url" type="text" class="input" size="65" required />
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
                     </td>
                 </tr>
