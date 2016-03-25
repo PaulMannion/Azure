@@ -8,6 +8,7 @@ if(isset($_POST["upload"])) {
        $url = $_POST["url"];
        $bugID = $_POST["bugID"];
        $userID = $_POST["userID"];
+        $bugTitle = $_POST["title"];
 
     //$url = "blah";
     //$bugID = 41;

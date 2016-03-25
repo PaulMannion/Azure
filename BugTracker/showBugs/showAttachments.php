@@ -83,6 +83,7 @@
                         <input name="url" type="text" class="input" size="65" required />
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
                         <input value="<?php echo $userID;?>" type="hidden" name="userID">
+                        <input value="<?php echo $title;?>" type="hidden" name="title">
                     </td>
                 </tr>
                 <tr>
