@@ -29,7 +29,7 @@ include("check.php");
     <?php
     $sql = "SELECT * FROM users";
     $result=mysqli_query($db,$sql);
-    //echo "<script type='text/javascript'>alert('before php!')</script>";
+    echo "<script type='text/javascript'>alert('before php!')</script>";
     ?>
 
     <table id="bugs">
