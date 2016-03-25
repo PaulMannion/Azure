@@ -163,7 +163,7 @@ body
 	padding: 8px;
 }
 
-#bugs td:first-child {
+#bugs td:first-child + td {
 	border: 1px solid #ddd;
 	text-align: left;
 	padding: 8px;
