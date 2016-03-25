@@ -26,7 +26,7 @@ if(isset($_POST["upload"])) {
     if ($query) {
 
 
-        header("location: /BugTracker/showBugs/showAttachments.php"); // Redirecting To Bug Display Page
+        header("location: BugTracker/showBugs/showComments.php?id=$bugID.&title=$bugTitle'"); // Redirecting To Bug Display Page
     } else {
 
         echo "<script type='text/javascript'>alert('Something went wrong :-(')</script>";
