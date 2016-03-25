@@ -169,6 +169,12 @@ body
 	padding: 8px;
 }
 
+#bugs td:nth-child(2) {
+	border: 1px solid #ddd;
+	text-align: left;
+	padding: 8px;
+}
+
 #bugs tr:nth-child(even){
 	text-align: left;
 	background-color: #f2f2f2
