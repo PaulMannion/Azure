@@ -90,7 +90,7 @@
                     <td height="23"></td>
                     <td>
                         <div align="right">
-                            <input type="potato" name="potato" value="Comment!" />
+                            <input type="submit" name="potato" value="Comment!" />
                         </div>
                     </td>
                 </tr>
