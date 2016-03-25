@@ -7,7 +7,7 @@ if(isset($_POST["upload"]))
     $bugID = $_POST["bugID"];
     $userID = $_POST["userID"];
 
-    $url = mysqli_real_escape_string($db, $url);
+    //$url = mysqli_real_escape_string($db, $url);
 
     echo "<p>The bugID is: $bugID</p>";
     echo "<p>The userID is: $userID</p>";
