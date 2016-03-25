@@ -24,7 +24,7 @@
 <header>
     <h1>A Bug Tracker Website</h1>
 
-    <nav>
+    <nav align="center">
         <ul>
             <li><a href="index.html">Home Page</a></li>
             <li><a href="login/index.php">Login</a></li>
@@ -34,9 +34,6 @@
 </header>
 
 <main>
-    <h2>Welcome to my Bug Tracker!</h2>
-    <p>This website is used to keep track of all of my bugs</p>
-
 
 <div class="loginBox">
     <h3>Login Form</h3>
@@ -54,7 +51,7 @@
 </main>
 
 <footer>
-    <p>(c) 2016 1506100 Paul Mannion</p>
+    <p align="center">(c) 2016 1506100 Paul Mannion</p>
 </footer>
 
 </body>
