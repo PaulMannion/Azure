@@ -24,11 +24,6 @@
 <header>
     <h1>A Bug Tracker Website</h1>
 
-    <nav align="center">
-            <li><a href="index.html">Home Page</a></li>
-            <li><a href="login/index.php">Login</a></li>
-            <li><a href="registration/register.php">Register</a></li>
-    </nav>
 </header>
 
 <main>
@@ -41,7 +36,8 @@
         <input type="text" name="username" placeholder="username" /><br><br>
         <label>Password:</label><br>
         <input type="password" name="password" placeholder="password" />  <br><br>
-        <input type="submit" name="submit" value="Login" /> 
+        <input type="submit" name="submit" value="Login" />
+        <br><label><a href="registration/register.php">Register</a></label><br>
     </form>
     <div class="error"><?php echo $error;?></div>
 </div>
