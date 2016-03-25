@@ -8,11 +8,7 @@ if(isset($_POST["upload"])) {
        $url = $_POST["url"];
        $bugID = $_POST["bugID"];
        $userID = $_POST["userID"];
-        $bugTitle = $_POST["title"];
 
-    //$url = "blah";
-    //$bugID = 41;
-    //$userID = 21;
 
     //$url = mysqli_real_escape_string($db, $url);
 
@@ -27,7 +23,7 @@ if(isset($_POST["upload"])) {
     if ($query) {
 
 
-        header("location: BugTracker/showBugs/showComments.php?id=$bugID.&title=$bugTitle"); // Redirecting To Bug Display Page
+        header("location: BugTracker/showBugs/showComments.php"); // Redirecting To Bug Display Page
     } else {
 
         echo "<script type='text/javascript'>alert('Something went wrong :-(')</script>";
