@@ -80,17 +80,8 @@
                     </td>
                     <td>
                         <input type="file" name="fileToUpload" id="fileToUpload">
-                        <input type="submit" value="Upload Image" name="submit">
+                        <input type="submit" value="Upload File" name="submit">
                     </td>
-                </tr>
-                <tr>
-                    <td height="23"></td>
-                    <td>
-                        <div align="right">
-                            <input type="submit" name="Upload File" value="Upload!" />
-                        </div>
-                    </td>
-                </tr>
             </table>
         </fieldset>
     </form>
