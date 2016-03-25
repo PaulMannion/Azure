@@ -1,194 +1,42 @@
-h1 {
-	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-	font-size: 50px;
-	line-height: 65px;
-}
-
-p {
-	font-family: 'Vollkorn', Georgia, Times, serif;
-	font-size: 16px;
-	line-height: 25px;
-}
-
-body {
-	background: url(/BugTracker/img/confectionary.png) repeat 0 0;
-}
-.loginBox
-{
-	width:300px;
-	height:380px;
-	border:3px solid #63C;
-	border-radius:10px;	
-	padding: 10px 40px 25px;
-}
-.loginBox h3
-{
-	background-color:#63C;
-	color:#FFF;
-	text-align:center;
-	padding:15px;
-	border-radius: 10px 10px 0 0;
-	margin: -10px -40px;
-	border-bottom:1px solid #999;
-	font-family: 'Vollkorn', Georgia, Times, serif;
-	font-size:24px;
-	font-weight:bold;
-}
-input[type=text],input[type=password]
-{
-	width:280px;
-	padding:10px;
-	font-family: 'Vollkorn', Georgia, Times, serif;
-	font-size:20px;
-	margin-top:10px;
-}
 label
 {
-	font-size:20px;
 	font-family: 'Vollkorn', Georgia, Times, serif;
+	font-size:20px;
+	font-weight:bold;
+}
+.input
+{
+	padding:5px;
+	font-family: 'Vollkorn', Georgia, Times, serif;
+	font-size:18px;
 }
 input[type=submit]
 {
-	background-color: #63C;
-	width:150px;
-	border:0;
 	padding:5px;
-	color:#FFF;
 	font-family: 'Vollkorn', Georgia, Times, serif;
-	font-size:15px;
-	border-radius:5px;
-	margin-top:5px;
+	font-size:18px;
 	font-weight:bold;
-
+	background:#999;
+	border:2px solid black;
+	color:#FFF;
+}
+fieldset
+{
+	width: 500px;
+}
+fieldset legend
+{
+	padding:2px;
+	font-family: 'Vollkorn', Georgia, Times, serif;
+	font-size:14px;
+	font-weight:bold;
+	background:#999;
+	border:2px solid black;
+	color:#FFF;
 }
 .error
 {
 	color:red;
-	margin-top:10px;
-	font-size:18px;
-	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-}
-.hello
-{
-	font-size:36px;
-	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-}
-body
-{
-	margin: 0;
-	padding: 0;
-	background-color:#D6F5F5;
-}
-.top-bar
-{
-	width:100%;
-	height:70px;
-	background-color:#fff;
-	border-bottom: 2px solid #000;
-	margin-bottom: 40px;
-}
-
-.left {
-	float: left;
-	text-align: right;
-	line-height:50px;
-	margin-top: 10px;
-	margin-left:40px;
-	display: inline
-}
-.right {
-	float: right;
-	text-align: left;
-	margin-top: 10px;
-	line-height:50px;
-	margin-right:40px;
-	display: inline
-}
-
-.link
-{
-	font-size: 18px;
-	text-decoration: none;
-	background-color: #000;
-	color: #FFF;
-	padding: 5px;
-}
-.link:hover
-{
-	background-color: #9688B2;
-}
-.inputBox
-{
-	padding:10px;
 	font-family: 'Vollkorn', Georgia, Times, serif;
-}
-.button
-{
-	padding:10px;
-	width:100px;
-	border:0;
-	background-color:#06F;
-	font-size:20px;
-	color:#FFF;
-}
-
-#buttonForm {
-	background-color: #4CAF50; /* Green */
-	border: none;
-	color: white;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	border-radius: 12px;
-	webkit-transition-duration: 0.4s; /* Safari */
-	transition-duration: 0.4s;
-}
-
-#buttonForm:hover {
-	background-color: #4CAF50; /* Green */
-	color: white;
-}
-
- #bugs {
-	 font-family: 'Vollkorn', Georgia, Times, serif;
-	 border-collapse: collapse;
-	 width: 100%;
- }
-
-#bugs td, #bugs th {
-	border: 1px solid #ddd;
-	text-align: center;
-	padding: 8px;
-}
-
-#bugs td:nth-child(1) {
-	border: 1px solid #ddd;
-	text-align: left;
-	padding: 8px;
-}
-
-#bugs td:nth-child(2) {
-	border: 1px solid #ddd;
-	text-align: left;
-	padding: 8px;
-}
-
-#bugs tr:nth-child(even){
-	text-align: left;
-	background-color: #f2f2f2
-}
-
-#bugs tr:hover {
-	background-color: #ddd;
-
-}
-
-#bugs th {
-	text-align: center;
-	padding-top: 12px;
-	padding-bottom: 12px;
-	background-color: #4CAF50;
-	color: white;
+	font-size:16px;
 }
