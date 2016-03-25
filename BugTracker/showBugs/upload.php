@@ -1,5 +1,8 @@
 <?php
 
+include("connection.php");
+include("check.php");
+
 $msg = "";
 if(isset($_POST["upload"])) {
        $url = $_POST["url"];

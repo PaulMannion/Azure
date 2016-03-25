@@ -1,4 +1,7 @@
 <?php
+include("connection.php");
+include("check.php");
+
 
 $msg = "";
 if(isset($_POST["submit"]))
