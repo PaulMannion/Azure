@@ -1,5 +1,6 @@
 <?php
 	include("check.php");
+    include("connection.php");
 
 $msg = "";
 if(isset($_POST["submit"]))
@@ -14,7 +15,7 @@ if(isset($_POST["submit"]))
        
         if($query)
         {
-            $msg = "Thank You! Bug Submitted!";
+            header("Location: /BugTracker/login/loggedin.php");
         }
 
 

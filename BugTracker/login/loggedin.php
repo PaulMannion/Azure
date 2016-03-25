@@ -26,7 +26,7 @@
 	</form>
 </div>
 
-	<form method="post" action="loggedin.php">
+	<form method="post" action="/BugTracker/addBugReport/submit.php">
 		<fieldset>
 			<legend align="right">Submit A Bug Report</legend>
 			<table width="400" border="0" cellpadding="10" cellspacing="10" align="center">
