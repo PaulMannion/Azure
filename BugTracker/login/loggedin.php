@@ -24,13 +24,18 @@
 			<li><a href="/BugTracker/addBugReport/newbug.php">Submit New Bug Report</a></li>
 		</ul>
 	</nav>
-
-	<form name="form" method="POST" action="/BugTracker/showBugs/flagFixed.php">
-		<input value="<?php echo $bugID;?>" type="hidden" name="id">
-		<input value="<?php echo $bugTitle;?>" type="hidden" name="title">
-		<input type="submit" value="Flag as Fixed">
+<div align="left">
+	<form name="form" method="POST" action="logout.php">
+		<input type="submit" value="Logout"style="background-color:#0066FF!important">
 	</form>
-	
+</div>
+
+	<div align="right">
+		<form name="form" method="POST" action="/BugTracker/addBugReport/newbug.php">
+		<input type="submit" value="Submit Bug Report"style="background-color:#0066FF!important">
+		</form>
+	</div>
+
 </header>
 
 <main>
