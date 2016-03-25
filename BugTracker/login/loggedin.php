@@ -84,13 +84,15 @@
 							<input type="submit" value="Flag as Fixed">
 						</form></td>
 					
-					<?php $bugFixed == 1;
+					<?php
 				}
 				else if ($bugFixed == 0) {  // This bug belongs to someone else and is not fixed so display "No"
 					echo "<td>No</td>";
-				}else{
-					echo "<td>Yes</td>";  // The bug must be fixed so display "Yes"
 				}
+				else
+					{
+					echo "<td>Yes</td>";  // The bug must be fixed so display "Yes"
+					}
 
 				// if user in table is an admin and bug is fixed but not approved, display 'Approve' button. Else display nothing
 				
@@ -105,7 +107,7 @@
 										<input value="<?php echo $bugID; ?>" type="hidden" name="id">
 										<input value="<?php echo $bugTitle; ?>" type="hidden" name="title">
 										<input value="<?php echo $userName; ?>" type="hidden" name="name">
-										<input type="submit" value="Approve Fix">
+										<input type="submit" value="Approve Fix"style="background-color:#0066FF!important">
 									</form>
 								</td>
 
