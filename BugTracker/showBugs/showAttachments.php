@@ -5,6 +5,7 @@
 
     $id=$_GET['id'];            // Get the $bugID
     $title=$_GET['title'];      // Get the $bugtitle
+    $userID=$login_userID;      // Get the logged in user's ID
 
 ?>
 
@@ -81,6 +82,8 @@
                     <td>
                         <input name="url" type="text" class="input" size="65" required />
                         <input value="<?php echo $id;?>" type="hidden" name="bugID">
+                        <input value="<?php echo $userID;?>" type="hidden" name="userID">
+                        <input value="url" type="hidden" name="url">
                     </td>
                 </tr>
                 <tr>
