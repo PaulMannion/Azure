@@ -1,6 +1,7 @@
 <?php
     include("connection.php");
     include("check.php");
+    include("upload.php");
 
     $id=$_GET['id'];            // Get the $bugID
     $title=$_GET['title'];      // Get the $bugtitle
