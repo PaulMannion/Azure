@@ -25,11 +25,11 @@ if(isset($_POST["upload"])) {
 
     if ($query) {
 
-        echo "<script type='text/javascript'>alert('Attachment Successfully Uploaded')</script>";
-        header("location: /BugTracker/login/loggedin.php"); // Redirecting To Bug Display Page
+
+        header("location: /BugTracker/showBugs/showAttachments.php"); // Redirecting To Bug Display Page
     } else {
 
-        echo "<script type='text/javascript'>alert('We ended up here :-(')</script>";
+        echo "<script type='text/javascript'>alert('Something went wrong :-(')</script>";
         $msg = "Sorry...Something Terrible has Happened...";
     }
 }
