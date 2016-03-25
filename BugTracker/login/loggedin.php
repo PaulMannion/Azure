@@ -14,7 +14,9 @@
 <body>
 
 <header>
+	<div align="center">
 	<h1>My Bug Tracker Website</h1>
+	</div>
 	<h1 class="hello">Hello, <em><?php echo $login_user;?>!</em></h1>
 	<nav>
 		<ul>
@@ -22,6 +24,13 @@
 			<li><a href="/BugTracker/addBugReport/newbug.php">Submit New Bug Report</a></li>
 		</ul>
 	</nav>
+
+	<form name="form" method="POST" action="/BugTracker/showBugs/flagFixed.php">
+		<input value="<?php echo $bugID;?>" type="hidden" name="id">
+		<input value="<?php echo $bugTitle;?>" type="hidden" name="title">
+		<input type="submit" value="Flag as Fixed">
+	</form>
+	
 </header>
 
 <main>
