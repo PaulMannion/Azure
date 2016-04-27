@@ -76,9 +76,37 @@ error_reporting(E_ALL);
 			$account_locked = false;
 
 			// Check the database (Check user information)
-			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
+            // Create a prepared statement //
+
+            $stmt =  $mysqli->stmt_init();
+            if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
+
+                /* bind parameters for markers */
+                $stmt->bind_param("s", $user);
+
+                /* execute query */
+                $stmt->execute();
+
+                /* bind variables to prepared statement */
+                $stmt->bind_result($failed_login, $last_login);
+
+                /* fetch values */
+                while ($stmt->fetch()) {
+                    printf("%s %s\n", $failed_login, $last_login);
+                }
+
+                /* close statement */
+                $stmt->close();
+            }
+
+
+
+
+
+/*
+            $data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
 			var_dump($data);
-			$data->bindParam(':user', $user, PDO::PARAM_STR);  //PDO is a pain in the arse
+			$data->bind_Param(':user', $user, PDO::PARAM_STR);  //PDO is a pain in the arse
 			$data->execute();
 			$row = $data->fetch();
 			echo "<p><em>Warning</em>: WE got as far fetching data.</p>";
@@ -148,4 +176,5 @@ error_reporting(E_ALL);
 		// Generate Anti-CSRF token
 		//generateSessionToken();
 	}
+*/
 ?>
