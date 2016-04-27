@@ -76,7 +76,7 @@ error_reporting(E_ALL);
 			$account_locked = false;
 			echo "<p><em>Warning</em>: WE got as far start of db</p>";
 			// Check the database (Check user information)
-			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;');
+			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE user = :user LIMIT 1;');
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
 			$data->execute();
 			$row = $data->fetch();
