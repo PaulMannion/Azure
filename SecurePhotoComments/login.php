@@ -76,9 +76,8 @@ error_reporting(E_ALL);
 			$account_locked = false;
 
 			// Check the database (Check user information)
-			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;');
-			echo "<p><em>Warning</em>: WE got as far as bindparam</p>";
-			var_dump($db);
+			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
+			var_dump($data);
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
 			$data->execute();
 			$row = $data->fetch();
