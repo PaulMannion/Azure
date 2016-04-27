@@ -142,15 +142,15 @@ error_reporting(E_ALL);
 */
 			// Check the database (if username matches the password)
 
-            $stmt = $db->prepare("SELECT failed_login, last_login FROM users where username=? AND password=?");
-            $stmt->bind_param('ii', intval($_GET['username']), intval($_GET['password']));
-            $stmt->execute();
+            $query = $db->prepare("SELECT * FROM users where username=? AND password=?");
+            $query -> bind_param("ss", $user, $pass);
 
-      //      $stmt->store_result();
-      //      $stmt->bind_result($failed_login, $last_login);
+            if($query->execute() == true) {
 
-            while($stmt->fetch() && ($account_locked == false))
-            {
+                $query->bind_result($result);
+                $query -> fetch();
+
+            if(($query->execute() == true) && ($account_locked == false)) {
                 // Login successful
                 $_SESSION['username'] = $user; // Initializing Session
                 header("location: photos.php"); // Redirecting To Other Page
@@ -161,14 +161,36 @@ error_reporting(E_ALL);
                     echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                 }
 
+                // Reset bad login count
+                $data = $db->prepare('UPDATE users SET failed_login = "0" WHERE username=?');
+                $data->bindParam("ss", $user);
+                $data->execute();
+
+            } else{
+                // Login failed
+                sleep(rand(2, 4));
+
+                // Give the user some feedback
+                $error = "<pre><br />Username and/or password incorrect.<br /><br/>Alternative, the account has been locked because of too many failed logins.<br />If this is the case, <em>please try again in {$lockout_time} minutes</em>.</pre>";
+
+                // Update bad login count
+                $data = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
+                $data->bind_Param("ss", $user);
+                $data->execute();
+            }
+
+                // Set the last login time
+                $data = $db->prepare('UPDATE users SET last_login = now() WHERE username=?');
+                $data->bindParam("ss", $user);
+                $data->execute();
             }
 
             $stmt->close();
+        }
 
+    }
 
-
-
-			$data = $db->prepare('SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;');
+/*			$data = $db->prepare('SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;');
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
 			$data->bindParam(':password', $pass, PDO::PARAM_STR);
 			$data->execute();
@@ -217,4 +239,5 @@ error_reporting(E_ALL);
 		// Generate Anti-CSRF token
 		//generateSessionToken();
 	}
+*/
 ?>
