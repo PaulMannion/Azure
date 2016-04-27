@@ -17,7 +17,7 @@
 
 <body>
 <div class="main">
-<h1 style="font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size:32px;">Welcome to Photo Commenter</h1>
+<h1 style="font-family:Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', serif; font-size:32px;">Welcome to Photo Commenter (now includes Security!)</h1>
     <div class="formbox">
         <h3>Login Form</h3>
         <br><br>
