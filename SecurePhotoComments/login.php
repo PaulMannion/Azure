@@ -58,12 +58,12 @@
 			// Sanitise username input
 			$user = $_POST['username'];
 			$user = stripslashes($user);
-			$user = mysqli_real_escape_string($user);
+			$user = mysqli_real_escape_string($db,$user);
 
 			// Sanitise password input
 			$pass = $_POST['password'];
 			$pass = stripslashes($pass);
-			$pass = mysqli_real_escape_string($pass);
+			$pass = mysqli_real_escape_string($db,$pass);
 			$pass = md5($pass);
 
 			// Default values
