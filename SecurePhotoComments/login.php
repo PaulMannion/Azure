@@ -50,7 +50,7 @@
 
 	if(isset($_POST["submit"])) {
 		if (empty($_POST["username"]) || empty($_POST["password"])) {
-			$error = "Both tomatoes are required.";
+			$error = "Both flanges are required.";
 		} else {
 			// Check Anti-CSRF token
 			//checkToken($_REQUEST['user_token'], $_SESSION['session_token'], 'index.php');
@@ -59,13 +59,13 @@
 			$user = $_POST['username'];
 			$user = stripslashes($user);
 			$user = mysqli_real_escape_string($db,$user);
-
+			echo "<p><em>Warning</em>: WE got as far cleaning u/n.</p>";
 			// Sanitise password input
 			$pass = $_POST['password'];
 			$pass = stripslashes($pass);
 			$pass = mysqli_real_escape_string($db,$pass);
 			$pass = md5($pass);
-
+			echo "<p><em>Warning</em>: WE got as far cleanin pwd</p>";
 			// Default values
 			$total_failed_login = 3;
 			$lockout_time = 15;
