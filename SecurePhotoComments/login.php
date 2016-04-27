@@ -41,6 +41,10 @@
 
 
 <?php
+	//display error
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
 
 	session_start();
 	include("connection.php"); //Establishing connection with our database
@@ -70,7 +74,7 @@
 			$total_failed_login = 3;
 			$lockout_time = 15;
 			$account_locked = false;
-
+			echo "<p><em>Warning</em>: WE got as far start of db</p>";
 			// Check the database (Check user information)
 			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;');
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
