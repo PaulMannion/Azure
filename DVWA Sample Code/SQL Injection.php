@@ -54,8 +54,8 @@ if( isset( $_SESSION [ 'id' ] ) ) {
     $i   = 0;
     while( $i < $num ) {
         // Get values 
-        $first = mysql_result( $result, $i, "first_name" );
-        $last  = mysql_result( $result, $i, "last_name" );
+        $first = mysqli_result( $result, $i, "first_name" );
+        $last  = mysqli_result( $result, $i, "last_name" );
 
         // Feedback for end user 
         echo "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";
@@ -76,19 +76,19 @@ if( isset( $_SESSION [ 'id' ] ) ) {
 if( isset( $_POST[ 'Submit' ] ) ) {
     // Get input 
     $id = $_POST[ 'id' ];
-    $id = mysql_real_escape_string( $id );
+    $id = mysqli_real_escape_string( $id );
 
     // Check database 
     $query  = "SELECT first_name, last_name FROM users WHERE user_id = $id;";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     // Get results 
     $num = mysql_numrows( $result );
     $i   = 0;
     while( $i < $num ) {
         // Display values 
-        $first = mysql_result( $result, $i, "first_name" );
-        $last  = mysql_result( $result, $i, "last_name" );
+        $first = mysqli_result( $result, $i, "first_name" );
+        $last  = mysqli_result( $result, $i, "last_name" );
 
         // Feedback for end user 
         echo "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";
@@ -112,15 +112,15 @@ if( isset( $_REQUEST[ 'Submit' ] ) ) {
 
     // Check database 
     $query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     // Get results 
-    $num = mysql_numrows( $result );
+    $num = mysqli_numrows( $result );
     $i   = 0;
     while( $i < $num ) {
         // Get values 
-        $first = mysql_result( $result, $i, "first_name" );
-        $last  = mysql_result( $result, $i, "last_name" );
+        $first = mysqli_result( $result, $i, "first_name" );
+        $last  = mysqli_result( $result, $i, "last_name" );
 
         // Feedback for end user 
         echo "<pre>ID: {$id}<br />First name: {$first}<br />Surname: {$last}</pre>";
@@ -129,7 +129,7 @@ if( isset( $_REQUEST[ 'Submit' ] ) ) {
         $i++;
     }
 
-    mysql_close();
+    mysqli_close();
 }
 
 ?> 

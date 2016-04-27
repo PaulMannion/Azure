@@ -12,12 +12,12 @@ if( isset( $_POST[ 'Login' ] ) ) {
     // Sanitise username input
     $user = $_POST[ 'username' ];
     $user = stripslashes( $user );
-    $user = mysql_real_escape_string( $user );
+    $user = mysqli_real_escape_string( $user );
 
     // Sanitise password input
     $pass = $_POST[ 'password' ];
     $pass = stripslashes( $pass );
-    $pass = mysql_real_escape_string( $pass );
+    $pass = mysqli_real_escape_string( $pass );
     $pass = md5( $pass );
 
     // Default values
@@ -111,21 +111,21 @@ if( isset( $_GET[ 'Login' ] ) ) {
     // Sanitise username input
     $user = $_GET[ 'username' ];
     $user = stripslashes( $user );
-    $user = mysql_real_escape_string( $user );
+    $user = mysqli_real_escape_string( $user );
 
     // Sanitise password input
     $pass = $_GET[ 'password' ];
     $pass = stripslashes( $pass );
-    $pass = mysql_real_escape_string( $pass );
+    $pass = mysqli_real_escape_string( $pass );
     $pass = md5( $pass );
 
     // Check database
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     if( $result && mysql_num_rows( $result ) == 1 ) {
         // Get users details
-        $avatar = mysql_result( $result, 0, "avatar" );
+        $avatar = mysqli_result( $result, 0, "avatar" );
 
         // Login successful
         echo "<p>Welcome to the password protected area {$user}</p>";
@@ -152,20 +152,20 @@ generateSessionToken();
 if( isset( $_GET[ 'Login' ] ) ) {
     // Sanitise username input
     $user = $_GET[ 'username' ];
-    $user = mysql_real_escape_string( $user );
+    $user = mysqli_real_escape_string( $user );
 
     // Sanitise password input
     $pass = $_GET[ 'password' ];
-    $pass = mysql_real_escape_string( $pass );
+    $pass = mysqli_real_escape_string( $pass );
     $pass = md5( $pass );
 
     // Check the database
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     if( $result && mysql_num_rows( $result ) == 1 ) {
         // Get users details
-        $avatar = mysql_result( $result, 0, "avatar" );
+        $avatar = mysqli_result( $result, 0, "avatar" );
 
         // Login successful
         echo "<p>Welcome to the password protected area {$user}</p>";
@@ -196,11 +196,11 @@ if( isset( $_GET[ 'Login' ] ) ) {
 
     // Check the database
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     if( $result && mysql_num_rows( $result ) == 1 ) {
         // Get users details
-        $avatar = mysql_result( $result, 0, "avatar" );
+        $avatar = mysqli_result( $result, 0, "avatar" );
 
         // Login successful
         echo "<p>Welcome to the password protected area {$user}</p>";

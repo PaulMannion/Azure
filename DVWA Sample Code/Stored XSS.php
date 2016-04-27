@@ -15,12 +15,12 @@ if( isset( $_POST[ 'btnSign' ] ) ) {
 
     // Sanitize message input 
     $message = stripslashes( $message );
-    $message = mysql_real_escape_string( $message );
+    $message = mysqli_real_escape_string( $message );
     $message = htmlspecialchars( $message );
 
     // Sanitize name input 
     $name = stripslashes( $name );
-    $name = mysql_real_escape_string( $name );
+    $name = mysqli_real_escape_string( $name );
     $name = htmlspecialchars( $name );
 
     // Update database 
@@ -46,12 +46,12 @@ if( isset( $_POST[ 'btnSign' ] ) ) {
 
     // Sanitize message input 
     $message = strip_tags( addslashes( $message ) );
-    $message = mysql_real_escape_string( $message );
+    $message = mysqli_real_escape_string( $message );
     $message = htmlspecialchars( $message );
 
     // Sanitize name input 
     $name = preg_replace( '/<(.*)s(.*)c(.*)r(.*)i(.*)p(.*)t/i', '', $name );
-    $name = mysql_real_escape_string( $name );
+    $name = mysqli_real_escape_string( $name );
 
     // Update database 
     $query  = "INSERT INTO guestbook ( comment, name ) VALUES ( '$message', '$name' );";
@@ -73,16 +73,16 @@ if( isset( $_POST[ 'btnSign' ] ) ) {
 
     // Sanitize message input 
     $message = strip_tags( addslashes( $message ) );
-    $message = mysql_real_escape_string( $message );
+    $message = mysqli_real_escape_string( $message );
     $message = htmlspecialchars( $message );
 
     // Sanitize name input 
     $name = str_replace( '<script>', '', $name );
-    $name = mysql_real_escape_string( $name );
+    $name = mysqli_real_escape_string( $name );
 
     // Update database 
     $query  = "INSERT INTO guestbook ( comment, name ) VALUES ( '$message', '$name' );";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     //mysql_close(); 
 }
@@ -100,14 +100,14 @@ if( isset( $_POST[ 'btnSign' ] ) ) {
 
     // Sanitize message input 
     $message = stripslashes( $message );
-    $message = mysql_real_escape_string( $message );
+    $message = mysqli_real_escape_string( $message );
 
     // Sanitize name input 
-    $name = mysql_real_escape_string( $name );
+    $name = mysqli_real_escape_string( $name );
 
     // Update database 
     $query  = "INSERT INTO guestbook ( comment, name ) VALUES ( '$message', '$name' );";
-    $result = mysql_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
+    $result = mysqli_query( $query ) or die( '<pre>' . mysql_error() . '</pre>' );
 
     //mysql_close(); 
 }
