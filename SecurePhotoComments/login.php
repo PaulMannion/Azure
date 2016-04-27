@@ -78,12 +78,12 @@ error_reporting(E_ALL);
 			// Check the database (Check user information)
 			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
 			var_dump($data);
-			$data->bindParam(':user', $user, PDO::PARAM_STR);
+			$data->bindParam(':user', $user, PDO::PARAM_STR);  //PDO is a pain in the arse
 			$data->execute();
 			$row = $data->fetch();
 			echo "<p><em>Warning</em>: WE got as far fetching data.</p>";
 			// Check to see if the user has been locked out.
-			if (($data->rowCount() == 1) && ($row['failed_login'] >= $total_failed_login)) {
+			if (($data->rowCount() == 1) && ($row['failed_login'] >= $total_failed_login)) {   // no rowcount method in mysql - fix connection.php as per lecture slides creating stored proc
 				// User locked out.  Note, using this method would allow for user enumeration!
 				//echo "<pre><br />This account has been locked due to too many incorrect logins.</pre>";
 
