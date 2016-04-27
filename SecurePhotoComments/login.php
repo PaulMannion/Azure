@@ -42,7 +42,19 @@
 
 <?php
 
-if( isset( $_POST[ 'Login' ] ) ) {
+	session_start();
+	include("connection.php"); //Establishing connection with our database
+
+	$error = ""; //Variable for storing our errors.
+
+
+	if(isset($_POST["submit"]))
+	{
+		if(empty($_POST["username"]) || empty($_POST["password"]))
+		{
+			$error = "Both fields are required.";
+		}else
+		{
 	// Check Anti-CSRF token
 	checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
 
@@ -118,7 +130,7 @@ if( isset( $_POST[ 'Login' ] ) ) {
 		sleep( rand( 2, 4 ) );
 
 		// Give the user some feedback
-		echo "<pre><br />Username and/or password incorrect.<br /><br/>Alternative, the account has been locked because of too many failed logins.<br />If this is the case, <em>please try again in {$lockout_time} minutes</em>.</pre>";
+		$error = "<pre><br />Username and/or password incorrect.<br /><br/>Alternative, the account has been locked because of too many failed logins.<br />If this is the case, <em>please try again in {$lockout_time} minutes</em>.</pre>";
 
 		// Update bad login count
 		$data = $db->prepare( 'UPDATE users SET failed_login = (failed_login + 1) WHERE user = (:user) LIMIT 1;' );
