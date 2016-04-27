@@ -53,7 +53,7 @@
 			$error = "Both fields are required.";
 		} else {
 			// Check Anti-CSRF token
-			checkToken($_REQUEST['user_token'], $_SESSION['session_token'], 'index.php');
+			//checkToken($_REQUEST['user_token'], $_SESSION['session_token'], 'index.php');
 
 			// Sanitise username input
 			$user = $_POST['username'];
@@ -141,6 +141,6 @@
 		}
 
 		// Generate Anti-CSRF token
-		generateSessionToken();
+		//generateSessionToken();
 	}
 ?>
