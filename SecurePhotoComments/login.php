@@ -54,7 +54,7 @@ error_reporting(E_ALL);
 
 	if(isset($_POST["submit"])) {
 		if (empty($_POST["username"]) || empty($_POST["password"])) {
-			$error = "Both flanges are required.";
+			$error = "Both sheep are required.";
 		} else {
 			// Check Anti-CSRF token
 			//checkToken($_REQUEST['user_token'], $_SESSION['session_token'], 'index.php');
@@ -63,20 +63,21 @@ error_reporting(E_ALL);
 			$user = $_POST['username'];
 			$user = stripslashes($user);
 			$user = mysqli_real_escape_string($db,$user);
-			echo "<p><em>Warning</em>: WE got as far cleaning u/n.</p>";
+
 			// Sanitise password input
 			$pass = $_POST['password'];
 			$pass = stripslashes($pass);
 			$pass = mysqli_real_escape_string($db,$pass);
 			$pass = md5($pass);
-			echo "<p><em>Warning</em>: WE got as far cleanin pwd</p>";
+
 			// Default values
 			$total_failed_login = 3;
 			$lockout_time = 15;
 			$account_locked = false;
-			echo "<p><em>Warning</em>: WE got as far start of db</p>";
+
 			// Check the database (Check user information)
-			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE user = :user LIMIT 1;');
+			$data = $db->prepare('SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;');
+			echo "<p><em>Warning</em>: WE got as far as bindparam</p>";
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
 			$data->execute();
 			$row = $data->fetch();
