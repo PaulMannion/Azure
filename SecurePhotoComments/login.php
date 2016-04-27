@@ -76,7 +76,7 @@
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
 			$data->execute();
 			$row = $data->fetch();
-
+			echo "<p><em>Warning</em>: WE got as far fetching data.</p>";
 			// Check to see if the user has been locked out.
 			if (($data->rowCount() == 1) && ($row['failed_login'] >= $total_failed_login)) {
 				// User locked out.  Note, using this method would allow for user enumeration!
