@@ -50,7 +50,7 @@
 
 	if(isset($_POST["submit"])) {
 		if (empty($_POST["username"]) || empty($_POST["password"])) {
-			$error = "Both sheep are required.";
+			$error = "Both tomatoes are required.";
 		} else {
 			// Check Anti-CSRF token
 			//checkToken($_REQUEST['user_token'], $_SESSION['session_token'], 'index.php');
