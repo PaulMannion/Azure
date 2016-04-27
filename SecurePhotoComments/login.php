@@ -141,6 +141,33 @@ error_reporting(E_ALL);
 			}
 */
 			// Check the database (if username matches the password)
+
+            $stmt = $db->prepare("SELECT failed_login, last_login FROM users where username=? AND password=?");
+            $stmt->bind_param('ii', intval($_GET['username']), intval($_GET['password']));
+            $stmt->execute();
+
+      //      $stmt->store_result();
+      //      $stmt->bind_result($failed_login, $last_login);
+
+            while($stmt->fetch() && ($account_locked == false))
+            {
+                // Login successful
+                $_SESSION['username'] = $user; // Initializing Session
+                header("location: photos.php"); // Redirecting To Other Page
+
+                // Had the account been locked out since last login?
+                if ($failed_login >= $total_failed_login) {
+                    echo "<p><em>Warning</em>: Someone might of been brute forcing your account.</p>";
+                    echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                }
+
+            }
+
+            $stmt->close();
+
+
+
+
 			$data = $db->prepare('SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;');
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
 			$data->bindParam(':password', $pass, PDO::PARAM_STR);
