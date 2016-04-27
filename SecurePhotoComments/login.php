@@ -164,7 +164,7 @@ error_reporting(E_ALL);
 
                         // Reset bad login count
                         $data = $db->prepare('UPDATE users SET failed_login = "0" WHERE username=?');
-                        $data->bindParam("ss", $user);
+                        $data->bind_Param('ss', $user);
                         $data->execute();
                     } else {
                         // Login failed
@@ -175,17 +175,17 @@ error_reporting(E_ALL);
 
                         // Update bad login count
                         $data = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
-                        $data->bind_Param("ss", $user);
+                        $data->bind_Param('ss', $user);
                         $data->execute();
                     }
 
                     // Set the last login time
                     $data = $db->prepare('UPDATE users SET last_login = now() WHERE username=?');
-                    $data->bindParam("ss", $user);
+                    $data->bind_Param('ss', $user);
                     $data->execute();
                 }
 
-                $stmt->close();
+                $query->close();
             }
             $db->close();
         }
