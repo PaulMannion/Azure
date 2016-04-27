@@ -95,6 +95,21 @@ error_reporting(E_ALL);
                     printf("%s %s\n", $failed_login, $last_login);
                 }
 
+                // Check if user has had max number of login attempts
+
+                if ($failed_login >= $total_failed_login){
+                    // User is locked out
+                    echo "<pre><br />This account has been locked due to too many incorrect logins.</pre>";
+
+                    // Calculate when the user would be allowed to login again
+                    $last_login = strtotime($last_login);
+                    $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
+                    $timenow = strtotime("now");
+
+                    // Check to see if enough time has passed, if it hasn't locked the account
+                    if ($timenow > $timeout)
+                        $account_locked = true;
+                }
                 /* close statement */
                 $stmt->close();
             }
@@ -102,10 +117,10 @@ error_reporting(E_ALL);
 
             echo "<p><em>Warning</em>: Success!.</p>";
 
-
+/*
             $data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
 			var_dump($data);
-	//		$data->bind_Param(':user', $user, PDO::PARAM_STR);  //PDO is a pain in the arse
+			$data->bind_Param(':user', $user, PDO::PARAM_STR);  //PDO is a pain in the arse
 			$data->execute();
 			$row = $data->fetch();
 			echo "<p><em>Warning</em>: WE got as far fetching data.</p>";
@@ -124,7 +139,7 @@ error_reporting(E_ALL);
 				if ($timenow > $timeout)
 					$account_locked = true;
 			}
-
+*/
 			// Check the database (if username matches the password)
 			$data = $db->prepare('SELECT * FROM users WHERE user = (:user) AND password = (:password) LIMIT 1;');
 			$data->bindParam(':user', $user, PDO::PARAM_STR);
