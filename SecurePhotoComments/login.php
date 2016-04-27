@@ -145,7 +145,7 @@ error_reporting(E_ALL);
             $query = $db->prepare("SELECT username FROM users where username=? AND password=?");
             $query->bind_param('ss', $user, $pass);
             $query->execute();
-            $query->bind_result($username);
+            $query->bind_result($user);
             $query->store_result();
             if ($query->num_rows == 1) //check a user was found
             {
@@ -153,7 +153,7 @@ error_reporting(E_ALL);
                 {
                     if ($account_locked == false) {
                         // Login successful
-                        $_SESSION['username'] = $username; // Initializing Session
+                        $_SESSION['username'] = $user; // Initializing Session
                         header("location: photos.php"); // Redirecting To Other Page
 
                         // Had the account been locked out since last login?
