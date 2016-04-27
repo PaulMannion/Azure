@@ -142,10 +142,10 @@ error_reporting(E_ALL);
             */
             // Check the database (if username matches the password)
 
-            $query = $db->prepare("SELECT username FROM users where username=? AND password=?");
+            $query = $db->prepare("SELECT username, password, last_login, failed_login FROM users where username=? AND password=?");
             $query->bind_param('ss', $user, $pass);
             $query->execute();
-            $query->bind_result($user);
+            $query->bind_result($username, $password, $last_login, $failed_login);
             $query->store_result();
             if ($query->num_rows == 1) //check a user was found
             {
