@@ -114,6 +114,8 @@ error_reporting(E_ALL);
                     // Check to see if enough time has passed, if it hasn't locked the account
                     if ($timenow > $timeout)
                         $account_locked = true;
+
+                    echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                 }
                 /* close statement */
                 $stmt->close();
