@@ -90,7 +90,7 @@ error_reporting(E_ALL);
             if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
 
                 /* bind parameters for markers */
-                $stmt->bind_param("s", $user);
+                $stmt->bind_param('s', $user);
 
                 /* execute query */
                 $stmt->execute();
@@ -136,7 +136,6 @@ error_reporting(E_ALL);
                     print 'Error : ('. $db->errno .') '. $db->error;
                 }
 
-                var_dump($failed_login);
                 /* close statement */
                 $stmt->close();
             }
@@ -221,7 +220,7 @@ error_reporting(E_ALL);
                     $last_login=$timenow;
                     var_dump($timenow);
                     $query = $db->prepare('UPDATE users SET last_login WHERE username=?');
-                    $query->bind_param('ss', $last_login, $user);
+                    $query->bind_param('is', $last_login, $user);
                     $query->execute();
                 }
 
