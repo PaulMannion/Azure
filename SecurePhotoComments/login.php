@@ -118,10 +118,10 @@ error_reporting(E_ALL);
                     if ($timenow > $timeout)
                         $account_locked = true;
 
-                    echo "<p>(This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                    echo "<p>(timeout={$timeout} timenow= {$timenow} This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                 }
 
-                echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> times but the db needs updating here.</pre>";
+                echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
                 //increase the failed_login count
 
@@ -131,7 +131,7 @@ error_reporting(E_ALL);
                 $stmt->execute();
 
                 if($stmt){
-                    print 'Success! record updated';
+                    print 'Success! failed_login increased by 1';
                 }else{
                     print 'Error : ('. $db->errno .') '. $db->error;
                 }
@@ -226,9 +226,7 @@ error_reporting(E_ALL);
                     }
 
                     // Set the last login time
-                    var_dump($last_login);
-                    $last_login=$timenow;
-                    var_dump($timenow);
+
                     $query = $db->prepare('UPDATE users SET last_login= TIME() WHERE username=?');
                     $query->bind_param('s', $user);
                     $query->execute();
