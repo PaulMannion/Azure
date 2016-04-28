@@ -73,7 +73,9 @@ error_reporting(E_ALL);
 
             echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
-         //   $pass = md5($pass);
+            $pass = md5($pass);
+
+            echo "<p>Has password been hashed? <em>{$pass}</em></p>";
 
             // Default values
             $total_failed_login = 3;
@@ -194,7 +196,15 @@ error_reporting(E_ALL);
 
                 $query->close();
             }
+
+            $error = "<pre><br />Username and/or password incorrect.<br /></pre>";
+            
             $db->close();
+            
+            
+            
+            
+            
         }
 
     }
