@@ -190,9 +190,17 @@ error_reporting(E_ALL);
                         }
 
                         // Reset bad login count
-                        $query = $db->prepare('UPDATE users SET failed_login = "0" WHERE username=?');
+                        $query = $db->prepare('UPDATE users SET failed_login = 0 WHERE username=?');
                         $query->bind_param('s', $user);
                         $query->execute();
+
+                        if($query){
+                            print 'Success! Bad login reset';
+                        }else{
+                            print 'Login Reset Error : ('. $db->errno .') '. $db->error;
+                        }
+
+
                     } else {
                         // Login failed
                         sleep(rand(2, 4));
@@ -206,28 +214,37 @@ error_reporting(E_ALL);
                         var_dump($user);
                         $failed_login=($failed_login + 1); // increase the number of failed login variable
                         var_dump($failed_login);
-                        $query = $db->prepare('UPDATE users SET failed_login = 10 WHERE username=?');
+                        $query = $db->prepare('UPDATE users SET failed_login = failed_login+1 WHERE username=?');
                         $query->bind_param('s', $user);
                         $query->execute();
-                        if ($query->errno) {
-                            echo "FAILURE!!! " . $query->error;
+
+                        if($query){
+                            print 'Success! Failed_login increased by 1 ';
+                        }else{
+                            print 'Login Increase Error : ('. $db->errno .') '. $db->error;
                         }
-                        else echo "Updated {$query->affected_rows} rows";
                     }
 
                     // Set the last login time
                     var_dump($last_login);
                     $last_login=$timenow;
                     var_dump($timenow);
-                    $query = $db->prepare('UPDATE users SET last_login WHERE username=?');
-                    $query->bind_param('is', $last_login, $user);
+                    $query = $db->prepare('UPDATE users SET last_login= TIME() WHERE username=?');
+                    $query->bind_param('s', $user);
                     $query->execute();
+
+
+                    if($query){
+                        print 'Success! last_login time was set ';
+                    }else{
+                        print 'Login_time was not set ;-( Error : ('. $db->errno .') '. $db->error;
+                    }
                 }
 
                 $query->close();
             }
 
-            $error = "Incorrect bananna or password.";
+            $error = "Incorrect username or password.";
             
             $db->close();
             
