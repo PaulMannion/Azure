@@ -172,9 +172,9 @@ error_reporting(E_ALL);
                         }
 
                         // Reset bad login count
-                        $data = $db->prepare('UPDATE users SET failed_login = "0" WHERE username=?');
-                        $data->bind_Param('ss', $user);
-                        $data->execute();
+                        $query = $db->prepare('UPDATE users SET failed_login = "0" WHERE username=?');
+                        $query->bind_param('ss', $user);
+                        $query->execute();
                     } else {
                         // Login failed
                         sleep(rand(2, 4));
@@ -184,15 +184,15 @@ error_reporting(E_ALL);
                         $error = "The account has been locked because of too many failed logins. Please try again in {$lockout_time} minutes";
 
                         // Update bad login count
-                        $data = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
-                        $data->bind_Param('ss', $user);
-                        $data->execute();
+                        $query = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
+                        $query->bind_param('ss', $user);
+                        $query->execute();
                     }
 
                     // Set the last login time
-                    $data = $db->prepare('UPDATE users SET last_login = now() WHERE username=?');
-                    $data->bind_Param('ss', $user);
-                    $data->execute();
+                    $query = $db->prepare('UPDATE users SET last_login = now() WHERE username=?');
+                    $query->bind_param('ss', $user);
+                    $query->execute();
                 }
 
                 $query->close();
