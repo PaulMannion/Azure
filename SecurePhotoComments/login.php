@@ -68,7 +68,7 @@ error_reporting(E_ALL);
             $pass = $_POST['password'];
             $pass = stripslashes($pass);
             $pass = mysqli_real_escape_string($db, $pass);
-            $pass = md5($pass);
+         //   $pass = md5($pass);
 
             // Default values
             $total_failed_login = 3;
@@ -115,7 +115,7 @@ error_reporting(E_ALL);
             }
 
 
-            echo "<p><em>Warning</em>: Success!.</p>";
+            echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
 
             /*
                         $data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
