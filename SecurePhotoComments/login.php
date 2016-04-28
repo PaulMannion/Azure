@@ -124,7 +124,8 @@ error_reporting(E_ALL);
                 echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> times but the db needs updating here.</pre>";
 
                 //increase the failed_login count
-                $stmt = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE user=?');
+
+                $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE user=?');
                 $stmt->bind_param('s', $user);
                 $stmt->execute();
 
