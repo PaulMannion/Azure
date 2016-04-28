@@ -151,6 +151,7 @@ error_reporting(E_ALL);
             */
             // Check the database (if username matches the password)
 
+            $query = $db->stmt_init();
             $query = $db->prepare("SELECT username, password, last_login, failed_login FROM users where username=? AND password=?");
             $query->bind_param('ss', $user, $pass);
             $query->execute();
@@ -184,14 +185,16 @@ error_reporting(E_ALL);
                         $error = "The account has been locked because of too many failed logins. Please try again in {$lockout_time} minutes";
 
                         // Update bad login count
+                        var_dump($failed_login);
+                        var_dump($user);
                         $query = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
-                        $query->bind_param('ss', $user, $failed_login);
+                        $query->bind_param('ss', $failed_login, $user);
                         $query->execute();
                     }
 
                     // Set the last login time
                     $query = $db->prepare('UPDATE users SET last_login = now() WHERE username=?');
-                    $query->bind_param('ss', $user);
+                    $query->bind_param('ss', $failed_login, $user);
                     $query->execute();
                 }
 
