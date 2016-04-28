@@ -180,7 +180,8 @@ error_reporting(E_ALL);
                         sleep(rand(2, 4));
 
                         // Give the user some feedback
-                        $error = "<pre><br />Username and/or password incorrect.<br /><br/>Alternative, the account has been locked because of too many failed logins.<br />If this is the case, <em>please try again in {$lockout_time} minutes</em>.</pre>";
+
+                        $error = "The account has been locked because of too many failed logins. Please try again in {$lockout_time} minutes";
 
                         // Update bad login count
                         $data = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
@@ -197,7 +198,7 @@ error_reporting(E_ALL);
                 $query->close();
             }
 
-            echo "<pre><br />Username and/or password incorrect.<br /></pre>";
+            $error = "Incorrect username or password.";
             
             $db->close();
             
