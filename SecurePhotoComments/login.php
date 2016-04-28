@@ -111,7 +111,8 @@ error_reporting(E_ALL);
 
                     // Calculate when the user would be allowed to login again
                     $last_login = strtotime($last_login);
-                    $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
+                    $timeout = ($last_login + $lockout_time);
+                   // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                     $timenow = strtotime("now");
 
                     var_dump($timeout);
