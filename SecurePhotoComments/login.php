@@ -126,7 +126,7 @@ error_reporting(E_ALL);
                 //increase the failed_login count
 
                 $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE user=?');
-                $stmt->bind_param('s', $user);
+                $stmt->bind_param("s", $user);
                 $stmt->execute();
 
                 if($stmt){
