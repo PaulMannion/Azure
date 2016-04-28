@@ -187,9 +187,15 @@ error_reporting(E_ALL);
                         // Update bad login count
                         var_dump($failed_login);
                         var_dump($user);
-                        $query = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
+                        $failed_login=($failed_login + 1); // increase the number of failed login variable
+                        var_dump($failed_login);
+                        $query = $db->prepare('UPDATE users SET failed_login WHERE username=?');
                         $query->bind_param('ss', $failed_login, $user);
                         $query->execute();
+                        if ($query->errno) {
+                            echo "FAILURE!!! " . $query->error;
+                        }
+                        else echo "Updated {$query->affected_rows} rows";
                     }
 
                     // Set the last login time
