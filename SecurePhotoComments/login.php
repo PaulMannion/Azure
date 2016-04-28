@@ -127,7 +127,7 @@ error_reporting(E_ALL);
 
                 $stmt = $db->stmt_init();
                 $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
-                $stmt->bind_param("s", $user);
+                $stmt->bind_param('s', $user);
                 $stmt->execute();
 
                 if($stmt){
