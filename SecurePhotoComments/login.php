@@ -84,6 +84,7 @@ error_reporting(E_ALL);
 
             // Check the database (Check user information)
             // Create a prepared statement //
+            // The following code only executes if a correct user is entered but wrong password
 
             $stmt = $db->stmt_init();
             if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
@@ -122,6 +123,13 @@ error_reporting(E_ALL);
                 /* close statement */
                 $stmt->close();
                 echo "<pre><br />This part means you are a user who entered an incorrect password but the db needs updating here.</pre>";
+
+                //increase the failed_login count
+                $query = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE user=?');
+                $query->bind_param('s', $user);
+                $query->execute();
+
+                var_dump($failed_login);
             }
 
 
@@ -175,7 +183,7 @@ error_reporting(E_ALL);
 
                         // Reset bad login count
                         $query = $db->prepare('UPDATE users SET failed_login = "0" WHERE username=?');
-                        $query->bind_param('ss', $user);
+                        $query->bind_param('s', $user);
                         $query->execute();
                     } else {
                         // Login failed
@@ -191,7 +199,7 @@ error_reporting(E_ALL);
                         $failed_login=($failed_login + 1); // increase the number of failed login variable
                         var_dump($failed_login);
                         $query = $db->prepare('UPDATE users SET failed_login = 10 WHERE username=?');
-                        $query->bind_param('ss', $user);
+                        $query->bind_param('s', $user);
                         $query->execute();
                         if ($query->errno) {
                             echo "FAILURE!!! " . $query->error;
