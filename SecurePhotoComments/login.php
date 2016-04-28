@@ -185,7 +185,7 @@ error_reporting(E_ALL);
 
                         // Update bad login count
                         $query = $db->prepare('UPDATE users SET failed_login = (failed_login + 1) WHERE username=?');
-                        $query->bind_param('ss', $user);
+                        $query->bind_param('ss', $user, $failed_login);
                         $query->execute();
                     }
 
