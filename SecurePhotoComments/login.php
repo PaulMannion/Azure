@@ -199,8 +199,11 @@ error_reporting(E_ALL);
                     }
 
                     // Set the last login time
-                    $query = $db->prepare('UPDATE users SET last_login = now() WHERE username=?');
-                    $query->bind_param('ss', $failed_login, $user);
+                    var_dump($last_login);
+                    $last_login=$timenow;
+                    var_dump($timenow);
+                    $query = $db->prepare('UPDATE users SET last_login WHERE username=?');
+                    $query->bind_param('ss', $last_login, $user);
                     $query->execute();
                 }
 
