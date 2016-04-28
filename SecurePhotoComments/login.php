@@ -64,10 +64,15 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
+            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+
             // Sanitise password input
             $pass = $_POST['password'];
             $pass = stripslashes($pass);
             $pass = mysqli_real_escape_string($db, $pass);
+
+            echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
+
          //   $pass = md5($pass);
 
             // Default values
