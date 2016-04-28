@@ -189,8 +189,8 @@ error_reporting(E_ALL);
                         var_dump($user);
                         $failed_login=($failed_login + 1); // increase the number of failed login variable
                         var_dump($failed_login);
-                        $query = $db->prepare('UPDATE users SET failed_login WHERE username=?');
-                        $query->bind_param('ss', $failed_login, $user);
+                        $query = $db->prepare('UPDATE users SET failed_login = 10 WHERE username=?');
+                        $query->bind_param('ss', $user);
                         $query->execute();
                         if ($query->errno) {
                             echo "FAILURE!!! " . $query->error;
