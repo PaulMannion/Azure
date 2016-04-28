@@ -84,7 +84,7 @@ error_reporting(E_ALL);
 
             // Check the database (Check user information)
             // Create a prepared statement //
-            // The following code only executes if a correct user is entered but wrong password
+            // The following code only executes if a correct user is entered
 
             $stmt = $db->stmt_init();
             if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
@@ -122,7 +122,8 @@ error_reporting(E_ALL);
                     if ($timenow > $timeout)
                         $account_locked = true;
 
-                    echo "<p>(timeout={$timeout} timenow= {$timenow} This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                    echo "<p>(timeout={$timeout} timenow= {$timenow} This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em> Acount lock status is: {$account_locked} .<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+
                 }
 
                 echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
