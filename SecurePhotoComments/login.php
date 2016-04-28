@@ -210,12 +210,14 @@ error_reporting(E_ALL);
 
 
                     } else {
-                        // Login failed
+                        // Login failed due to account lock
                         sleep(rand(2, 4));
 
                         // Give the user some feedback
 
-                        $error = "The account has been locked because of too many failed logins. Please try again in {$lockout_time} minutes";
+                        var_dump($account_locked);
+
+                        $error = "The account has been locked because of too many failed logins. Please try again in {$timeleft} minutes";
 
                         // Update bad login count
                         var_dump($failed_login);
