@@ -114,6 +114,9 @@ error_reporting(E_ALL);
                     $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                     $timenow = strtotime("now");
 
+                    var_dump($timeout);
+                    var_dump($timenow);
+
                     // Check to see if enough time has passed, if it hasn't locked the account
                     if ($timenow > $timeout)
                         $account_locked = true;
