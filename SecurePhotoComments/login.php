@@ -117,14 +117,15 @@ error_reporting(E_ALL);
                     if ($timenow > $timeout)
                         $account_locked = true;
 
-                    echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                    echo "<p>(This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                 }
                 /* close statement */
                 $stmt->close();
+                echo "<pre><br />This part means you are a user who entered an incorrect password but the db needs updating here.</pre>";
             }
 
 
-            echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+            echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
 
             /*
                         $data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
