@@ -211,7 +211,7 @@ error_reporting(E_ALL);
                 $query->close();
             }
 
-            $error = "Incorrect username or password.";
+            $error = "Incorrect bananna or password.";
             
             $db->close();
             
