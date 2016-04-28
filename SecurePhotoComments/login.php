@@ -197,7 +197,7 @@ error_reporting(E_ALL);
                 $query->close();
             }
 
-            $error = "<pre><br />Username and/or password incorrect.<br /></pre>";
+            echo "<pre><br />Username and/or password incorrect.<br /></pre>";
             
             $db->close();
             
