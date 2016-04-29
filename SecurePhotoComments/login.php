@@ -29,7 +29,7 @@ error_reporting(E_ALL);
             $pass = stripslashes($pass);
             $pass = mysqli_real_escape_string($db, $pass);
 
-            echo "<p>Has passward been cleaned? <em>{$pass}</em></p>";
+            echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
             //   $pass = md5($pass);
 
@@ -107,14 +107,9 @@ error_reporting(E_ALL);
                         $unlock_time = ($timenow + $timeout);
 
 
-                        echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
-                        echo "<p> This is the value of timenow: </p>" . $timenow;
-                        echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
-                        echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
-                        echo "<p> timenow - unlock_time=" . ($timenow-$unlock_time);
-
+                        echo "<p> This is the value of timeout: </p>" . date('D, d M Y H:i:s', $timeout);
+                        echo "<p> You can try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                         echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
-
 
 
 
@@ -134,13 +129,10 @@ error_reporting(E_ALL);
 
                         // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
                         if ($timenow > $unlock_time) {
-                            echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
                             $account_locked = false;
 
                         } else {
                             $account_locked = true;
-                            echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
-
                             echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                             echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
