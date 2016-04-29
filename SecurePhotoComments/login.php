@@ -86,6 +86,9 @@ error_reporting(E_ALL);
 
                     if ($failed_login >= $total_failed_login) {
                         // User is locked out
+
+                        echo "<p>This should only print if failed logins >=3</p>";
+
                         $error = "This account has been locked due to too many incorrect logins.";
 
                         // Calculate when the user would be allowed to login again
@@ -122,8 +125,9 @@ error_reporting(E_ALL);
 
                             //   var_dump($account_locked);
                         }
+                    }else {
+                        echo "<p>wtf!</p>";
                     }
-
                     $error = "Incorrect username or password.";
 
                     echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
