@@ -134,7 +134,7 @@ error_reporting(E_ALL);
                  //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                    if ($timenow < $timeout) {
+                    if ($timenow > $timeout) {
                         $account_locked = false;
 
                     }else {
@@ -151,7 +151,7 @@ error_reporting(E_ALL);
                // echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
                 //increase the failed_login count
-
+/*
                 $stmt = $db->stmt_init();
                 $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
                 $stmt->bind_param('s', $user);
@@ -162,7 +162,7 @@ error_reporting(E_ALL);
                 }else{
                     print 'Error : ('. $db->errno .') '. $db->error;
                 }
-
+*/
                 /* close statement */
                 $stmt->close();
             }
