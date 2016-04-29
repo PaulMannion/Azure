@@ -74,8 +74,7 @@ error_reporting(E_ALL);
                             /* fetch values */
 
 
-                           if ($stmt->fetch())
-                            { // fetch contents of row
+                           if ($stmt->fetch()){ // fetch contents of row
 
 
                                //while ($stmt->fetch()) {
@@ -178,6 +177,7 @@ error_reporting(E_ALL);
                                                                 } else {
                                                                     print 'Error : (' . $db->errno . ') ' . $db->error;
                                                                 }
+                                                         
                                                     }
                              }
 
