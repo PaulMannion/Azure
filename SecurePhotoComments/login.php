@@ -45,7 +45,7 @@ error_reporting(E_ALL);
             // Create a prepared statement //
             // The following code only executes if a correct user is entered
 
-/*            $stmt = $db->stmt_init();
+            $stmt = $db->stmt_init();
             $stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?");
 
             // bind parameters for markers
@@ -74,12 +74,12 @@ error_reporting(E_ALL);
                             // fetch values
 
 
-                           if ($stmt->fetch()){ // fetch contents of row
+ //                          if ($stmt->fetch()){ // fetch contents of row
 
 
-                               //while ($stmt->fetch()) {
-                               //   printf("%s %s\n", $failed_login, $last_login);
-                               // }
+                               while ($stmt->fetch()) {
+                                  printf("%s %s\n", $failed_login, $last_login);
+                                }
 
                                // Check if user has had max number of login attempts
                                //                    echo"<p>failed logins:</p>";
@@ -199,7 +199,7 @@ error_reporting(E_ALL);
 
 
                 // Check the database (if username matches the password)
-*/
+
                 $query = $db->stmt_init();
                 $query = $db->prepare("SELECT username, password, last_login, failed_login FROM users where username=? AND password=?");
                 $query->bind_param('ss', $user, $pass);
