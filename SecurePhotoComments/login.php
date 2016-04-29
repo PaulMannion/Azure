@@ -48,6 +48,9 @@ error_reporting(E_ALL);
             $stmt = $db->stmt_init();
             if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
 
+
+                echo "<p>This should only print if you've entered a correct username</p>";
+
                 /* bind parameters for markers */
                 $stmt->bind_param('s', $user);
 
