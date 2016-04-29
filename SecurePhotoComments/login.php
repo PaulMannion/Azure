@@ -45,13 +45,13 @@ error_reporting(E_ALL);
             // Create a prepared statement //
             // The following code only executes if a correct user is entered
 
-            $stmt = $db->stmt_init();
+/*            $stmt = $db->stmt_init();
             $stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?");
 
-            /* bind parameters for markers */
+            // bind parameters for markers
             $stmt->bind_param('s', $user);
 
-            /* execute query */
+            // execute query
             $stmt->execute();
 
                     if ($stmt)
@@ -62,7 +62,7 @@ error_reporting(E_ALL);
                             }
 
 
-                        /* bind variables to prepared statement */
+                        // bind variables to prepared statement
                         $stmt->bind_result($failed_login, $last_login);
 
                         $stmt->store_result();
@@ -71,7 +71,7 @@ error_reporting(E_ALL);
                         {
 
                             echo "<p>This should only print if you've entered a correct username</p>";
-                            /* fetch values */
+                            // fetch values
 
 
                            if ($stmt->fetch()){ // fetch contents of row
@@ -82,24 +82,24 @@ error_reporting(E_ALL);
                                // }
 
                                // Check if user has had max number of login attempts
-                               /*                    echo"<p>failed logins:</p>";
-                                                   var_dump($failed_login);
-                                                   echo"<p>total_failed_login:</p>";
-                                                   var_dump($total_failed_login);
-                                                   echo"<p>last login:</p>";
-                                                   var_dump($last_login);
-                               */
+                               //                    echo"<p>failed logins:</p>";
+                               //                    var_dump($failed_login);
+                               //                    echo"<p>total_failed_login:</p>";
+                               //                    var_dump($total_failed_login);
+                               //                    echo"<p>last login:</p>";
+                               //                    var_dump($last_login);
+
                                                 if ($failed_login >= $total_failed_login)
                                                 {
                                                     // User is locked out
 
-                                                    /*                       echo"<p>failed logins:</p>";
-                                                                           var_dump($failed_login);
-                                                                           echo"<p>total_failed_login:</p>";
-                                                                           var_dump($total_failed_login);
-                                                                           echo"<p>last login:</p>";
-                                                                           var_dump($last_login);
-                                                   */
+                                                    //                       echo"<p>failed logins:</p>";
+                                                    //                       var_dump($failed_login);
+                                                    //                       echo"<p>total_failed_login:</p>";
+                                                    //                      var_dump($total_failed_login);
+                                                    //                       echo"<p>last login:</p>";
+                                                    //                       var_dump($last_login);
+
                                                     echo "<p>This should only print if failed logins >=3</p>";
 
                                                     $error = "This account has been locked due to too many incorrect logins.";
@@ -177,7 +177,7 @@ error_reporting(E_ALL);
                                                                 } else {
                                                                     print 'Error : (' . $db->errno . ') ' . $db->error;
                                                                 }
-                                                         
+
                                                     }
                              }
 
@@ -188,7 +188,7 @@ error_reporting(E_ALL);
                              {
 
                                 $error = "Incorrect username or password. (both)";
-                                 /* close statement */
+                                 // close statement
                                  $stmt->close();
                              }
 
@@ -199,7 +199,7 @@ error_reporting(E_ALL);
 
 
                 // Check the database (if username matches the password)
-
+*/
                 $query = $db->stmt_init();
                 $query = $db->prepare("SELECT username, password, last_login, failed_login FROM users where username=? AND password=?");
                 $query->bind_param('ss', $user, $pass);
