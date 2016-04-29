@@ -107,7 +107,7 @@ error_reporting(E_ALL);
                         $unlock_time = ($timenow + $timeout);
 
 
-                        echo "<p> This is the value of timeout: </p>" . date('D, d M Y H:i:s', $timeout);
+                        echo "<p> This is the value of timenow: </p>" . date('D, d M Y H:i:s', $timenow);
                         echo "<p> You can try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                         echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
@@ -129,10 +129,13 @@ error_reporting(E_ALL);
 
                         // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
                         if ($timenow > $unlock_time) {
+                            echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
                             $account_locked = false;
 
                         } else {
                             $account_locked = true;
+                            echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
+
                             echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                             echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
