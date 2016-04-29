@@ -73,7 +73,7 @@ error_reporting(E_ALL);
                     echo "<p>This should only print if you've entered a correct username</p>";
                     /* fetch values */
                                  while ($stmt->fetch()) {
-                                      printf("%s %s\n", $failed_login, $last_login, $try_login);
+                                      printf("%s %s %s\n", $failed_login, $last_login, $try_login);
                                   }
 
                     // Check if user has had max number of login attempts
