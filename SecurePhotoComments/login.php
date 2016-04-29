@@ -107,9 +107,14 @@ error_reporting(E_ALL);
                         $unlock_time = ($timenow + $timeout);
 
 
-                        echo "<p> This is the value of timenow: </p>" . date('D, d M Y H:i:s', $timenow);
-                        echo "<p> You can try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                        echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
+                        echo "<p> This is the value of timenow: </p>" . $timenow;
+                        echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
+                        echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
+                        echo "<p> timenow - unlock_time=" . ($timenow-$unlock_time);
+
                         echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+
 
 
 
