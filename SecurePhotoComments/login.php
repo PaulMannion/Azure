@@ -78,7 +78,7 @@ error_reporting(E_ALL);
          //   echo "<p>Has password been hashed? <em>{$pass}</em></p>";
 
             // Default values
-            date_default_timezone_set('GMT');
+            date_default_timezone_set('Europe/London');
             $total_failed_login = 3;
             $lockout_time = 15;
             $account_locked = false;
@@ -163,7 +163,7 @@ error_reporting(E_ALL);
             }
 
 
-            echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: </em>.</p>";
+            echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: {$last_login}</em>.</p>";
 
             /*
                         $data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
@@ -243,7 +243,7 @@ error_reporting(E_ALL);
                         $query->execute();
 
                         if($query){
-                            print 'Success! Failed_login increased by 1 ';
+                            print 'Success! Failed_login increased by 1 (due to account lock)';
                         }else{
                             print 'Login Increase Error : ('. $db->errno .') '. $db->error;
                         }
