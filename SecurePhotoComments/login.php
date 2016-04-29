@@ -71,6 +71,10 @@ error_reporting(E_ALL);
                     //              }
 
                     // Check if user has had max number of login attempts
+                    echo"failed logins:";
+                    var_dump($failed_login)
+                        echo"total_failed_login";
+                    var_dump($total_failed_login);
 
                     if ($failed_login >= $total_failed_login) {
                         // User is locked out
@@ -112,7 +116,7 @@ error_reporting(E_ALL);
                         }
                     }
 
-                    $error = "Incorrect username or password.";
+                    $error = "Incorrect sheep or password.";
 
                     echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
