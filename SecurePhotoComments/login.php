@@ -133,14 +133,17 @@ error_reporting(E_ALL);
                     echo "<p>unlock_time var dump: </p>";
                     echo "<p> Account will be available after: </p>".date('D, d M Y H:i:s', $unlock_time);
 
-                    // Check to see if enough time has passed, if it hasn't locked the account
-                    if ($timenow > $timeout)
-                    $account_locked = true;
-                    echo "<p> Account will be available after: </p>".date('D, d M Y H:i:s', $unlock_time);
-                    echo "<p> Last successful login: </p>".date('D, d M Y H:i:s', $last_login);
+                    // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
+                    if ($timenow > $timeout) {
+                        $account_locked = false;
 
-                 //   var_dump($account_locked);
+                    }else {
+                        $account_locked = true;
+                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
+                        //   var_dump($account_locked);
+                    }
                 }
 
                 echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
