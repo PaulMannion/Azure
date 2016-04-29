@@ -46,7 +46,7 @@ error_reporting(E_ALL);
             // The following code only executes if a correct user is entered
 
             $stmt = $db->stmt_init();
-            if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
+            if ($stmt->prepare("SELECT failed_login, last_login try_login FROM users WHERE username =?")) {
 
                 /* bind parameters for markers */
                 $stmt->bind_param('s', $user);
@@ -73,7 +73,7 @@ error_reporting(E_ALL);
                     echo "<p>This should only print if you've entered a correct username</p>";
                     /* fetch values */
                                  while ($stmt->fetch()) {
-                                      printf("%s %s\n", $failed_login, $last_login);
+                                      printf("%s %s\n", $failed_login, $last_login, $try_login);
                                   }
 
                     // Check if user has had max number of login attempts
@@ -100,8 +100,9 @@ error_reporting(E_ALL);
 
                         // Calculate when the user would be allowed to login again
                         $last_login = strtotime($last_login);
+                        $try_login = strtotime($try_login);
                         // $timeout = ($last_login + $lockout_time);
-                        $timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
+                        $timeout = strtotime("+{$lockout_time} minutes", strtotime($try_login));
                         // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                         $timenow = strtotime("now");
                         $unlock_time = ($timenow + $timeout);
@@ -112,6 +113,7 @@ error_reporting(E_ALL);
                         echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
                         echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
                         echo "<p> timenow - unlock_time=" . ($timenow-$unlock_time);
+                        echo "<p> Last attempted login (try_login): </p>" . date('D, d M Y H:i:s', $try_login);
 
                         echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
@@ -133,7 +135,7 @@ error_reporting(E_ALL);
                         //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                         // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                        if ($timenow > $unlock_time) {
+                        if ( $unlock_time > $timenow) {
                             echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
                             $account_locked = false;
 
