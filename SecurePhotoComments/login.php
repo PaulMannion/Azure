@@ -76,8 +76,8 @@ error_reporting(E_ALL);
                             /* fetch values */
 
 
-                           while ($stmt->fetch())
-                           { // fetch contents of row
+                           if ($stmt->fetch())
+                            { // fetch contents of row
 
 
                                //while ($stmt->fetch()) {
@@ -142,19 +142,19 @@ error_reporting(E_ALL);
 
                                                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
 
-                                                    if ($unlock_time > $timenow) {
-                                                        echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
-                                                        $account_locked = false;
+                                                            if ($unlock_time > $timenow) {
+                                                                echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
+                                                                $account_locked = false;
 
-                                                    } else {
-                                                        $account_locked = true;
-                                                        echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
+                                                            } else {
+                                                                $account_locked = true;
+                                                                echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
 
-                                                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+                                                                echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                                                                echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
-                                                        //   var_dump($account_locked);
-                                                    }
+                                                                //   var_dump($account_locked);
+                                                            }
 
                                                 } else {
                                                     echo "<p>wtf!</p>";
@@ -177,6 +177,7 @@ error_reporting(E_ALL);
                                                     }
                                                 }
                              }
+                            
                         } else
                              {
 
