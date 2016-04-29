@@ -49,7 +49,7 @@ error_reporting(E_ALL);
             if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
 
 
-                echo "<p>This should only print if you've entered a correct username</p>";
+
 
                 /* bind parameters for markers */
                 $stmt->bind_param('s', $user);
@@ -64,7 +64,7 @@ error_reporting(E_ALL);
                 if ($stmt->num_rows == 1) //check a user was found
                 {
 
-
+                    echo "<p>This should only print if you've entered a correct username</p>";
                     /* fetch values */
                     //              while ($stmt->fetch()) {
                     //                  printf("%s %s\n", $failed_login, $last_login);
