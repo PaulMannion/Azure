@@ -119,11 +119,11 @@ error_reporting(E_ALL);
                     $unlock_time = ($timenow+$timeout);
 
 
-                    $last_login = new DateTime(date('h:i:s'));
+                 //   $last_login = new DateTime(date('h:i:s'));
 
-                    echo $last_login->format('h:i:s');
-                    $last_login->modify('+15 minutes');
-                    echo $last_login->format('h:i:s');
+                 //   echo $last_login->format('h:i:s');
+                //    $last_login->modify('+15 minutes');
+                 //   echo $last_login->format('h:i:s');
 
                     echo "<p>timeout var dump: </p>";
                     var_dump($timeout);
