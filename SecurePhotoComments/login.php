@@ -124,12 +124,15 @@ error_reporting(E_ALL);
                     $last_login->modify('+15 minutes');
                     echo $last_login->format('h:i:s');
 
+                    echo "<p>timeout var dump: </p>";
                     var_dump($timeout);
+                    echo "<p>timenow var dump: </p>";
                     var_dump($timenow);
+                    echo "<p>unlock_time var dump: </p>";
                     var_dump($unlock_time);
 
                     // Check to see if enough time has passed, if it hasn't locked the account
-                    if ($timenow > $timeout)
+                    if ($timenow < $timeout)
                     $account_locked = true;
                     echo date('i:s', $unlock_time);
                  //   var_dump($account_locked);
