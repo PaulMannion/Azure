@@ -87,13 +87,13 @@ error_reporting(E_ALL);
                     if ($failed_login >= $total_failed_login) {
                         // User is locked out
 
-                        echo"<p>failed logins:</p>";
+ /*                       echo"<p>failed logins:</p>";
                         var_dump($failed_login);
                         echo"<p>total_failed_login:</p>";
                         var_dump($total_failed_login);
                         echo"<p>last login:</p>";
                         var_dump($last_login);
-
+*/
                         echo "<p>This should only print if failed logins >=3</p>";
 
                         $error = "This account has been locked due to too many incorrect logins.";
@@ -128,7 +128,7 @@ error_reporting(E_ALL);
                         //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                         // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                        if ($timeout > $timenow) {
+                        if ($timeout > $unlock_time) {
                             $account_locked = false;
 
                         } else {
