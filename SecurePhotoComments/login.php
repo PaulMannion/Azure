@@ -45,11 +45,8 @@ error_reporting(E_ALL);
             // Create a prepared statement //
             // The following code only executes if a correct user is entered
 
-            $stmt = $db->stmt_init();
+ //           $stmt = $db->stmt_init();
             if ($stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?")) {
-
-
-
 
                 /* bind parameters for markers */
                 $stmt->bind_param('s', $user);
@@ -71,9 +68,9 @@ error_reporting(E_ALL);
                     //              }
 
                     // Check if user has had max number of login attempts
-                    echo"failed logins:";
+                    echo"<p>failed logins:</p>";
                     var_dump($failed_login);
-                        echo"total_failed_login";
+                        echo"<p>total_failed_login</p>";
                     var_dump($total_failed_login);
 
                     if ($failed_login >= $total_failed_login) {
@@ -155,6 +152,9 @@ error_reporting(E_ALL);
                 $query->store_result();
                 if ($query->num_rows == 1) //check a user was found
                 {
+
+                    echo "<p>This should only print if you've entered a correct username AND password</p>";
+
                     if ($query->fetch()) // fetch contents of row
                     {
                         if ($account_locked == false) {
