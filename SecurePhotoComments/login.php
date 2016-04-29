@@ -76,7 +76,6 @@ error_reporting(E_ALL);
 
  //                          if ($stmt->fetch()){ // fetch contents of row
 
-
                                while ($stmt->fetch()) {
                                   printf("%s %s\n", $failed_login, $last_login);
                                 }
@@ -181,7 +180,7 @@ error_reporting(E_ALL);
                                                     }
                              }
 
-                        }
+
 
                         else
 
