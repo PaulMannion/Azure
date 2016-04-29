@@ -111,7 +111,7 @@ error_reporting(E_ALL);
                     echo "<pre><br />This account has been locked due to too many incorrect logins.</pre>";
 
                     // Calculate when the user would be allowed to login again
-                    $last_login = strtotime($last_login);
+                  //  $last_login = strtotime($last_login);
                    // $timeout = ($last_login + $lockout_time);
                     $timeout = strtotime("+15 minutes", strtotime($last_login));
                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
@@ -230,7 +230,7 @@ error_reporting(E_ALL);
 
                         var_dump($account_locked);
 
-                        $error = "The account has been locked because of too many failed logins. Please try again in {$timeleft} minutes";
+                        $error = "The account has been locked because of too many failed logins. Please try again in X minutes";
 
                         // Update bad login count
                         var_dump($failed_login);
