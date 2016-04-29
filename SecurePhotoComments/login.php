@@ -58,9 +58,9 @@ error_reporting(E_ALL);
                 $stmt->bind_result($failed_login, $last_login);
 
                 /* fetch values */
-                while ($stmt->fetch()) {
-                    printf("%s %s\n", $failed_login, $last_login);
-                }
+  //              while ($stmt->fetch()) {
+  //                  printf("%s %s\n", $failed_login, $last_login);
+  //              }
 
                 // Check if user has had max number of login attempts
 
