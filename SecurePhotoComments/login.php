@@ -99,7 +99,7 @@ error_reporting(E_ALL);
                         $error = "This account has been locked due to too many incorrect logins.";
 
                         // Calculate when the user would be allowed to login again
-                        $last_login = strtotime($last_login);
+ //                       $last_login = strtotime($last_login);
                         // $timeout = ($last_login + $lockout_time);
                         $timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                         // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
@@ -108,7 +108,7 @@ error_reporting(E_ALL);
 
 
 
-                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                        echo "<p> You can try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                         echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
 
@@ -128,7 +128,7 @@ error_reporting(E_ALL);
                         //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                         // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                        if ($timenow > $timeout) {
+                        if ($timeout > $timenow) {
                             $account_locked = false;
 
                         } else {
