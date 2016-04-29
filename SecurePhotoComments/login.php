@@ -248,18 +248,22 @@ error_reporting(E_ALL);
                         }
                     }
 
-                    // Set the last login time
+                    // Set the last login time (only if the account is no longer locked)
 
-                    $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
-                    $query->bind_param('s', $user);
-                    $query->execute();
+                    if ($account_locked == false) {
+                        $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
+                        $query->bind_param('s', $user);
+                        $query->execute();
 
 
-                    if($query){
-                        print 'Success! last_login time was set ';
-                    }else{
-                        print 'Login_time was not set ;-( Error : ('. $db->errno .') '. $db->error;
+                        if ($query) {
+                            print 'Success! last_login time was reset ';
+                        } else {
+                            print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
+                        }
                     }
+
+                    else echo "<p> This should print if the login details were correct but account is still locked</p>";
                 }
 
                 $query->close();
