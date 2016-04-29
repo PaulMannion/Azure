@@ -104,7 +104,7 @@ error_reporting(E_ALL);
                         $timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                         // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                         $timenow = strtotime("now");
-                        $unlock_time = ($timenow + $timeout);
+                        $unlock_time = ($last_login + $timeout);
 
 
 
