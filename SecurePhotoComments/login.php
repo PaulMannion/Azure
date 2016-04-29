@@ -87,6 +87,13 @@ error_reporting(E_ALL);
                     if ($failed_login >= $total_failed_login) {
                         // User is locked out
 
+                        echo"<p>failed logins:</p>";
+                        var_dump($failed_login);
+                        echo"<p>total_failed_login:</p>";
+                        var_dump($total_failed_login);
+                        echo"<p>last login:</p>";
+                        var_dump($last_login);
+                        
                         echo "<p>This should only print if failed logins >=3</p>";
 
                         $error = "This account has been locked due to too many incorrect logins.";
