@@ -106,10 +106,10 @@ error_reporting(E_ALL);
 
                 $error = "Incorrect username or password.";
 
-               // echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+                echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
                 //increase the failed_login count
-/*
+
                 $stmt = $db->stmt_init();
                 $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
                 $stmt->bind_param('s', $user);
@@ -120,38 +120,17 @@ error_reporting(E_ALL);
                 }else{
                     print 'Error : ('. $db->errno .') '. $db->error;
                 }
-*/
+
+
                 /* close statement */
                 $stmt->close();
+            }else {
+
+                $error = "Incorrect username or password. (both)";
             }
-
-            $error = "Incorrect username or password.";
-
           //  echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: {$last_login}</em>.</p>";
 
-            /*
-                        $data = $db->prepare('SELECT failed_login, last_login FROM users WHERE username = (:user) LIMIT 1;');
-                        var_dump($data);
-                        $data->bind_Param(':user', $user, PDO::PARAM_STR);  //PDO is a pain in the arse
-                        $data->execute();
-                        $row = $data->fetch();
-                        echo "<p><em>Warning</em>: WE got as far fetching data.</p>";
-                        // Check to see if the user has been locked out.
-                        if (($data->rowCount() == 1) && ($row['failed_login'] >= $total_failed_login)) {   // no rowcount method in mysql - fix connection.php as per lecture slides creating stored proc
-                            // User locked out.  Note, using this method would allow for user enumeration!
-                            //echo "<pre><br />This account has been locked due to too many incorrect logins.</pre>";
 
-                            // Calculate when the user would be allowed to login again
-                            $last_login = $row['last_login'];
-                            $last_login = strtotime($last_login);
-                            $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
-                            $timenow = strtotime("now");
-
-                            // Check to see if enough time has passed, if it hasn't locked the account
-                            if ($timenow > $timeout)
-                                $account_locked = true;
-                        }
-            */
             // Check the database (if username matches the password)
 
             $query = $db->stmt_init();
@@ -240,7 +219,7 @@ error_reporting(E_ALL);
            // $error = "Incorrect username or password.";
             
             $db->close();
-            
+
         }
 
     }
