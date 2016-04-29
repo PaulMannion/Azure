@@ -55,11 +55,11 @@ error_reporting(E_ALL);
                 /* execute query */
                 $stmt->execute();
 
-                if ($stmt) {
-                    print 'Success! we found a user!';
-                } else {
-                    print 'Error : (' . $db->errno . ') ' . $db->error;
-                }
+                                        if ($stmt) {
+                                            print 'Success! we found a user!';
+                                        } else {
+                                            print 'Error : (' . $db->errno . ') ' . $db->error;
+                                        }
 
 
 
@@ -68,6 +68,7 @@ error_reporting(E_ALL);
                 $stmt->bind_result($failed_login, $last_login);
 
                         $stmt->store_result();
+
                         if ($stmt->num_rows == 1) //check a user was found
                         {
 
@@ -75,11 +76,13 @@ error_reporting(E_ALL);
                             /* fetch values */
 
 
-                            if ($query->fetch()) // fetch contents of row
-                            {
-                                while ($stmt->fetch()) {
-                                    printf("%s %s\n", $failed_login, $last_login);
-                                }
+                           $stmt->fetch(); // fetch contents of row
+
+
+
+                                    //while ($stmt->fetch()) {
+                                     //   printf("%s %s\n", $failed_login, $last_login);
+                                    // }
 
                                 // Check if user has had max number of login attempts
                                 /*                    echo"<p>failed logins:</p>";
@@ -89,100 +92,103 @@ error_reporting(E_ALL);
                                                     echo"<p>last login:</p>";
                                                     var_dump($last_login);
                                 */
-                                if ($failed_login >= $total_failed_login) {
-                                    // User is locked out
+                                                if ($failed_login >= $total_failed_login)
+                                                {
+                                                    // User is locked out
 
-                                    /*                       echo"<p>failed logins:</p>";
-                                                           var_dump($failed_login);
-                                                           echo"<p>total_failed_login:</p>";
-                                                           var_dump($total_failed_login);
-                                                           echo"<p>last login:</p>";
-                                                           var_dump($last_login);
-                                   */
-                                    echo "<p>This should only print if failed logins >=3</p>";
+                                                    /*                       echo"<p>failed logins:</p>";
+                                                                           var_dump($failed_login);
+                                                                           echo"<p>total_failed_login:</p>";
+                                                                           var_dump($total_failed_login);
+                                                                           echo"<p>last login:</p>";
+                                                                           var_dump($last_login);
+                                                   */
+                                                    echo "<p>This should only print if failed logins >=3</p>";
 
-                                    $error = "This account has been locked due to too many incorrect logins.";
+                                                    $error = "This account has been locked due to too many incorrect logins.";
 
-                                    // Calculate when the user would be allowed to login again
-                                    $last_login = strtotime($last_login);
-                                    $try_login = strtotime($try_login);
-                                    // $timeout = ($last_login + $lockout_time);
-                                    $timeout = strtotime("+{$lockout_time} minutes", strtotime($try_login));
-                                    // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
-                                    $timenow = strtotime("now");
-                                    $unlock_time = ($timenow + $timeout);
-
-
-                                    echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
-                                    echo "<p> This is the value of timenow: </p>" . $timenow;
-                                    echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                    echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
-                                    echo "<p> timenow - unlock_time=" . ($timenow - $unlock_time);
-                                    echo "<p> Last attempted login (try_login): </p>" . date('D, d M Y H:i:s', $try_login);
-
-                                    echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+                                                    // Calculate when the user would be allowed to login again
+                                                    $last_login = strtotime($last_login);
+                                                    $try_login = strtotime($try_login);
+                                                    // $timeout = ($last_login + $lockout_time);
+                                                    $timeout = strtotime("+{$lockout_time} minutes", strtotime($try_login));
+                                                    // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
+                                                    $timenow = strtotime("now");
+                                                    $unlock_time = ($timenow + $timeout);
 
 
-                                    //                          $last_login = new DateTime(date('h:i:s'));
+                                                    echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
+                                                    echo "<p> This is the value of timenow: </p>" . $timenow;
+                                                    echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
+                                                    echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
+                                                    echo "<p> timenow - unlock_time=" . ($timenow - $unlock_time);
+                                                    echo "<p> Last attempted login (try_login): </p>" . date('D, d M Y H:i:s', $try_login);
 
-                                    //                       echo $last_login->format('h:i:s');
-                                    //    $last_login->modify('+15 minutes');
-                                    //   echo $last_login->format('h:i:s');
+                                                    echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
-                                    //   echo "<p>timeout var dump: </p>";
-                                    //   var_dump($timeout);
-                                    //   echo "<p> 'Timeout' is: </p>".date('D, d M Y H:i:s', $timeout);
-                                    //   echo "<p>timenow var dump: </p>";
-                                    //   echo "<p> 'timenow' is: </p>".date('D, d M Y H:i:s', $timenow);
-                                    //   echo "<p>unlock_time var dump: </p>";
-                                    //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
-                                    // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                                    if ($unlock_time > $timenow) {
-                                        echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
-                                        $account_locked = false;
+                                                    //                          $last_login = new DateTime(date('h:i:s'));
 
-                                    } else {
-                                        $account_locked = true;
-                                        echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
+                                                    //                       echo $last_login->format('h:i:s');
+                                                    //    $last_login->modify('+15 minutes');
+                                                    //   echo $last_login->format('h:i:s');
 
-                                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+                                                    //   echo "<p>timeout var dump: </p>";
+                                                    //   var_dump($timeout);
+                                                    //   echo "<p> 'Timeout' is: </p>".date('D, d M Y H:i:s', $timeout);
+                                                    //   echo "<p>timenow var dump: </p>";
+                                                    //   echo "<p> 'timenow' is: </p>".date('D, d M Y H:i:s', $timenow);
+                                                    //   echo "<p>unlock_time var dump: </p>";
+                                                    //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
-                                        //   var_dump($account_locked);
-                                    }
+                                                    // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
 
-                                } else {
-                                    echo "<p>wtf!</p>";
+                                                    if ($unlock_time > $timenow) {
+                                                        echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
+                                                        $account_locked = false;
 
-                                    $error = "Incorrect username or password.";
+                                                    } else {
+                                                        $account_locked = true;
+                                                        echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
 
-                                    echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+                                                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                                                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
-                                    //increase the failed_login count
+                                                        //   var_dump($account_locked);
+                                                    }
 
-                                    $stmt = $db->stmt_init();
-                                    $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
-                                    $stmt->bind_param('s', $user);
-                                    $stmt->execute();
+                                                } else
+                                                    {
+                                                            echo "<p>wtf!</p>";
 
-                                    if ($stmt) {
-                                        print 'Success! failed_login increased by 1 due to incorrect user/password';
-                                    } else {
-                                        print 'Error : (' . $db->errno . ') ' . $db->error;
-                                    }
-                                }
+                                                            $error = "Incorrect username or password.";
 
-                                } else {
+                                                            echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+
+                                                            //increase the failed_login count
+
+                                                            $stmt = $db->stmt_init();
+                                                            $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
+                                                            $stmt->bind_param('s', $user);
+                                                            $stmt->execute();
+
+                                                                    if ($stmt) {
+                                                                        print 'Success! failed_login increased by 1 due to incorrect user/password';
+                                                                    } else {
+                                                                        print 'Error : (' . $db->errno . ') ' . $db->error;
+                                                                    }
+                                                    }
+
+                        } else
+                             {
 
                                 $error = "Incorrect username or password. (both)";
+                                 /* close statement */
+                                 $stmt->close();
+                             }
 
-                                /* close statement */
-                                $stmt->close();
-                            }
 
 
-                        }
 
                 //  echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: {$last_login}</em>.</p>";
 
