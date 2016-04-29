@@ -131,10 +131,8 @@ error_reporting(E_ALL);
                     // Check to see if enough time has passed, if it hasn't locked the account
                     if ($timenow > $timeout)
                     $account_locked = true;
-
-                    echo "<p>(timeout={$timeout} timenow= {$timenow} Account unlocked at: This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em> Acount lock status is: {$account_locked} .<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                     echo date('i:s', $unlock_time);
-                    var_dump($account_locked);
+                 //   var_dump($account_locked);
 
                 }
 
