@@ -93,7 +93,7 @@ error_reporting(E_ALL);
                         var_dump($total_failed_login);
                         echo"<p>last login:</p>";
                         var_dump($last_login);
-                        
+
                         echo "<p>This should only print if failed logins >=3</p>";
 
                         $error = "This account has been locked due to too many incorrect logins.";
@@ -107,9 +107,14 @@ error_reporting(E_ALL);
                         $unlock_time = ($timenow + $timeout);
 
 
-                           $last_login = new DateTime(date('h:i:s'));
 
-                        echo $last_login->format('h:i:s');
+                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+
+
+
+ //                          $last_login = new DateTime(date('h:i:s'));
+
+ //                       echo $last_login->format('h:i:s');
                         //    $last_login->modify('+15 minutes');
                         //   echo $last_login->format('h:i:s');
 
@@ -134,24 +139,24 @@ error_reporting(E_ALL);
                         }
                     }else {
                         echo "<p>wtf!</p>";
+
+                        $error = "Incorrect username or password.";
+
+                        echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+
+                        //increase the failed_login count
+
+                        $stmt = $db->stmt_init();
+                        $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
+                        $stmt->bind_param('s', $user);
+                        $stmt->execute();
+
+                        if ($stmt) {
+                            print 'Success! failed_login increased by 1 due to incorrect user/password';
+                        } else {
+                            print 'Error : (' . $db->errno . ') ' . $db->error;
+                        }
                     }
-                    $error = "Incorrect username or password.";
-
-                    echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
-
-                    //increase the failed_login count
-
-                    $stmt = $db->stmt_init();
-                    $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
-                    $stmt->bind_param('s', $user);
-                    $stmt->execute();
-
-                    if ($stmt) {
-                        print 'Success! failed_login increased by 1 due to incorrect user/password';
-                    } else {
-                        print 'Error : (' . $db->errno . ') ' . $db->error;
-                    }
-
                 } else {
 
                     $error = "Incorrect username or password. (both)";
