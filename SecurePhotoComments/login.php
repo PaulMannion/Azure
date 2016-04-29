@@ -60,8 +60,8 @@ error_reporting(E_ALL);
                 /* bind variables to prepared statement */
                 $stmt->bind_result($failed_login, $last_login);
 
-                $query->store_result();
-                if ($query->num_rows == 1) //check a user was found
+                $stmt->store_result();
+                if ($stmt->num_rows == 1) //check a user was found
                 {
 
 
