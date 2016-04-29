@@ -136,8 +136,7 @@ error_reporting(E_ALL);
                     if ($timenow < $timeout)
                     $account_locked = true;
                     echo "<p> Account will be available after: </p>".date('D, d M Y H:i:s', $unlock_time);
-                    echo "<p> Last successful login: </p>";
-                    echo $last_login->format('D, d M Y H:i:s');
+                    echo "<p> Last successful login: </p>".date('D, d M Y H:i:s', $last_login);
 
                  //   var_dump($account_locked);
 
