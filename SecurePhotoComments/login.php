@@ -184,11 +184,6 @@ error_reporting(E_ALL);
                                 echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                             }
 
-                            // Login successful
-                            $_SESSION['username'] = $user; // Initializing Session
-                            header("location: photos.php"); // Redirecting To Other Page
-
-
                             // Reset bad login count
                             $query = $db->prepare('UPDATE users SET failed_login = 0 WHERE username=?');
                             $query->bind_param('s', $user);
@@ -199,6 +194,10 @@ error_reporting(E_ALL);
                             } else {
                                 print 'Login Reset Error : (' . $db->errno . ') ' . $db->error;
                             }
+
+                            // Login successful
+                            $_SESSION['username'] = $user; // Initializing Session
+                            header("location: photos.php"); // Redirecting To Other Page
 
 
                         } else {
