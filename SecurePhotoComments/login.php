@@ -49,7 +49,7 @@ error_reporting(E_ALL);
 	session_start();
 	include("connection.php"); //Establishing connection with our database
 
-	$error = ""; //Variable for storing our errors.
+	//$error = ""; //Variable for storing our errors.
 
 
 	if(isset($_POST["submit"])) {
@@ -244,6 +244,7 @@ error_reporting(E_ALL);
                         // Update bad login count
 
                         $failed_login=($failed_login + 1); // increase the number of failed login variable
+                        echo "<br>";
                         var_dump($failed_login);
                         $query = $db->prepare('UPDATE users SET failed_login = failed_login+1 WHERE username=?');
                         $query->bind_param('s', $user);
@@ -275,6 +276,7 @@ error_reporting(E_ALL);
                 }
 
                 $query->close();
+                header("location: login.php"); // Redirecting To Other Page
             }
 
            // $error = "Incorrect username or password.";
