@@ -78,6 +78,7 @@ error_reporting(E_ALL);
          //   echo "<p>Has password been hashed? <em>{$pass}</em></p>";
 
             // Default values
+            date_default_timezone_set('GMT');
             $total_failed_login = 3;
             $lockout_time = 15;
             $account_locked = false;
