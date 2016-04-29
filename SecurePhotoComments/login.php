@@ -184,6 +184,7 @@ error_reporting(E_ALL);
                     print 'Error : (' . $db->errno . ') ' . $db->error;
                 }
 
+                echo "<p> Is account locked?: </p>" . ($account_locked);
 
                 $query->bind_result($username, $password, $last_login, $failed_login);
                 $query->store_result();
