@@ -76,19 +76,19 @@ error_reporting(E_ALL);
 
 
                             if ($query->fetch()) // fetch contents of row
+                            {
+                                while ($stmt->fetch()) {
+                                    printf("%s %s\n", $failed_login, $last_login);
+                                }
 
-                                         while ($stmt->fetch()) {
-                                              printf("%s %s\n", $failed_login, $last_login);
-                                          }
-
-                            // Check if user has had max number of login attempts
-        /*                    echo"<p>failed logins:</p>";
-                            var_dump($failed_login);
-                            echo"<p>total_failed_login:</p>";
-                            var_dump($total_failed_login);
-                            echo"<p>last login:</p>";
-                            var_dump($last_login);
-        */
+                                // Check if user has had max number of login attempts
+                                /*                    echo"<p>failed logins:</p>";
+                                                    var_dump($failed_login);
+                                                    echo"<p>total_failed_login:</p>";
+                                                    var_dump($total_failed_login);
+                                                    echo"<p>last login:</p>";
+                                                    var_dump($last_login);
+                                */
                                 if ($failed_login >= $total_failed_login) {
                                     // User is locked out
 
@@ -138,50 +138,51 @@ error_reporting(E_ALL);
                                     //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                                            if ($unlock_time > $timenow) {
-                                             echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
-                                             $account_locked = false;
+                                    if ($unlock_time > $timenow) {
+                                        echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
+                                        $account_locked = false;
 
-                                            } else {
-                                                     $account_locked = true;
-                                                        echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
+                                    } else {
+                                        $account_locked = true;
+                                        echo "<p> trying to lock -> Is it locked?: </p>" . ($account_locked);
 
-                                                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+                                        echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                                        echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
                                         //   var_dump($account_locked);
-                                                    }
+                                    }
 
-                                }else {
-                                        echo "<p>wtf!</p>";
+                                } else {
+                                    echo "<p>wtf!</p>";
 
-                                $error = "Incorrect username or password.";
+                                    $error = "Incorrect username or password.";
 
-                                echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+                                    echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
-                                //increase the failed_login count
+                                    //increase the failed_login count
 
-                                $stmt = $db->stmt_init();
-                                $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
-                                $stmt->bind_param('s', $user);
-                                $stmt->execute();
+                                    $stmt = $db->stmt_init();
+                                    $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
+                                    $stmt->bind_param('s', $user);
+                                    $stmt->execute();
 
-                                        if ($stmt) {
-                                            print 'Success! failed_login increased by 1 due to incorrect user/password';
-                                                    } else {
-                                            print 'Error : (' . $db->errno . ') ' . $db->error;
-                                        }
+                                    if ($stmt) {
+                                        print 'Success! failed_login increased by 1 due to incorrect user/password';
+                                    } else {
+                                        print 'Error : (' . $db->errno . ') ' . $db->error;
+                                    }
                                 }
 
-                        } else
-                                {
+                                } else {
 
-                                    $error = "Incorrect username or password. (both)";
+                                $error = "Incorrect username or password. (both)";
 
-                                    /* close statement */
-                                    $stmt->close();
-                                }
+                                /* close statement */
+                                $stmt->close();
+                            }
 
+
+                        }
 
                 //  echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: {$last_login}</em>.</p>";
 
@@ -194,11 +195,11 @@ error_reporting(E_ALL);
                 $query->execute();
 
 
-                if ($query) {
-                    print 'Success! we found a user matching those details';
-                } else {
-                    print 'Error : (' . $db->errno . ') ' . $db->error;
-                }
+                                    if ($query) {
+                                        print 'Success! we found a user matching those details';
+                                    } else {
+                                        print 'Error : (' . $db->errno . ') ' . $db->error;
+                                    }
 
                 echo "<p> Is account locked?: </p>" . ($account_locked);
 
@@ -225,11 +226,11 @@ error_reporting(E_ALL);
                             $query->bind_param('s', $user);
                             $query->execute();
 
-                            if ($query) {
-                                print 'Success! Bad login reset';
-                            } else {
-                                print 'Login Reset Error : (' . $db->errno . ') ' . $db->error;
-                            }
+                                    if ($query) {
+                                        print 'Success! Bad login reset';
+                                    } else {
+                                        print 'Login Reset Error : (' . $db->errno . ') ' . $db->error;
+                                    }
 
                             // Login successful
                             $_SESSION['username'] = $user; // Initializing Session
@@ -253,27 +254,32 @@ error_reporting(E_ALL);
                             $query->bind_param('s', $user);
                             $query->execute();
 
-                            if ($query) {
-                                print 'Success! Failed_login increased by 1 (due to account lock)';
-                            } else {
-                                print 'Login Increase Error : (' . $db->errno . ') ' . $db->error;
-                            }
+                                    if ($query) {
+                                        print 'Success! Failed_login increased by 1 (due to account lock)';
+                                    } else {
+                                        print 'Login Increase Error : (' . $db->errno . ') ' . $db->error;
+                                    }
                         }
 
                         // Set the last login time (only if the account is no longer locked)
 
-                        if ($account_locked == false) {
-                            $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
-                            $query->bind_param('s', $user);
-                            $query->execute();
+                            if ($account_locked == false) {
+                                $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
+                                $query->bind_param('s', $user);
+                                $query->execute();
 
 
-                            if ($query) {
-                                print 'Success! last_login time was reset ';
-                            } else {
-                                print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
-                            }
-                        } else echo "<p> This should print if the login details were correct but account is still locked</p>";
+                                            if ($query)
+                                            {
+                                                print 'Success! last_login time was reset ';
+                                            } else
+                                            {
+                                            print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
+                                            }
+                                } else
+                                    {
+                                    echo "<p> This should print if the login details were correct but account is still locked</p>";
+                                    }
                     }
 
                     $query->close();
