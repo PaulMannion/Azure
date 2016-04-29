@@ -134,7 +134,7 @@ error_reporting(E_ALL);
                     // Check to see if enough time has passed, if it hasn't locked the account
                     if ($timenow < $timeout)
                     $account_locked = true;
-                    echo date('i:s', $unlock_time);
+                    echo date('D, d M Y H:i:s', $unlock_time);
                  //   var_dump($account_locked);
 
                 }
