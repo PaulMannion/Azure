@@ -207,15 +207,19 @@ error_reporting(E_ALL);
                 if ($query->fetch()) // fetch contents of row
                 {
                     if ($account_locked == false) {
+
+                        // Had the account been locked out since last login?
+                        if ($failed_login >= $total_failed_login) {
+                            echo '<script type="text/javascript">alert("hello!");</script>';
+                            echo "<p><em>Warning</em>: Someone might of been brute forcing your account.</p>";
+                            echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                        }
+
                         // Login successful
                         $_SESSION['username'] = $user; // Initializing Session
                         header("location: photos.php"); // Redirecting To Other Page
 
-                        // Had the account been locked out since last login?
-                        if ($failed_login >= $total_failed_login) {
-                            echo "<p><em>Warning</em>: Someone might of been brute forcing your account.</p>";
-                            echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
-                        }
+
 
                         // Reset bad login count
                         $query = $db->prepare('UPDATE users SET failed_login = 0 WHERE username=?');
