@@ -77,13 +77,13 @@ error_reporting(E_ALL);
                                   }
 
                     // Check if user has had max number of login attempts
-                    echo"<p>failed logins:</p>";
+/*                    echo"<p>failed logins:</p>";
                     var_dump($failed_login);
                     echo"<p>total_failed_login:</p>";
                     var_dump($total_failed_login);
                     echo"<p>last login:</p>";
                     var_dump($last_login);
-
+*/
                     if ($failed_login >= $total_failed_login) {
                         // User is locked out
 
