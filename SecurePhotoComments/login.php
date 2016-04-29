@@ -80,7 +80,7 @@ error_reporting(E_ALL);
             // Default values
             date_default_timezone_set('Europe/London');
             $total_failed_login = 3;
-            $lockout_time = 15;
+            $lockout_time = 5;
             $account_locked = false;
 
             // Check the database (Check user information)
