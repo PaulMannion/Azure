@@ -153,7 +153,7 @@ error_reporting(E_ALL);
                 $stmt->execute();
 
                 if($stmt){
-                    print 'Success! failed_login increased by 1';
+                    print 'Success! failed_login increased by 1 due to incorrect user/password';
                 }else{
                     print 'Error : ('. $db->errno .') '. $db->error;
                 }
@@ -162,6 +162,7 @@ error_reporting(E_ALL);
                 $stmt->close();
             }
 
+            $error = "Incorrect username or password.";
 
             echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: {$last_login}</em>.</p>";
 
@@ -270,7 +271,7 @@ error_reporting(E_ALL);
                 $query->close();
             }
 
-            $error = "Incorrect username or password.";
+           // $error = "Incorrect username or password.";
             
             $db->close();
             
