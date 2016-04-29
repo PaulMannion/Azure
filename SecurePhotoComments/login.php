@@ -115,18 +115,24 @@ error_reporting(E_ALL);
                     $timeout = strtotime("+15 minutes", strtotime($last_login));
                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                     $timenow = strtotime("now");
-                    $timeleft = ($timenow-$timeout);
+                    $unlock_time = ($timenow+$timeout);
+
+
+                    $date = new DateTime(date('h:i:s'));
+                    echo $date->format('h:i:s');
+                    $date->modify('+15 minutes');
+                    echo $date->format('h:i:s');
 
                     var_dump($timeout);
                     var_dump($timenow);
-                    var_dump($timeleft);
+                    var_dump($unlock_time);
 
                     // Check to see if enough time has passed, if it hasn't locked the account
                     if ($timenow > $timeout)
                     $account_locked = true;
 
-                    echo "<p>(timeout={$timeout} timenow= {$timenow} Time remaining = {$timeleft} unixes. This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em> Acount lock status is: {$account_locked} .<br />Last login attempt was at: <em>${last_login}</em>.</p>";
-                    echo date('i:s', $timeleft );
+                    echo "<p>(timeout={$timeout} timenow= {$timenow} Account unlocked at: This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em> Acount lock status is: {$account_locked} .<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                    echo date('i:s', $unlock_time);
                     var_dump($account_locked);
 
                 }
