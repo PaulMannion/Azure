@@ -124,8 +124,8 @@ error_reporting(E_ALL);
                     if ($timenow < $timeout)
                     $account_locked = true;
 
-                    echo "<p>(timeout={$timeout} timenow= {$timenow} Time remaining = {$timeleft} unixes. This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em> Acount lock status is: {$account_locked} .<br />Last login attempt was at: <em>${last_login}</em>.</p>";
-                    echo date('h:i:s A', $timeleft );
+                    echo "<p>(timeout={$timeout} timenow= {$timenow} Time remaining = {$timeleft} unix. This will only appear if user attempts is greater thane etc Number of login attempts: <em>{$failed_login}</em> Acount lock status is: {$account_locked} .<br />Last login attempt was at: <em>${last_login}</em>.</p>";
+                    echo date('i:s', $timeleft );
                     var_dump($account_locked);
 
                 }
