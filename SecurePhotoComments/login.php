@@ -119,9 +119,9 @@ error_reporting(E_ALL);
 
 
                     $date = new DateTime(date('h:i:s'));
-                    echo 'last login= '.$last_login->format('h:i:s');
+                    echo "<p>last login= </p>".$last_login->format('h:i:s');
                     $last_login->modify('+15 minutes');
-                    echo 'last login add 15mins= '.$last_login->format('h:i:s');
+                    echo "<p>last login add 15mins= </p>".$last_login->format('h:i:s');
 
                     var_dump($timeout);
                     var_dump($timenow);
