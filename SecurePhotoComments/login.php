@@ -134,7 +134,7 @@ error_reporting(E_ALL);
                  //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                    if ($timenow > $timeout) {
+                    if ($timenow < $timeout) {
                         $account_locked = false;
 
                     }else {
@@ -215,20 +215,6 @@ error_reporting(E_ALL);
                             echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
                         }
 
-                        // Set the last login time
-
-                            $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
-                            $query->bind_param('s', $user);
-                            $query->execute();
-
-
-                            if ($query) {
-                                print 'Success! last_login time was reset ';
-                            } else {
-                                print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
-                            }
-
-
                         // Login successful
                         $_SESSION['username'] = $user; // Initializing Session
                         header("location: photos.php"); // Redirecting To Other Page
@@ -271,12 +257,26 @@ error_reporting(E_ALL);
                         }
                     }
 
+                    // Set the last login time (only if the account is no longer locked)
+
+                    if ($account_locked == false) {
+                        $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
+                        $query->bind_param('s', $user);
+                        $query->execute();
+
+
+                        if ($query) {
+                            print 'Success! last_login time was reset ';
+                        } else {
+                            print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
+                        }
+                    }
 
                     else echo "<p> This should print if the login details were correct but account is still locked</p>";
                 }
 
                 $query->close();
-
+                
             }
 
            // $error = "Incorrect username or password.";
