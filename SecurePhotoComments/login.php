@@ -54,6 +54,15 @@ error_reporting(E_ALL);
                 /* execute query */
                 $stmt->execute();
 
+                if ($stmt) {
+                    print 'Success! we found a user!';
+                } else {
+                    print 'Error : (' . $db->errno . ') ' . $db->error;
+                }
+
+
+
+
                 /* bind variables to prepared statement */
                 $stmt->bind_result($failed_login, $last_login);
 
@@ -148,6 +157,15 @@ error_reporting(E_ALL);
                 $query = $db->prepare("SELECT username, password, last_login, failed_login FROM users where username=? AND password=?");
                 $query->bind_param('ss', $user, $pass);
                 $query->execute();
+
+
+                if ($query) {
+                    print 'Success! we found a user matching those details';
+                } else {
+                    print 'Error : (' . $db->errno . ') ' . $db->error;
+                }
+
+
                 $query->bind_result($username, $password, $last_login, $failed_login);
                 $query->store_result();
                 if ($query->num_rows == 1) //check a user was found
