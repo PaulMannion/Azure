@@ -133,7 +133,7 @@ error_reporting(E_ALL);
                         //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
 
                         // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
-                        if ($timenow > $unlock_time) {
+                        if ($unlock_time > $timenow) {
                             echo "<p> trying to unlock -> Is it unlocked?: </p>" . ($account_locked);
                             $account_locked = false;
 
