@@ -76,24 +76,23 @@ error_reporting(E_ALL);
                             /* fetch values */
 
 
-                           $stmt->fetch(); // fetch contents of row
+                           while ($stmt->fetch())
+                           { // fetch contents of row
 
 
+                               //while ($stmt->fetch()) {
+                               //   printf("%s %s\n", $failed_login, $last_login);
+                               // }
 
-                                    //while ($stmt->fetch()) {
-                                     //   printf("%s %s\n", $failed_login, $last_login);
-                                    // }
-
-                                // Check if user has had max number of login attempts
-                                /*                    echo"<p>failed logins:</p>";
-                                                    var_dump($failed_login);
-                                                    echo"<p>total_failed_login:</p>";
-                                                    var_dump($total_failed_login);
-                                                    echo"<p>last login:</p>";
-                                                    var_dump($last_login);
-                                */
-                                                if ($failed_login >= $total_failed_login)
-                                                {
+                               // Check if user has had max number of login attempts
+                               /*                    echo"<p>failed logins:</p>";
+                                                   var_dump($failed_login);
+                                                   echo"<p>total_failed_login:</p>";
+                                                   var_dump($total_failed_login);
+                                                   echo"<p>last login:</p>";
+                                                   var_dump($last_login);
+                               */
+                                                if ($failed_login >= $total_failed_login) {
                                                     // User is locked out
 
                                                     /*                       echo"<p>failed logins:</p>";
@@ -157,28 +156,27 @@ error_reporting(E_ALL);
                                                         //   var_dump($account_locked);
                                                     }
 
-                                                } else
-                                                    {
-                                                            echo "<p>wtf!</p>";
+                                                } else {
+                                                    echo "<p>wtf!</p>";
 
-                                                            $error = "Incorrect username or password.";
+                                                    $error = "Incorrect username or password.";
 
-                                                            echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+                                                    echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
-                                                            //increase the failed_login count
+                                                    //increase the failed_login count
 
-                                                            $stmt = $db->stmt_init();
-                                                            $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
-                                                            $stmt->bind_param('s', $user);
-                                                            $stmt->execute();
+                                                    $stmt = $db->stmt_init();
+                                                    $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
+                                                    $stmt->bind_param('s', $user);
+                                                    $stmt->execute();
 
-                                                                    if ($stmt) {
-                                                                        print 'Success! failed_login increased by 1 due to incorrect user/password';
-                                                                    } else {
-                                                                        print 'Error : (' . $db->errno . ') ' . $db->error;
-                                                                    }
+                                                    if ($stmt) {
+                                                        print 'Success! failed_login increased by 1 due to incorrect user/password';
+                                                    } else {
+                                                        print 'Error : (' . $db->errno . ') ' . $db->error;
                                                     }
-
+                                                }
+                             }
                         } else
                              {
 
