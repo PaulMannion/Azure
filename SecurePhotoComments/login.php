@@ -104,10 +104,10 @@ error_reporting(E_ALL);
                         $timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                         // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                         $timenow = strtotime("now");
-                        $unlock_time = ($last_login + $timeout);
+                        $unlock_time = ($timenow + $timeout);
 
 
-
+                        echo "<p> This is the value of timeout: </p>" . date('D, d M Y H:i:s', $timeout);
                         echo "<p> You can try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                         echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
 
