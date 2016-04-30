@@ -17,7 +17,7 @@ if(isset($_POST["submit"]))
     $photoID = mysqli_real_escape_string($db, $photoID);
 
     $name = $_SESSION["username"];
-    $postDate = now();
+//    $postDate = now();
 
     echo "<p>Has desc been cleaned? <em>{$desc}</em></p>";
     echo "<p>Has photoID been cleaned? <em>{$photoID}</em></p>";
