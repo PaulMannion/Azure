@@ -194,11 +194,11 @@ error_reporting(E_ALL);
                             // Had the account been locked out since last login?
                             if ($failed_login >= $total_failed_login) {
 
- //                               echo "<script>
- //                                   alert('There are no fields to generate a report');
- //                                   window.location.href='photos.php';
- //                                  </script>";
-//
+                                echo "<script>
+                                    alert('There are no fields to generate a report');
+                                    window.location.href='photos.php';
+                                   </script>";
+
 
                                 echo '<script type="text/javascript">alert("hello!");</script>';
                                 echo "<p><em>Warning</em>: Someone might of been brute forcing your account.</p>";
