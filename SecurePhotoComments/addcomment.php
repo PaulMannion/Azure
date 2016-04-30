@@ -47,52 +47,51 @@ if(isset($_POST["submit"]))
     if ($stmt->num_rows == 1) //check a user was found
     {
 
-        if ($stmt->fetch()) {
+                            if ($stmt->fetch()) {
 
-            var_dump($desc);
-            var_dump($postDate);
-            var_dump($id);
-            var_dump($photoID);
-            var_dump($name);
+                                var_dump($desc);
+                                var_dump($postDate);
+                                var_dump($id);
+                                var_dump($photoID);
+                                var_dump($name);
 
-            /* Create the prepared statement */
+                                /* Create the prepared statement */
 
-            if ($query = $db->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)") {
+                                            if ($query = $db->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
 
-                /* Bind our params */
-                $query->bind_param('siis', $desc, $postDate, $id, $photoID);
-
-
-                /* Execute the prepared Statement */
-                $query->execute();
-
-                echo "Inserted {$desc},{$postDate},{$id},{$photoID} into database\n";
-
-                $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
-
-                /* Close the statement */
-                $query->close();
-            } else {
-                /* Error */
-                printf("Prepared Statement Error: %s\n", $mysqli->error);
-
-            }
-
-        }
-        /* close statement and connection */
-
-        mysqli_stmt_close($stmt);
+                                                /* Bind our params */
+                                                $query->bind_param('siis', $desc, $postDate, $id, $photoID);
 
 
-        /* close connection */
-        mysqli_close($db);
+                                                /* Execute the prepared Statement */
+                                                $query->execute();
 
+                                                echo "Inserted {$desc},{$postDate},{$id},{$photoID} into database\n";
+
+                                                $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
+
+                                                /* Close the statement */
+                                                $query->close();
+                                            } else {
+                                                /* Error */
+                                                printf("Prepared Statement Error: %s\n", $mysqli->error);
+
+                                            }
+
+                            }
+                            /* close statement and connection */
+
+                            mysqli_stmt_close($stmt);
+
+
+                            /* close connection */
+                            mysqli_close($db);
 
     }
 
-    else{
-        $msg = "You need to login first";
-        }
+                else{
+                    $msg = "You need to login first";
+                    }
 
 }
 
