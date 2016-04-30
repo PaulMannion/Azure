@@ -113,7 +113,7 @@ error_reporting(E_ALL);
                                                       $unlock_time = ($last_login + $lockout_time);
                                                     //$timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                                                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
-                                                    $timenow = now();
+                                                    $timenow = time();
 //                                                    $unlock_time = ($timenow + $timeout);
 
 
@@ -289,7 +289,7 @@ error_reporting(E_ALL);
                             */
                             // update the last login time
 
-                            $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
+                            $query = $db->prepare('UPDATE users SET last_login= time() WHERE username=?');
                             $query->bind_param('s', $user);
                             $query->execute();
 
