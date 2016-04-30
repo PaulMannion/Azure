@@ -227,7 +227,30 @@ error_reporting(E_ALL);
 
                             // Give the user some feedback
 
-                            $error = "The account has been locked because of too many failed logins. Please try again later";
+                            // $error = "The account has been locked because of too many failed logins. Please try again later";
+
+
+
+                            $error = "You have entered an incorrect password {$failed_login} times. You will be locked out after {$total_failed_login} attempts.";
+
+                            //increase the failed_login count
+
+                            $stmt = $db->stmt_init();
+                            $stmt = $db->prepare('UPDATE users SET failed_login=failed_login+1 WHERE username=?');
+                            $stmt->bind_param('s', $user);
+                            $stmt->execute();
+
+                            if ($stmt) {
+                                //                                                                   print 'Success! failed_login increased by 1 due to incorrect user/password';
+                            } else {
+                                print 'Error : (' . $db->errno . ') ' . $db->error;
+                            }
+
+
+
+
+
+
 
                             // Update bad login count  <----- I don't think this is necessary as the account should be already locked
 
