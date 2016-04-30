@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has usernaFe been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -31,7 +31,9 @@ error_reporting(E_ALL);
 
             echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
-            //   $pass = md5($pass);
+            $pass = md5($pass);
+            echo $pass;
+            
 
             // Default values
             date_default_timezone_set('GMT');
