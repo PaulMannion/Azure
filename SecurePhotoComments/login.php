@@ -115,7 +115,7 @@ error_reporting(E_ALL);
                                                             }
 
                                                             //where do we go from here?
-                                                            $error = "This account has been locked due to too many incorrect logins.";
+                                                            $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $last_login);
 
                                                 }
 
@@ -189,7 +189,7 @@ error_reporting(E_ALL);
 
                     if ($query->fetch()) // fetch contents of row
                     {
-                        if ($account_locked == false) {
+                        if ($account_locked == true) {
 
                             // Had the account been locked out since last login?
                             if ($failed_login >= $total_failed_login) {
@@ -227,7 +227,7 @@ error_reporting(E_ALL);
 
                             // Give the user some feedback
 
-                            $error = "The account has been locked because of too many failed logins. Please try again later";
+                            $error = "The account has been locked because of too many failed kenny logins. Please try again later";
 
 
                             // Update bad login count  <----- I don't think this is necessary as the account should be already locked
