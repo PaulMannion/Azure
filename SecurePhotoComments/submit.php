@@ -57,6 +57,12 @@ if(isset($_POST["submit"])) {
         /* execute prepared statement */
         mysqli_stmt_execute($stmt);
 
+        if ($stmt) {
+            print 'Success! The user insert ran OK';
+        } else {
+            print 'Error : (' . $db->errno . ') ' . $db->error;
+        }
+
         $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
 
         /* close statement and connection */
