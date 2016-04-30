@@ -17,7 +17,7 @@ if(isset($_POST["submit"]))
     $photoID = mysqli_real_escape_string($db, $photoID);
 
     $name = $_SESSION["username"];
-//    $postDate = now();
+    $postDate = time();
 
     echo "<p>Has desc been cleaned? <em>{$desc}</em></p>";
     echo "<p>Has photoID been cleaned? <em>{$photoID}</em></p>";
@@ -52,7 +52,7 @@ if(isset($_POST["submit"]))
         /* execute prepared statement */
         mysqli_stmt_execute($stmt);
 
-        $msg = "Thank You! comment added. click <a href='photo.php?id=\".$photoID.\"'>here</a> to go back";
+        $msg = "Thank You! comment added. click <a href='photo.php?id=".$photoID."'>here</a> to go back";
 
         /* close statement and connection */
         mysqli_stmt_close($stmt);
