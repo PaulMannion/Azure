@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has userpame been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -105,12 +105,12 @@ error_reporting(E_ALL);
                                                     $error = "This account has been locked due to too many incorrect logins.";
 
                                                     // Calculate when the user would be allowed to login again
-                                                    $last_login = strtotime($last_login);
+                                                    //$last_login = strtotime($last_login);
 //                                                    $try_login = strtotime($try_login);
-                                                    // $timeout = ($last_login + $lockout_time);
-                                                    $timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
+                                                      $timeout = ($last_login + $lockout_time);
+                                                    //$timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                                                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
-                                                    $timenow = strtotime("now");
+                                                    $timenow = now();
                                                     $unlock_time = ($timenow + $timeout);
 
 
@@ -286,8 +286,8 @@ error_reporting(E_ALL);
                             */
                             // update the last login time
 
-                            $query = $db->prepare('UPDATE users SET last_login=? WHERE username=?');
-                            $query->bind_param('is', $timenow, $user);
+                            $query = $db->prepare('UPDATE users SET last_login=now() WHERE username=?');
+                            $query->bind_param('s', $user);
                             $query->execute();
 
 
@@ -297,7 +297,7 @@ error_reporting(E_ALL);
                                 print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
                             }
 
-                            echo "<p> Last attempted login time should be now: </p>" . date('D, d M Y H:i:s', $timenow);
+                            echo "<p> Last attempted login time should be now: </p>" . strtotime($timenow);
                             echo "<p> This should print if the login details were correct but account is still locked</p>";
 
                         }
