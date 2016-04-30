@@ -54,7 +54,8 @@ if(isset($_POST["submit"])) {
         var_dump($email);
         var_dump($pass);
 
-        $query = $db->stmt_init();
+        mysqli_stmt_close($stmt);
+
         $query = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
         mysqli_stmt_bind_param($query, 'sss', $user, $email, $pass);
 
@@ -71,7 +72,7 @@ if(isset($_POST["submit"])) {
         $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
 
         /* close statement and connection */
-        mysqli_stmt_close($stmt);
+
         mysqli_stmt_close($query);
 
 
