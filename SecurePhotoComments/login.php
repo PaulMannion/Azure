@@ -56,7 +56,7 @@ error_reporting(E_ALL);
 
                     if ($stmt)
                     {
-                        print 'Success! we found a user!';
+                        print 'Success! The user query ran OK';
                     } else {
                         print 'Error : (' . $db->errno . ') ' . $db->error;
                             }
@@ -212,7 +212,8 @@ error_reporting(E_ALL);
                                         print 'Error : (' . $db->errno . ') ' . $db->error;
                                     }
 
-                echo "<p> Is account locked?: </p>" . ($account_locked);
+                echo "<p> Is account locked?: </p>";
+                var_dump($account_locked);
 
                 $query->bind_result($username, $password, $last_login, $failed_login);
                 $query->store_result();
