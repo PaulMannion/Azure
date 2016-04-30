@@ -227,7 +227,7 @@ error_reporting(E_ALL);
 
                             // Give the user some feedback
 
-                            $error = "The account has been locked because of too many failed kenny logins. Please try again later";
+                            $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $last_login);
 
 
                             // Update bad login count  <----- I don't think this is necessary as the account should be already locked
