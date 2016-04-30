@@ -124,7 +124,8 @@ error_reporting(E_ALL);
                                                     echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
                                                     echo "<p> timenow - unlock_time=" . ($timenow - $unlock_time);
 //                                                    echo "<p> Last attempted login (try_login): </p>" . date('D, d M Y H:i:s', $try_login);
-
+                                                    
+                                                    $last_login = strtotime($last_login);
                                                     echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
 
@@ -144,7 +145,7 @@ error_reporting(E_ALL);
 
                                                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
 
-                                                            if ($unlock_time > $timenow) {
+                                                            if ($timenow > $unlock_time) {
                                                                 echo "<p> going to set account_locked as 'false' -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
                                                                 $account_locked = false;
