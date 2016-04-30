@@ -3,7 +3,7 @@ $msg = "";
 if(isset($_POST["submit"])) {
     // Sanitise username input
     $user = $_POST['username'];
-    $user = stripslashes($name);
+    $user = stripslashes($user);
     $user = mysqli_real_escape_string($db, $user);
 
     // Sanitise email input
@@ -49,6 +49,10 @@ if(isset($_POST["submit"])) {
     {
         $msg = "Sorry...This email already exists...";
     } else {
+
+        var_dump($user);
+        var_dump($email);
+        var_dump($pass);
 
 
         $stmt = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
