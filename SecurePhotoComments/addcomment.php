@@ -42,6 +42,8 @@ if(isset($_POST["submit"]))
     /* bind variables to prepared statement */
     $stmt->bind_result($id);
 
+    echo "<p>The user id is  <em>{$id}</em></p>";
+
     $stmt->store_result();
 
     if ($stmt->num_rows == 1) //check a user was found
