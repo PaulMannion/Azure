@@ -19,6 +19,11 @@ if(isset($_POST["submit"]))
     $name = $_SESSION["username"];
     $postDate = now();
 
+    echo "<p>Has desc been cleaned? <em>{$desc}</em></p>";
+    echo "<p>Has photoID been cleaned? <em>{$photoID}</em></p>";
+    echo "<p>What is postdate? <em>{$postDate}</em></p>";
+
+
     $stmt = $db->stmt_init();
     $stmt->prepare("SELECT userID FROM users WHERE username =?");
 
