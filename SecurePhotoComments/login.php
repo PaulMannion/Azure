@@ -244,6 +244,13 @@ error_reporting(E_ALL);
 
                             // Had the account been locked out since last login?
                             if ($failed_login >= $total_failed_login) {
+
+                                echo "<script>
+                                    alert('There are no fields to generate a report');
+                                    window.location.href='photos.php';
+                                    </script>";
+
+
                                 echo '<script type="text/javascript">alert("hello!");</script>';
                                 echo "<p><em>Warning</em>: Someone might of been brute forcing your account.</p>";
                                 echo "<p>Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: <em>${last_login}</em>.</p>";
@@ -328,7 +335,7 @@ error_reporting(E_ALL);
                         print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
                     }
 
-                    echo "<p> Last attempted login time should be now: </p>" . strtotime($timenow);
+                    echo "<p> Last attempted login time should be now: </p>" . strtotime($last_login);
                     echo "<p> This should print if the username was correct but password false</p>";
 
                     $query->close();
