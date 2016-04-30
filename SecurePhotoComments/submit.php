@@ -54,13 +54,29 @@ if(isset($_POST["submit"])) {
         var_dump($email);
         var_dump($pass);
 
+        /* Create the prepared statement */
+        if ($query = $mysqli->prepare("INSERT INTO users (username, password, email) values (?, ?, ?)")) {
 
-        if ($insert_stmt = $mysqli->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)")) {
-            $insert_stmt->bind_param("sss", $user, $pass, $email);
-            $insert_stmt->execute();
+            /* Bind our params */
+            $query->bind_param('sss', $user, $pass, $email);
+
+
+            /* Execute the prepared Statement */
+            $query->execute();
+
+            echo "Inserted {$user},{$pass},{$email} into database\n";
+
+            $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
+
+            /* Close the statement */
+            $query->close();
         }
+        else {
+            /* Error */
+            printf("Prepared Statement Error: %s\n", $mysqli->error);
 
-        $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
+        }
+        
 
         /* close statement and connection */
 
