@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has usernaFe been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
