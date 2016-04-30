@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has usergronk been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -141,17 +141,17 @@ error_reporting(E_ALL);
                                                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
 
                                                             if ($unlock_time < $timenow) {
-                                                                echo "<p> going to unlock -> Lock Status now: </p>";
+                                                                echo "<p> going to set account_locked as 'false' -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
                                                                 $account_locked = false;
-                                                                echo "<p> trying to unlock -> Is it unlocked?: </p>";
+                                                                echo "<p> trying to unlock -> account_locked should equal 'false': </p>";
                                                                 var_dump($account_locked);
 
                                                             } else {
-                                                                echo "<p> going to lock -> Lock Status now: </p>";
+                                                                echo "<p> going to set account_locked as 'true' -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
                                                                 $account_locked = true;
-                                                                echo "<p> trying to lock -> Is it locked?: </p>";
+                                                                echo "<p> trying to lock -> account_locked should equal 'true': </p>";
                                                                 var_dump($account_locked);
 
                                                                 echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
@@ -172,7 +172,7 @@ error_reporting(E_ALL);
 
                                                         $error = "Incorrect username or password.";
 
-                                                        echo "<pre><br />This part means you are a user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+                                                        echo "<pre><br />This part means you are a registered user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
 
                                                         //increase the failed_login count
 
@@ -309,6 +309,22 @@ error_reporting(E_ALL);
 
                 }else {
                     $error = "Incorrect username or password.";
+
+                    // update the last login time
+
+                    $query = $db->prepare('UPDATE users SET last_login=CURRENT_TIMESTAMP () WHERE username=?');
+                    $query->bind_param('s', $user);
+                    $query->execute();
+
+
+                    if ($query) {
+                        print 'Success! last_login attempt time was reset ';
+                    } else {
+                        print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
+                    }
+
+                    echo "<p> Last attempted login time should be now: </p>" . strtotime($timenow);
+                    echo "<p> This should print if the username was correct but password false</p>";
 
                     $query->close();
                     $db->close();
