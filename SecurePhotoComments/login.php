@@ -114,8 +114,8 @@ error_reporting(E_ALL);
 
                                                             }
 
-                                                            $last_login = strtotime($last_login);
-                                                            $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $last_login);
+                                                            $unlock_time = strtotime($unlock_time);
+                                                            $error = "Account locked. Please try again after ". date('H:i:s', $unlock_time);
 
                                                 }
 
@@ -226,8 +226,8 @@ error_reporting(E_ALL);
                             sleep(rand(2, 4));
 
                             // Give the user some feedback
-                            $last_login = strtotime($last_login);
-                            $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $last_login);
+                            $unlock_time = strtotime($unlock_time);
+                            $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $unlock_time);
 
 
                             // Update bad login count  <----- I don't think this is necessary as the account should be already locked
