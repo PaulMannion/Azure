@@ -60,7 +60,7 @@ if(isset($_POST["submit"]))
             if ($query = $db->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
 
                 /* Bind our params */
-                $query->bind_param('siis', $desc, $postDate, $id, $photoID);
+                $query->bind_param('siii', $desc, $postDate, $id, $photoID);
 
 
                 /* Execute the prepared Statement */
