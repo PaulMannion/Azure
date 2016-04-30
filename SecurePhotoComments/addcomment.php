@@ -48,26 +48,44 @@ if(isset($_POST["submit"]))
 
     if ($stmt->num_rows == 1) //check a user was found
     {
-        $stmt = mysqli_prepare($db, "INSERT INTO comments (description, postDate, userID, photoID) VALUES (?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'siii', $desc, $postDate, $id, $photoID);
+        var_dump($desc);
+        var_dump($postDate);
+        var_dump($id);
+        var_dump($photoID);
 
-        /* execute prepared statement */
-        mysqli_stmt_execute($stmt);
 
-        if ($stmt) {
-            print 'Success! The comment insert ran OK';
-        } else {
-            print 'Error : (' . $db->errno . ') ' . $db->error;
-        }
+        /* Create the prepared statement */
+            if ($query = $mysqli->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
 
-        $msg = "Thank You! comment added. click <a href='photo.php?id=".$photoID."'>here</a> to go back";
+                /* Bind our params */
+                $query->bind_param('siii', $desc, $postDate, $id, $photoID);
+
+
+                /* Execute the prepared Statement */
+                $query->execute();
+
+                echo "Inserted {$desc},{$postDate},{$id},{$photoID} into database\n";
+
+                $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
+
+                /* Close the statement */
+                $query->close();
+            }
+            else {
+                /* Error */
+                printf("Prepared Statement Error: %s\n", $mysqli->error);
+
+            }
+
 
         /* close statement and connection */
+
         mysqli_stmt_close($stmt);
 
 
         /* close connection */
         mysqli_close($db);
+
 
     }
 
