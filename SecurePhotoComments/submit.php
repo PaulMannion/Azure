@@ -20,7 +20,7 @@ if(isset($_POST["submit"])) {
 
     //   $pass = md5($pass);
 
-    echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+    echo "<p>Has userblame been cleaned? <em>{$user}</em></p>";
     echo "<p>Has email been cleaned? <em>{$email}</em></p>";
     echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
@@ -76,7 +76,7 @@ if(isset($_POST["submit"])) {
             printf("Prepared Statement Error: %s\n", $mysqli->error);
 
         }
-        
+
 
         /* close statement and connection */
 
