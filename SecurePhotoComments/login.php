@@ -115,7 +115,7 @@ error_reporting(E_ALL);
                                                             }
 
                                                             $unlock_time = strtotime($unlock_time);
-                                                            $error = "Account locked. Please try again after ". date('H:i:s', $unlock_time);
+                                                            $error = "Account locked: too many incorrect log-ins. Please try again after {$lockout_time} minutes.";
 
                                                 }
 
@@ -226,10 +226,10 @@ error_reporting(E_ALL);
                             sleep(rand(2, 4));
 
                             // Give the user some feedback
-                            
-                            $unlock_time=strtotime($unlock_time);
-                            $new_time = date("H:i:s", strtotime('+1 hours', $unlock_time));
-                            $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $new_time);
+
+ //                           $unlock_time=strtotime($unlock_time);
+ //                           $new_time = date("H:i:s", strtotime('+1 hours', $unlock_time));
+                            $error = "Account locked: too many incorrect log-ins. Please try again after {$lockout_time} minutes.";
 
 
                             // update the last login time
