@@ -105,7 +105,7 @@ error_reporting(E_ALL);
                                                     $error = "This account has been locked due to too many incorrect logins.";
 
                                                     // Calculate when the user would be allowed to login again
-                                                    
+
                                                     $last_login = strtotime($last_login);
                                                     echo "<p> This is the value of last_login: </p>" . $last_login;
                                                     echo "<p> This is the last_login time: </p>" . date('D, d M Y H:i:s', $last_login);
@@ -113,7 +113,7 @@ error_reporting(E_ALL);
                                                       $unlock_time = ($last_login + $lockout_time);
                                                     //$timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                                                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
-                                                    $timenow = time();
+                                                    $timenow = now();
 //                                                    $unlock_time = ($timenow + $timeout);
 
 
