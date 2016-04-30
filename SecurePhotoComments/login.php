@@ -226,7 +226,8 @@ error_reporting(E_ALL);
                             sleep(rand(2, 4));
 
                             // Give the user some feedback
-                            $unlock_time = strtotime($unlock_time);
+                            
+                            $unlock_time = strtotime("+60 minutes", strtotime($unlock_time));
                             $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $unlock_time);
 
 
