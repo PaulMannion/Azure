@@ -1,7 +1,6 @@
 <?php
 $msg = "";
-if(isset($_POST["submit"]))
-{
+if(isset($_POST["submit"])) {
     // Sanitise username input
     $name = $_POST['username'];
     $name = stripslashes($name);
@@ -24,8 +23,52 @@ if(isset($_POST["submit"]))
     echo "<p>Has username been cleaned? <em>{$user}</em></p>";
     echo "<p>Has email been cleaned? <em>{$email}</em></p>";
     echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
-    
 
+
+    $stmt = $db->stmt_init();
+    $stmt->prepare("SELECT email FROM users WHERE email =?");
+
+    /* bind parameters for markers */
+    $stmt->bind_param('s', $email);
+
+    /* execute query */
+    $stmt->execute();
+
+    if ($stmt) {
+        //                        print 'Success! The user query ran OK';
+    } else {
+        print 'Error : (' . $db->errno . ') ' . $db->error;
+    }
+
+    /* bind variables to prepared statement */
+    $stmt->bind_result($email);
+
+    $stmt->store_result();
+
+    if ($stmt->num_rows == 1) //check a user was found
+    {
+        $msg = "Sorry...This email already exists...";
+    } else {
+
+
+        $stmt = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
+        mysqli_stmt_bind_param($stmt, 'sss', $user, $email, $pass);
+
+        /* execute prepared statement */
+        mysqli_stmt_execute($stmt);
+
+        $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
+
+        /* close statement and connection */
+        mysqli_stmt_close($stmt);
+
+
+        /* close connection */
+        mysqli_close($link);
+
+    }
+}
+/*
     $sql="SELECT email FROM users WHERE email='$email'";
     $result=mysqli_query($db,$sql);
     $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -44,4 +87,5 @@ if(isset($_POST["submit"]))
 
     }
 }
+*/
 ?>
