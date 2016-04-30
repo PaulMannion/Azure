@@ -114,7 +114,7 @@ error_reporting(E_ALL);
 
                                                             }
 
-                                                            //where do we go from here?
+                                                            $last_login = strtotime($last_login);
                                                             $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $last_login);
 
                                                 }
@@ -226,7 +226,7 @@ error_reporting(E_ALL);
                             sleep(rand(2, 4));
 
                             // Give the user some feedback
-
+                            $last_login = strtotime($last_login);
                             $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $last_login);
 
 
