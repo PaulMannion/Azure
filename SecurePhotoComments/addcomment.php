@@ -68,7 +68,7 @@ if(isset($_POST["submit"]))
 
                 echo "Inserted {$desc},{$postDate},{$id},{$photoID} into database\n";
 
-                $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
+                $msg = "Thank You! comment added. click <a href='photo.php?id=".$photoID."'>here</a> to go back";
 
                 /* Close the statement */
                 $query->close();
@@ -79,13 +79,6 @@ if(isset($_POST["submit"]))
             }
 
         }
-        /* close statement and connection */
-
-        mysqli_stmt_close($stmt);
-
-
-        /* close connection */
-        mysqli_close($db);
 
 
     }
@@ -93,7 +86,14 @@ if(isset($_POST["submit"]))
     else{
         $msg = "You need to login first";
         }
+    
+    /* close statement and connection */
 
+    mysqli_stmt_close($stmt);
+
+
+    /* close connection */
+    mysqli_close($db);
 }
 
 ?>
