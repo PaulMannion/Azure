@@ -55,7 +55,7 @@ if(isset($_POST["submit"])) {
         var_dump($pass);
 
         /* Create the prepared statement */
-        if ($query = $mysqli->prepare("INSERT INTO users (username, password, email) values (?, ?, ?)")) {
+        if ($query = $db->prepare("INSERT INTO users (username, password, email) values (?, ?, ?)")) {
 
             /* Bind our params */
             $query->bind_param('sss', $user, $pass, $email);

@@ -43,7 +43,7 @@ if(isset($_POST["submit"]))
     $stmt->bind_result($id);
 
     $stmt->store_result();
-    
+
     if ($stmt->num_rows == 1) //check a user was found
     {
 
@@ -56,10 +56,11 @@ if(isset($_POST["submit"]))
             var_dump($name);
 
             /* Create the prepared statement */
-            if ($query = $mysqli->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
+
+            if ($query = $db->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)") {
 
                 /* Bind our params */
-                $query->bind_param('siii', $desc, $postDate, $id, $photoID);
+                $query->bind_param('siis', $desc, $postDate, $id, $photoID);
 
 
                 /* Execute the prepared Statement */
