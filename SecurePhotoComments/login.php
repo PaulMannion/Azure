@@ -33,8 +33,6 @@ error_reporting(E_ALL);
 
             //   $pass = md5($pass);
 
-            //   echo "<p>Has password been hashed? <em>{$pass}</em></p>";
-
             // Default values
             date_default_timezone_set('GMT');
             $total_failed_login = 3;
@@ -61,7 +59,6 @@ error_reporting(E_ALL);
                         print 'Error : (' . $db->errno . ') ' . $db->error;
                             }
 
-
                         /* bind variables to prepared statement */
                         $stmt->bind_result($failed_login, $last_login);
 
@@ -69,81 +66,34 @@ error_reporting(E_ALL);
 
                         if ($stmt->num_rows == 1) //check a user was found
                         {
-
-                            echo "<p>This should only print if you've entered a correct username only</p>";
                             /* fetch values */
 
 
                            if ($stmt->fetch()){ // fetch contents of row
 
 
-                               //while ($stmt->fetch()) {
-                               //   printf("%s %s\n", $failed_login, $last_login);
-                               // }
-
-                               // Check if user has had max number of login attempts
-                               /*                    echo"<p>failed logins:</p>";
-                                                   var_dump($failed_login);
-                                                   echo"<p>total_failed_login:</p>";
-                                                   var_dump($total_failed_login);
-                                                   echo"<p>last login:</p>";
-                                                   var_dump($last_login);
-                               */
                                                 if ($failed_login >= $total_failed_login)
                                                 {
                                                     // User should be locked out unless the password is correct AND unlock time < timenow
-
-                                                    /*                       echo"<p>failed logins:</p>";
-                                                                           var_dump($failed_login);
-                                                                           echo"<p>total_failed_login:</p>";
-                                                                           var_dump($total_failed_login);
-                                                                           echo"<p>last login:</p>";
-                                                                           var_dump($last_login);
-                                                   */
-                                                    echo "<p>This should only print if failed logins >=3</p>";
 
                                                     $error = "This account has been locked due to too many incorrect logins.";
 
                                                     // Calculate when the user would be allowed to login again
 
-//                                                    $last_login = strtotime($last_login);
-//                                                   echo "<p> This is the value of last_login: </p>" . $last_login;
-//                                                    echo "<p> This is the last_login time: </p>" . date('D, d M Y H:i:s', $last_login);
-//                                                    $try_login = strtotime($try_login);
-//                                                    $unlock_time = ($last_login + $lockout_time);
-//                                                    $unlock_time = strtotime("+15 minutes", strtotime($last_login));
                                                     $unlock_time = strtotime("+{$lockout_time} minutes", strtotime($last_login));
-                                                    // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                                                     $timenow = time();
-//                                                    $unlock_time = ($timenow + $timeout);
 
 
-                                                    echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
+ /*                                                   echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
                                                     echo "<p> This is the value of timenow: </p>" . $timenow;
                                                     echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
                                                     echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
                                                     echo "<p> timenow - unlock_time=" . ($timenow - $unlock_time);
-//                                                    echo "<p> Last attempted login (try_login): </p>" . date('D, d M Y H:i:s', $try_login);
-
+*/
                                                     $last_login = strtotime($last_login);
                                                     echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
 
-                                                    //                          $last_login = new DateTime(date('h:i:s'));
-
-                                                    //                       echo $last_login->format('h:i:s');
-                                                    //    $last_login->modify('+15 minutes');
-                                                    //   echo $last_login->format('h:i:s');
-
-                                                    //   echo "<p>timeout var dump: </p>";
-                                                    //   var_dump($timeout);
-                                                    //   echo "<p> 'Timeout' is: </p>".date('D, d M Y H:i:s', $timeout);
-                                                    //   echo "<p>timenow var dump: </p>";
-                                                    //   echo "<p> 'timenow' is: </p>".date('D, d M Y H:i:s', $timenow);
-                                                    //   echo "<p>unlock_time var dump: </p>";
-                                                    //   echo "Account will be available after: ".date('D, d M Y H:i:s', $unlock_time);
-
-                                                    // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
 
                                                             if ($timenow > $unlock_time) {
                                                                 echo "<p> going to set account_locked as 'false' -> Lock Status now: </p>";
@@ -159,10 +109,9 @@ error_reporting(E_ALL);
                                                                 echo "<p> trying to lock -> account_locked should equal 'true': </p>";
                                                                 var_dump($account_locked);
 
-                                                                echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+                                                                echo "<p> Account will be available to try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
                                                                 echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
-                                                                //   var_dump($account_locked);
                                                             }
 
                                                             //where do we go from here?
