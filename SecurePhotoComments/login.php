@@ -54,7 +54,7 @@ error_reporting(E_ALL);
 
                     if ($stmt)
                     {
-                        print 'Success! The user query ran OK';
+//                        print 'Success! The user query ran OK';
                     } else {
                         print 'Error : (' . $db->errno . ') ' . $db->error;
                             }
@@ -124,9 +124,9 @@ error_reporting(E_ALL);
                                                      {
                                                         echo "<p>wtf!</p>";
 
-                                                        $error = "Incorrect username or password.";
+ //                                                       $error = "Incorrect username or password.";
 
-                                                        echo "<pre><br />This part means you are a registered user who entered an incorrect password <em>{$failed_login}</em> but not more than max.</pre>";
+                                                        $error = "You have entered an incorrect password {$failed_login} times. You will be locked out after {$total_failed_login} attempts.";
 
                                                         //increase the failed_login count
 
@@ -136,7 +136,7 @@ error_reporting(E_ALL);
                                                         $stmt->execute();
 
                                                                 if ($stmt) {
-                                                                    print 'Success! failed_login increased by 1 due to incorrect user/password';
+ //                                                                   print 'Success! failed_login increased by 1 due to incorrect user/password';
                                                                 } else {
                                                                     print 'Error : (' . $db->errno . ') ' . $db->error;
                                                                 }
@@ -172,13 +172,13 @@ error_reporting(E_ALL);
 
 
                                     if ($query) {
-                                        print 'Success! The User and Password Query ran ok.';
+//                                        print 'Success! The User and Password Query ran ok.';
                                     } else {
                                         print 'Error : (' . $db->errno . ') ' . $db->error;
                                     }
 
-                echo "<p> Is account locked?: </p>";
-                var_dump($account_locked);
+//                echo "<p> Is account locked?: </p>";
+//                var_dump($account_locked);
 
                 $query->bind_result($username, $password, $last_login, $failed_login);
                 $query->store_result();
@@ -253,13 +253,10 @@ error_reporting(E_ALL);
 
 
                             if ($query) {
-                                print 'Success! last_login attempt time was reset ';
+//                                print 'Success! last_login attempt time was reset ';
                             } else {
                                 print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
                             }
-
-                            echo "<p> Last attempted login time should be now: </p>" . strtotime($timenow);
-                            echo "<p> This should print if the login details were correct but account is still locked</p>";
 
                         }
 
@@ -279,13 +276,10 @@ error_reporting(E_ALL);
 
 
                     if ($query) {
-                        print 'Success! last_login attempt time was reset ';
+ //                       print 'Success! last_login attempt time was reset ';
                     } else {
                         print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
                     }
-
-                    echo "<p> Last attempted login time should be now: </p>" . strtotime($last_login);
-                    echo "<p> This should print if the username was correct but password false</p>";
 
                     $query->close();
                     $db->close();
