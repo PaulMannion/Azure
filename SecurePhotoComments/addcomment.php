@@ -52,13 +52,14 @@ if(isset($_POST["submit"]))
         var_dump($postDate);
         var_dump($id);
         var_dump($photoID);
+        var_dump($name);
 
 
         /* Create the prepared statement */
             if ($query = $mysqli->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
 
                 /* Bind our params */
-                $query->bind_param('siii', $desc, $postDate, $id, $photoID);
+                $query->bind_param('siis', $desc, $postDate, $id, $photoID);
 
 
                 /* Execute the prepared Statement */
