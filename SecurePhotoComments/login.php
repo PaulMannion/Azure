@@ -189,7 +189,7 @@ error_reporting(E_ALL);
 
                     if ($query->fetch()) // fetch contents of row
                     {
-                        if ($account_locked == true) {
+                        if ($account_locked == false) {
 
                             // Had the account been locked out since last login?
                             if ($failed_login >= $total_failed_login) {
