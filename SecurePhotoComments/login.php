@@ -268,9 +268,9 @@ error_reporting(E_ALL);
 
                             $error = "The account has been locked because of too many failed logins. Please try again later";
 
-                            // Update bad login count
+                            // Update bad login count  <----- I don't think this is necessary as the account should be already locked
 
-                            $failed_login = ($failed_login + 1); // increase the number of failed login variable
+/*                            $failed_login = ($failed_login + 1); // increase the number of failed login variable
                             echo "<br>";
                             var_dump($failed_login);
                             $query = $db->prepare('UPDATE users SET failed_login = failed_login+1 WHERE username=?');
@@ -283,7 +283,7 @@ error_reporting(E_ALL);
                                         print 'Login Increase Error : (' . $db->errno . ') ' . $db->error;
                                     }
                         }
-
+*/
                         // update the last login time
 
                                 $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
@@ -305,14 +305,14 @@ error_reporting(E_ALL);
                     }
 
                     $query->close();
+                    $db->close();
 
+                }else {
+
+                    $error = "Incorrect username or password.";
+
+                    $db->close();
                 }
-
-                $error = "Incorrect username or password.";
-
-                $query->close();
-                $db->close();
-
 
 
         }
