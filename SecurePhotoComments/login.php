@@ -286,8 +286,8 @@ error_reporting(E_ALL);
                             */
                             // update the last login time
 
-                            $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
-                            $query->bind_param('s', $user);
+                            $query = $db->prepare('UPDATE users SET last_login=? WHERE username=?');
+                            $query->bind_param('ds', $timenow, $user);
                             $query->execute();
 
 
@@ -297,7 +297,7 @@ error_reporting(E_ALL);
                                 print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
                             }
 
-                            echo "<p> Last attempted login time is now: </p>" . date('D, d M Y H:i:s', $last_login);
+                            echo "<p> Last attempted login time should be now: </p>" . date('D, d M Y H:i:s', $timenow);
                             echo "<p> This should print if the login details were correct but account is still locked</p>";
 
                         }
