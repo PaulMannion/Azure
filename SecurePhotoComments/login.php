@@ -217,8 +217,8 @@ error_reporting(E_ALL);
                             }
 
                             // Login successful
-                            $_SESSION['username'] = $user; // Initializing Session
-                            header("location: photos.php"); // Redirecting To Other Page
+//                            $_SESSION['username'] = $user; // Initializing Session
+//                            header("location: photos.php"); // Redirecting To Other Page
 
 
                         } else {
@@ -229,7 +229,7 @@ error_reporting(E_ALL);
 
                             $error = "The account has been locked because of too many failed logins. Please try again later";
 
-                            
+
                             // Update bad login count  <----- I don't think this is necessary as the account should be already locked
 
                             /*                            $failed_login = ($failed_login + 1); // increase the number of failed login variable
