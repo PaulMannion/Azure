@@ -106,12 +106,13 @@ error_reporting(E_ALL);
 
                                                     // Calculate when the user would be allowed to login again
 
-                                                    $last_login = strtotime($last_login);
-                                                    echo "<p> This is the value of last_login: </p>" . $last_login;
-                                                    echo "<p> This is the last_login time: </p>" . date('D, d M Y H:i:s', $last_login);
+//                                                    $last_login = strtotime($last_login);
+//                                                   echo "<p> This is the value of last_login: </p>" . $last_login;
+//                                                    echo "<p> This is the last_login time: </p>" . date('D, d M Y H:i:s', $last_login);
 //                                                    $try_login = strtotime($try_login);
 //                                                    $unlock_time = ($last_login + $lockout_time);
-                                                    $unlock_time = strtotime("+{$lockout_time} minutes", strtotime($last_login));
+                                                    $unlock_time = strtotime("+15 minutes", strtotime($last_login));
+//                                                    $unlock_time = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                                                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                                                     $timenow = time();
 //                                                    $unlock_time = ($timenow + $timeout);
