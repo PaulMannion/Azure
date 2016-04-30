@@ -307,12 +307,12 @@ error_reporting(E_ALL);
                     $query->close();
                     $db->close();
 
-                }else {
+                }
 
                     $error = "Incorrect username or password.";
 
                     $db->close();
-                }
+                
 
 
         }
