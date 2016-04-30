@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has userpame been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -249,11 +249,11 @@ error_reporting(E_ALL);
                             $query->bind_param('s', $user);
                             $query->execute();
 
-                                    if ($query) {
-                                        print 'Success! Bad login reset';
-                                    } else {
-                                        print 'Login Reset Error : (' . $db->errno . ') ' . $db->error;
-                                    }
+                            if ($query) {
+                                print 'Success! Bad login reset';
+                            } else {
+                                print 'Login Reset Error : (' . $db->errno . ') ' . $db->error;
+                            }
 
                             // Login successful
                             $_SESSION['username'] = $user; // Initializing Session
@@ -270,50 +270,47 @@ error_reporting(E_ALL);
 
                             // Update bad login count  <----- I don't think this is necessary as the account should be already locked
 
-/*                            $failed_login = ($failed_login + 1); // increase the number of failed login variable
-                            echo "<br>";
-                            var_dump($failed_login);
-                            $query = $db->prepare('UPDATE users SET failed_login = failed_login+1 WHERE username=?');
+                            /*                            $failed_login = ($failed_login + 1); // increase the number of failed login variable
+                                                        echo "<br>";
+                                                        var_dump($failed_login);
+                                                        $query = $db->prepare('UPDATE users SET failed_login = failed_login+1 WHERE username=?');
+                                                        $query->bind_param('s', $user);
+                                                        $query->execute();
+
+                                                                if ($query) {
+                                                                    print 'Success! Failed_login increased by 1 (due to account lock)';
+                                                                } else {
+                                                                    print 'Login Increase Error : (' . $db->errno . ') ' . $db->error;
+                                                                }
+                                                    }
+                            */
+                            // update the last login time
+
+                            $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
                             $query->bind_param('s', $user);
                             $query->execute();
 
-                                    if ($query) {
-                                        print 'Success! Failed_login increased by 1 (due to account lock)';
-                                    } else {
-                                        print 'Login Increase Error : (' . $db->errno . ') ' . $db->error;
-                                    }
+
+                            if ($query) {
+                                print 'Success! last_login attempt time was reset ';
+                            } else {
+                                print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
+                            }
+
+
+                            echo "<p> This should print if the login details were correct but account is still locked</p>";
+
                         }
-*/
-                        // update the last login time
 
-                                $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
-                                $query->bind_param('s', $user);
-                                $query->execute();
-
-
-                                            if ($query)
-                                            {
-                                                print 'Success! last_login attempt time was reset ';
-                                            } else
-                                            {
-                                            print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
-                                            }
-
-
-                                    echo "<p> This should print if the login details were correct but account is still locked</p>";
+                        $query->close();
+                        $db->close();
 
                     }
+                        $error = "Incorrect username or password.";
 
-                    $query->close();
-                    $db->close();
+                        $db->close();
 
                 }
-
-                    $error = "Incorrect username or password.";
-
-                    $db->close();
-                
-
 
         }
     }
