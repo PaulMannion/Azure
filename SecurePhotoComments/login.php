@@ -143,7 +143,7 @@ error_reporting(E_ALL);
 
                                                     // Check to see if enough time has passed, $timenow is > $timeout so unlock account, else lock account and display feedback
 
-                                                            if ($unlock_time < $timenow) {
+                                                            if ($unlock_time > $timenow) {
                                                                 echo "<p> going to set account_locked as 'false' -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
                                                                 $account_locked = false;
