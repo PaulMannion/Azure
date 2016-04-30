@@ -41,7 +41,7 @@ if(isset($_POST["submit"]))
 
     /* bind variables to prepared statement */
     $stmt->bind_result($id);
-
+    echo "<p>The user id is  <em>{$id}</em></p>";
     $stmt->store_result();
 
     echo "<p>The user id is  <em>{$id}</em></p>";
