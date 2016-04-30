@@ -155,7 +155,7 @@ error_reporting(E_ALL);
                                                                 var_dump($account_locked);
 
                                                                 echo "<p> Account will be available after: </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                                                echo "<p> Last successful login: </p>" . date('D, d M Y H:i:s', $last_login);
+                                                                echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
                                                                 //   var_dump($account_locked);
                                                             }
@@ -297,7 +297,7 @@ error_reporting(E_ALL);
                                 print 'Login_time was not set ;-( Error : (' . $db->errno . ') ' . $db->error;
                             }
 
-
+                            echo "<p> Last attempted login time is now: </p>" . date('D, d M Y H:i:s', $last_login);
                             echo "<p> This should print if the login details were correct but account is still locked</p>";
 
                         }
@@ -306,11 +306,15 @@ error_reporting(E_ALL);
                         $db->close();
 
                     }
-                        $error = "Incorrect username or password.";
 
-                        $db->close();
+                }else {
+                    $error = "Incorrect username or password.";
 
+                    $query->close();
+                    $db->close();
                 }
+
+
 
         }
     }
