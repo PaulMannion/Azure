@@ -226,28 +226,12 @@ error_reporting(E_ALL);
                             sleep(rand(2, 4));
 
                             // Give the user some feedback
+                            
                             $unlock_time=strtotime($unlock_time);
                             $new_time = date("H:i:s", strtotime('+1 hours', $unlock_time));
-                            $unlock_time = strtotime($unlock_time)"+60 minutes");
                             $error = "Account locked: too many incorrect log-ins. Please try again after ". date('H:i:s', $new_time);
 
 
-                            // Update bad login count  <----- I don't think this is necessary as the account should be already locked
-
-                            /*                            $failed_login = ($failed_login + 1); // increase the number of failed login variable
-                                                        echo "<br>";
-                                                        var_dump($failed_login);
-                                                        $query = $db->prepare('UPDATE users SET failed_login = failed_login+1 WHERE username=?');
-                                                        $query->bind_param('s', $user);
-                                                        $query->execute();
-
-                                                                if ($query) {
-                                                                    print 'Success! Failed_login increased by 1 (due to account lock)';
-                                                                } else {
-                                                                    print 'Login Increase Error : (' . $db->errno . ') ' . $db->error;
-                                                                }
-                                                    }
-                            */
                             // update the last login time
 
                             $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
