@@ -54,28 +54,19 @@ if(isset($_POST["submit"])) {
         var_dump($email);
         var_dump($pass);
 
-        mysqli_stmt_close($stmt);
 
-        $query = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
-        mysqli_stmt_bind_param($query, 'sss', $user, $email, $pass);
-
-        /* execute prepared statement */
-//        mysqli_stmt_execute($stmt);
-        $query->execute();
-
-        if ($query) {
-            print 'Success! The user insert ran OK';
-        } else {
-            print 'Error : (' . $db->errno . ') ' . $db->error;
+        if ($insert_stmt = $mysqli->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)")) {
+            $insert_stmt->bind_param("sss", $user, $pass, $email);
+            $insert_stmt->execute();
         }
 
         $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
 
         /* close statement and connection */
 
-        mysqli_stmt_close($query);
+        mysqli_stmt_close($stmt);
 
-
+        
         /* close connection */
         mysqli_close($db);
 
