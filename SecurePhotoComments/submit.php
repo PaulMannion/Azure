@@ -54,7 +54,7 @@ if(isset($_POST["submit"])) {
         var_dump($email);
         var_dump($pass);
 
-
+        $stmt = $db->stmt_init();
         $stmt = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
         mysqli_stmt_bind_param($stmt, 'sss', $user, $email, $pass);
 
