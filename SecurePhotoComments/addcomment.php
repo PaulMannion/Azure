@@ -47,10 +47,16 @@ if(isset($_POST["submit"]))
     if ($stmt->num_rows == 1) //check a user was found
     {
         $stmt = mysqli_prepare($db, "INSERT INTO comments VALUES (?, ?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'ssii', $desc, $postDate, $photoID, $id);
+        mysqli_stmt_bind_param($stmt, 'siii', $desc, $postDate, $photoID, $id);
 
         /* execute prepared statement */
         mysqli_stmt_execute($stmt);
+
+        if ($stmt) {
+            print 'Success! The comment insert ran OK';
+        } else {
+            print 'Error : (' . $db->errno . ') ' . $db->error;
+        }
 
         $msg = "Thank You! comment added. click <a href='photo.php?id=".$photoID."'>here</a> to go back";
 
