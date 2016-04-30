@@ -29,7 +29,7 @@ error_reporting(E_ALL);
             $pass = stripslashes($pass);
             $pass = mysqli_real_escape_string($db, $pass);
 
-            echo "<p>Has passward been cleaned? <em>{$pass}</em></p>";
+            echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
             //   $pass = md5($pass);
 
@@ -46,7 +46,7 @@ error_reporting(E_ALL);
             // The following code only executes if a correct user is entered
 
             $stmt = $db->stmt_init();
-            $stmt->prepare("SELECT failed_login, last_login try_login FROM users WHERE username =?");
+            $stmt->prepare("SELECT failed_login, last_login, try_login FROM users WHERE username =?");
 
             /* bind parameters for markers */
             $stmt->bind_param('s', $user);
