@@ -124,7 +124,7 @@ error_reporting(E_ALL);
                                                     echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
                                                     echo "<p> timenow - unlock_time=" . ($timenow - $unlock_time);
 //                                                    echo "<p> Last attempted login (try_login): </p>" . date('D, d M Y H:i:s', $try_login);
-                                                    
+
                                                     $last_login = strtotime($last_login);
                                                     echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
@@ -291,7 +291,7 @@ error_reporting(E_ALL);
                             */
                             // update the last login time
 
-                            $query = $db->prepare('UPDATE users SET last_login= time() WHERE username=?');
+                            $query = $db->prepare('UPDATE users SET last_login= now() WHERE username=?');
                             $query->bind_param('s', $user);
                             $query->execute();
 
