@@ -29,7 +29,7 @@ error_reporting(E_ALL);
             $pass = stripslashes($pass);
             $pass = mysqli_real_escape_string($db, $pass);
 
-            echo "<p>Has possword been cleaned? <em>{$pass}</em></p>";
+            echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
             //   $pass = md5($pass);
 
@@ -150,7 +150,7 @@ error_reporting(E_ALL);
                                                             } else {
                                                                 echo "<p> going to lock -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
-                                                                $account_locked = false;
+                                                                $account_locked = true;
                                                                 echo "<p> trying to lock -> Is it locked?: </p>";
                                                                 var_dump($account_locked);
 
@@ -161,6 +161,7 @@ error_reporting(E_ALL);
                                                             }
 
                                                             //where do we go from here?
+                                                            $error = "This account has been locked due to too many incorrect logins.";
 
                                                 }
 
