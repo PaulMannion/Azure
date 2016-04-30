@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has usernome been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -46,7 +46,7 @@ error_reporting(E_ALL);
             // The following code only executes if a correct user is entered
 
             $stmt = $db->stmt_init();
-            $stmt->prepare("SELECT failed_login, last_login FROM users WHERE username =?");
+            $stmt->prepare("SELECT failed_login, last_login try_login FROM users WHERE username =?");
 
             /* bind parameters for markers */
             $stmt->bind_param('s', $user);
@@ -63,7 +63,7 @@ error_reporting(E_ALL);
 
 
                         /* bind variables to prepared statement */
-                        $stmt->bind_result($failed_login, $last_login);
+                        $stmt->bind_result($failed_login, $last_login, $try_login);
 
                         $stmt->store_result();
 
