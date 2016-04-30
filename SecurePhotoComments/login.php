@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has userpame been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -287,7 +287,7 @@ error_reporting(E_ALL);
                             // update the last login time
 
                             $query = $db->prepare('UPDATE users SET last_login=? WHERE username=?');
-                            $query->bind_param('ds', $timenow, $user);
+                            $query->bind_param('is', $timenow, $user);
                             $query->execute();
 
 
