@@ -20,7 +20,7 @@ if(isset($_POST["submit"]))
     $postDate = time();
 
     echo "<p>Description: <em>{$desc}</em></p>";
-    echo "<p>Has photoID been cleaned? <em>{$photoID}</em></p>";
+    echo "<p>photoID: <em>{$photoID}</em></p>";
     echo "<p>What is postdate? <em>{$postDate}</em></p>";
 
 
