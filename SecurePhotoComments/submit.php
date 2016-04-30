@@ -6,29 +6,20 @@ if(isset($_POST["submit"]))
     $name = $_POST['username'];
     $name = stripslashes($name);
     $name = mysqli_real_escape_string($db, $name);
-    
+
+    // Sanitise email input
     $email = $_POST["email"];
-    
-    
-    
-    $password = $_POST["password"];
-
-
-
-
-
-    echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+    $email = stripslashes($email);
+    $email = mysqli_real_escape_string($db, $email);
 
     // Sanitise password input
+    $password = $_POST["password"];
     $pass = $_POST['password'];
     $pass = stripslashes($pass);
     $pass = mysqli_real_escape_string($db, $pass);
 
-    echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
     //   $pass = md5($pass);
-    
-    
     
     
 
