@@ -49,11 +49,6 @@ if(isset($_POST["submit"]))
 
                             if ($stmt->fetch()) {
 
-                                var_dump($desc);
-                                var_dump($postDate);
-                                var_dump($id);
-                                var_dump($photoID);
-                                var_dump($name);
 
                                 /* Create the prepared statement */
 
