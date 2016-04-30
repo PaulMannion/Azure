@@ -64,7 +64,7 @@ if(isset($_POST["submit"]))
 
 
                 /* Execute the prepared Statement */
-                $query->execute();
+                if ($query->execute())
 
                 echo "Inserted {$desc},{$postDate},{$id},{$photoID} into database\n";
 
@@ -86,7 +86,7 @@ if(isset($_POST["submit"]))
     else{
         $msg = "You need to login first";
         }
-    
+
     /* close statement and connection */
 
     mysqli_stmt_close($stmt);
