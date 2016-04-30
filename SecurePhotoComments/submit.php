@@ -54,14 +54,15 @@ if(isset($_POST["submit"])) {
         var_dump($email);
         var_dump($pass);
 
-        $stmt = $db->stmt_init();
-        $stmt = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
-        mysqli_stmt_bind_param($stmt, 'sss', $user, $email, $pass);
+        $query = $db->stmt_init();
+        $query = mysqli_prepare($db, "INSERT INTO users VALUES (?, ?, ?)");
+        mysqli_stmt_bind_param($query, 'sss', $user, $email, $pass);
 
         /* execute prepared statement */
-        mysqli_stmt_execute($stmt);
+//        mysqli_stmt_execute($stmt);
+        $query->execute();
 
-        if ($stmt) {
+        if ($query) {
             print 'Success! The user insert ran OK';
         } else {
             print 'Error : (' . $db->errno . ') ' . $db->error;
@@ -71,6 +72,7 @@ if(isset($_POST["submit"])) {
 
         /* close statement and connection */
         mysqli_stmt_close($stmt);
+        mysqli_stmt_close($query);
 
 
         /* close connection */
