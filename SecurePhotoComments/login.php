@@ -22,7 +22,7 @@ error_reporting(E_ALL);
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
+            echo "<p>Has usergronk been cleaned? <em>{$user}</em></p>";
 
             // Sanitise password input
             $pass = $_POST['password'];
@@ -91,7 +91,7 @@ error_reporting(E_ALL);
                                */
                                                 if ($failed_login >= $total_failed_login)
                                                 {
-                                                    // User is locked out
+                                                    // User should be locked out unless the password is correct AND unlock time < timenow
 
                                                     /*                       echo"<p>failed logins:</p>";
                                                                            var_dump($failed_login);
@@ -107,11 +107,11 @@ error_reporting(E_ALL);
                                                     // Calculate when the user would be allowed to login again
                                                     //$last_login = strtotime($last_login);
 //                                                    $try_login = strtotime($try_login);
-                                                      $timeout = ($last_login + $lockout_time);
+                                                      $unlock_time = ($last_login + $lockout_time);
                                                     //$timeout = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                                                     // $timeout = strtotime("{$last_login} +{$lockout_time} minutes");
                                                     $timenow = time();
-                                                    $unlock_time = ($timenow + $timeout);
+//                                                    $unlock_time = ($timenow + $timeout);
 
 
                                                     echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
