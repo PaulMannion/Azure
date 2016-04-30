@@ -48,14 +48,16 @@ if(isset($_POST["submit"]))
 
     if ($stmt->num_rows == 1) //check a user was found
     {
-        var_dump($desc);
-        var_dump($postDate);
-        var_dump($id);
-        var_dump($photoID);
-        var_dump($name);
 
+        if ($stmt->fetch()) {
 
-        /* Create the prepared statement */
+            var_dump($desc);
+            var_dump($postDate);
+            var_dump($id);
+            var_dump($photoID);
+            var_dump($name);
+            
+            /* Create the prepared statement */
             if ($query = $mysqli->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
 
                 /* Bind our params */
@@ -71,14 +73,13 @@ if(isset($_POST["submit"]))
 
                 /* Close the statement */
                 $query->close();
-            }
-            else {
+            } else {
                 /* Error */
                 printf("Prepared Statement Error: %s\n", $mysqli->error);
 
             }
 
-
+        }
         /* close statement and connection */
 
         mysqli_stmt_close($stmt);
