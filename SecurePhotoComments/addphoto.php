@@ -69,7 +69,7 @@ if(isset($_POST["submit"]))
                         if ($query = $db->prepare("INSERT INTO photos (title, description, postDate, url, userID) values (?, ?, ?, ?, ?)")) {
 
                             /* Bind our params */
-                            $query->bind_param('ssisi', $title, $desc, $postDate, $url,$id);
+                            $query->bind_param('ssssi', $title, $desc, $postDate, $url,$id);
 
 
                             /* Execute the prepared Statement */
