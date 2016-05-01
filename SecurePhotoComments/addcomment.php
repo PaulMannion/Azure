@@ -15,6 +15,7 @@ if(isset($_POST["submit"]))
         echo xssafe($data);
     }
 
+    $desc = $_POST['desc']
     echo "desc as input = {$desc}";
 
     // Sanitise description
