@@ -61,7 +61,7 @@ if(isset($_POST["submit"]))
                         var_dump($title);
                         var_dump($desc);
                         $postDate = time();
-                        $postDate = strtotime($postDate);
+//                        $postDate = strtotime($postDate);
                         var_dump($postDate);
                         var_dump($url);
                         var_dump($id);
@@ -78,7 +78,7 @@ if(isset($_POST["submit"]))
 
                             echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
 
-                            $msg = "Thank You! The Nile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
+                            $msg = "Thank You! The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
 
                             /* Close the statement */
                             $query->close();
