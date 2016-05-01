@@ -79,26 +79,23 @@ error_reporting(E_ALL);
                                                     $timenow = time();
 
                                                     $last_login = strtotime($last_login);
-                                                    echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
-
-
 
                                                             if ($timenow > $unlock_time) {
-                                                                echo "<p> going to set account_locked as 'false' -> Lock Status now: </p>";
+ //                                                               echo "<p> going to set account_locked as 'false' -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
                                                                 $account_locked = false;
-                                                                echo "<p> trying to unlock -> account_locked should equal 'false': </p>";
+//                                                                echo "<p> trying to unlock -> account_locked should equal 'false': </p>";
                                                                 var_dump($account_locked);
 
                                                             } else {
-                                                                echo "<p> going to set account_locked as 'true' -> Lock Status now: </p>";
+//                                                                echo "<p> going to set account_locked as 'true' -> Lock Status now: </p>";
                                                                 var_dump($account_locked);
                                                                 $account_locked = true;
-                                                                echo "<p> trying to lock -> account_locked should equal 'true': </p>";
+//                                                                echo "<p> trying to lock -> account_locked should equal 'true': </p>";
                                                                 var_dump($account_locked);
 
-                                                                echo "<p> Account will be available to try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                                                echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
+//                                                                echo "<p> Account will be available to try again after: </p>" . date('D, d M Y H:i:s', $unlock_time);
+//                                                                echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
                                                             }
 
@@ -142,11 +139,6 @@ error_reporting(E_ALL);
                              }
 
 
-
-
-
-
-
                 // Check the database (if username matches the password)
 
                 $query = $db->stmt_init();
@@ -160,8 +152,6 @@ error_reporting(E_ALL);
                                     } else {
                                         print 'Error : (' . $db->errno . ') ' . $db->error;
                                     }
-
-
 
 
                 $query->bind_result($username, $password, $last_login, $failed_login);
