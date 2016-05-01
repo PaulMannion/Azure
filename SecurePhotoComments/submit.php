@@ -6,18 +6,13 @@ if(isset($_POST["submit"])) {
     $user = stripslashes($user);
     $user = mysqli_real_escape_string($db, $user);
 
-    // Sanitise email input
-//    $email = $_POST["email"];
+    // Check & Sanitise email input
     $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
     if ($email === false) {
         // Not a valid email address! Handle this invalid input here.
-        $msg = "Not a valid email address, try again.";
-        $email="";
-        echo "<script>
-                                    alert('There are no fields to generate a report');
-                                    window.location.href='photos.php';
-                                   </script>";
-//        header("location: submit.php"); // Redirect To Other Page
+        echo "<script>alert('Not a valid email address, please try again');
+        window.location.href='photos.php';
+        </script>";
     }
     $email = stripslashes($email);
     $email = mysqli_real_escape_string($db, $email);
