@@ -20,10 +20,12 @@ if(isset($_POST["submit"]))
     //sanitise title
     $title = $_POST["title"];
     $title = xssafe($title);
+    var_dump($title);
 
     // sanitise desc
     $desc = $_POST["desc"];
     $desc = xssafe($desc);
+    var_dump($desc);
 
     $url = "test";
     $name = $_SESSION["username"];
