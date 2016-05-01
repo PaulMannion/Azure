@@ -78,7 +78,7 @@ if(isset($_POST["submit"]))
 
                             echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
 
-                            $msg = "Thank You! The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
+                            $msg = "Thank You! The Pile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
 
                             /* Close the statement */
                             $query->close();
