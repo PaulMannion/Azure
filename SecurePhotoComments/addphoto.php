@@ -10,6 +10,21 @@ if(isset($_POST["submit"]))
     $title = stripslashes($title);
     $title = mysqli_real_escape_string($db, $title);
 
+    echo "title as input = {$title}";
+
+    //xss mitigation
+    function xssafe($title,$encoding='UTF-8')
+    {
+        return htmlspecialchars($title,ENT_QUOTES | ENT_HTML401,$encoding);
+    }
+    function xecho($title)
+    {
+        echo xssafe($title);
+    }
+
+    echo "title after xss mitigation = {$title}";
+
+
     // sanitise desc
     $desc = $_POST["desc"];
     $desc = stripslashes($desc);
