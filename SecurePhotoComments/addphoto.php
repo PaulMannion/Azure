@@ -60,7 +60,8 @@ if(isset($_POST["submit"]))
 */
                         var_dump($title);
                         var_dump($desc);
-                        $postDate = strtotime(time());
+                        $postDate = date();
+                        $postDate = strtotime($postDate);
                         var_dump($postDate);
                         var_dump($url);
                         var_dump($id);
