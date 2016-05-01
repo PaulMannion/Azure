@@ -63,15 +63,15 @@ if(isset($_POST["submit"]))
                         $postDate = time();
                         $postDate = strtotime($postDate);
                         var_dump($postDate);
-                        var_dump($url);
+                        var_dump($target_file);
                         var_dump($id);
                         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                            
+
                                     /* Create the prepared statement */
                                     if ($query = $db->prepare("INSERT INTO photos (title, description, postDate, url, userID) values (?, ?, ?, ?, ?)")) {
 
                                         /* Bind our params */
-                                        $query->bind_param('ssdsi', $title, $desc, $postDate, $url, $id);
+                                        $query->bind_param('ssdsi', $title, $desc, now(), $target_file, $id);
 
 
                                         /* Execute the prepared Statement */
