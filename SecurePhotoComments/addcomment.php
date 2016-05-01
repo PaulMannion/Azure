@@ -5,33 +5,34 @@ include("connection.php"); //Establishing connection with our database
 $msg = ""; //Variable for storing our errors.
 if(isset($_POST["submit"]))
 {
-
-    // Sanitise description
-    $desc = $_POST['desc'];
+    //xss mitigation
+    function xssafe($data,$encoding='UTF-8')
+    {
+        return htmlspecialchars($data,ENT_QUOTES | ENT_HTML401,$encoding);
+    }
+    function xecho($data)
+    {
+        echo xssafe($data);
+    }
 
     echo "desc as input = {$desc}";
 
-    $desc = stripslashes($desc);
-    $desc = mysqli_real_escape_string($db, $desc);
+    // Sanitise description
+    $desc = xecho($_POST['desc']);
 
-    echo "desc after basic clean = {$desc}";
+//    $desc = stripslashes($desc);
+//    $desc = mysqli_real_escape_string($db, $desc);
 
-    $desc = htmlspecialchars($desc, ENT_QUOTES);
+//    echo "desc after basic clean = {$desc}";
 
-    echo "desc after html special = {$desc}";
+//    $desc = htmlspecialchars($desc, ENT_QUOTES);
 
-/*    //xss mitigation
-    function xssafe($desc,$encoding='UTF-8')
-    {
-        return htmlspecialchars($desc,ENT_QUOTES | ENT_HTML401,$encoding);
-    }
-    function xecho($desc)
-    {
-        echo xssafe($desc);
-    }
+//    echo "desc after html special = {$desc}";
+
+
 
     echo "desc after xss mitigation = {$desc}";
-*/
+
     // Sanitise photoID
     $photoID = $_POST["photoID"];
     $photoID = stripslashes($photoID);
