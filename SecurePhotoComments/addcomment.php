@@ -19,21 +19,9 @@ if(isset($_POST["submit"]))
 
     // Sanitise description
 
-//    $desc_xecho = xecho($desc);
+    $desc = xecho($desc);
 
-
-//    $desc = stripslashes($desc);
-//    $desc = mysqli_real_escape_string($db, $desc);
-
-
-//    $desc = htmlspecialchars($desc, ENT_QUOTES);
-
-//    echo "desc after html special = {$desc}";
-
-
-$desc = xssafe($desc);
-    echo "desc after xssafe = {$desc}";
-
+    
     // Sanitise photoID
     $photoID = $_POST["photoID"];
     $photoID = stripslashes($photoID);
