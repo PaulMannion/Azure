@@ -37,7 +37,7 @@ if(isset($_POST["submit"]))
     $stmt->execute();
 
     if ($stmt) {
-                               print 'Success! The user query ran OK';
+ //                              print 'Success! The user query ran OK';
     } else {
         print 'Error : (' . $db->errno . ') ' . $db->error;
     }
