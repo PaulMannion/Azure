@@ -5,8 +5,16 @@ include("connection.php"); //Establishing connection with our database
 $msg = ""; //Variable for storing our errors.
 if(isset($_POST["submit"]))
 {
+    // sanitise title
     $title = $_POST["title"];
+    $title = stripslashes($title);
+    $title = mysqli_real_escape_string($db, $title);
+
+    // sanitise desc
     $desc = $_POST["desc"];
+    $desc = stripslashes($desc);
+    $desc = mysqli_real_escape_string($db, $desc);
+
     $url = "test";
     $name = $_SESSION["username"];
 
