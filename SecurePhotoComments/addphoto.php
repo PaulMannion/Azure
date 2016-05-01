@@ -65,23 +65,25 @@ if(isset($_POST["submit"]))
                         var_dump($postDate);
                         var_dump($url);
                         var_dump($id);
+                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                            
+                                    /* Create the prepared statement */
+                                    if ($query = $db->prepare("INSERT INTO photos (title, description, postDate, url, userID) values (?, ?, ?, ?, ?)")) {
 
-                        /* Create the prepared statement */
-                        if ($query = $db->prepare("INSERT INTO photos (title, description, postDate, url, userID) values (?, ?, ?, ?, ?)")) {
-
-                            /* Bind our params */
-                            $query->bind_param('ssdsi', $title, $desc, $postDate, $url,$id);
+                                        /* Bind our params */
+                                        $query->bind_param('ssdsi', $title, $desc, $postDate, $url, $id);
 
 
-                            /* Execute the prepared Statement */
-                            $query->execute();
+                                        /* Execute the prepared Statement */
+                                        $query->execute();
 
-                            echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
+                                        echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
 
-                            $msg = "Thank You! The tile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
+                                        $msg = "Thank You! The tile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
 
-                            /* Close the statement */
-                            $query->close();
+                                        /* Close the statement */
+                                        $query->close();
+                                    }
                         }
                         else {
                             /* Error */
