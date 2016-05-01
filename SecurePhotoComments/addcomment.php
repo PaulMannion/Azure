@@ -16,7 +16,11 @@ if(isset($_POST["submit"]))
 
     echo "desc after basic clean = {$desc}";
 
-    //xss mitigation
+    $desc = htmlspecialchars($desc, ENT_QUOTES);
+
+    echo "desc after html special = {$desc}";
+
+/*    //xss mitigation
     function xssafe($desc,$encoding='UTF-8')
     {
         return htmlspecialchars($desc,ENT_QUOTES | ENT_HTML401,$encoding);
@@ -27,7 +31,7 @@ if(isset($_POST["submit"]))
     }
 
     echo "desc after xss mitigation = {$desc}";
-
+*/
     // Sanitise photoID
     $photoID = $_POST["photoID"];
     $photoID = stripslashes($photoID);
