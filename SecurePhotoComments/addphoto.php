@@ -88,31 +88,6 @@ if(isset($_POST["submit"]))
 
                     if ($stmt->fetch()) {
 
-  /*
-                        //$timestamp = time();
-                        //$target_file = $target_file.$timestamp;
-                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-                            $id = $row['userID'];
-                            $addsql = "INSERT INTO photos (title, description, postDate, url, userID) VALUES ('$title','$desc',now(),'$target_file','$id')";
-                            $query = mysqli_query($db, $addsql) or die(mysqli_error($db));
-                            if ($query) {
-                                $msg = "Thank You! The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
-                            }
-
-                        } else {
-                            $msg = "Sorry, there was an error uploading your file.";
-                        }
-                        //echo $name." ".$email." ".$password;
-
-*/
-                        var_dump($title);
-                        var_dump($desc);
- //                       $postDate = time();
- //                       $postDate = strtotime($postDate);
-                        var_dump($postDate);
-                        var_dump($target_file);
-                        var_dump($id);
-
                         // Check if $uploadOk is set to 0 by an error
                         if ($uploadOk == 0) {
                             echo "Sorry, your file was not uploaded.";
