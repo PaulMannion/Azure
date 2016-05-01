@@ -20,12 +20,10 @@ if(isset($_POST["submit"]))
     //sanitise title
     $title = $_POST["title"];
     $title = xssafe($title);
-    var_dump($title);
 
     // sanitise desc
     $desc = $_POST["desc"];
     $desc = xssafe($desc);
-    var_dump($desc);
 
     $url = "test";
     $name = $_SESSION["username"];
@@ -73,7 +71,7 @@ if(isset($_POST["submit"]))
     $stmt->execute();
 
         if ($stmt) {
-            print 'Success! The user query ran OK';
+ //           print 'Success! The user query ran OK';
         } else {
             print 'Error : (' . $db->errno . ') ' . $db->error;
         }
