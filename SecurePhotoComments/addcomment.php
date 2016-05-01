@@ -11,6 +11,20 @@ if(isset($_POST["submit"]))
     $desc = stripslashes($desc);
     $desc = mysqli_real_escape_string($db, $desc);
 
+    echo "title as input = {$desc}";
+
+    //xss mitigation
+    function xssafe($desc,$encoding='UTF-8')
+    {
+        return htmlspecialchars($desc,ENT_QUOTES | ENT_HTML401,$encoding);
+    }
+    function xecho($desc)
+    {
+        echo xssafe($desc);
+    }
+
+    echo "title after xss mitigation = {$desc}";
+
     // Sanitise photoID
     $photoID = $_POST["photoID"];
     $photoID = stripslashes($photoID);
