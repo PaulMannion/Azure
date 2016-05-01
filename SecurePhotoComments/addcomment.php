@@ -19,9 +19,9 @@ if(isset($_POST["submit"]))
 
     // Sanitise description
 
-    $desc = xecho($desc);
+    $desc = xssafe($desc);
 
-    
+
     // Sanitise photoID
     $photoID = $_POST["photoID"];
     $photoID = stripslashes($photoID);
