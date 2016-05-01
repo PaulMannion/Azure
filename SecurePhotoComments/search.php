@@ -57,7 +57,7 @@ if(isset($_POST["submit"]))
 
                         $query->store_result();
 
-                        if ($query->num_rows == 1) //check a photo was found
+                        if ($query->num_rows >= 1) //check a photo(s) was found
                         {
                             /* fetch values */
 
