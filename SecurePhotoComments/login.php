@@ -4,7 +4,6 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
-echo phpinfo();
 	session_start();
 	include("connection.php"); //Establishing connection with our database
 
@@ -23,20 +22,12 @@ echo phpinfo();
             $user = stripslashes($user);
             $user = mysqli_real_escape_string($db, $user);
 
-            echo "<p>Has username been cleaned? <em>{$user}</em></p>";
-
             // Sanitise password input
             $pass = $_POST['password'];
             $pass = stripslashes($pass);
             $pass = mysqli_real_escape_string($db, $pass);
 
-            echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
-
-            $password = password_hash($pass, PASSWORD_DEFAULT);
-
-            echo "<p>Has password been cleaned? <em>{$password}</em></p>";
-
-//            $pass = md5($pass);
+//          $pass = md5($pass);
 
             // Default values
             date_default_timezone_set('GMT');
