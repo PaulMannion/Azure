@@ -26,12 +26,7 @@ if(isset($_POST["submit"])) {
 
 
     //   $pass = md5($pass);
-
-    echo "<p>Has username been cleaned? <em>{$user}</em></p>";
-    echo "<p>Has email been cleaned? <em>{$email}</em></p>";
-    echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
-
-
+    
     $stmt = $db->stmt_init();
     $stmt->prepare("SELECT email FROM users WHERE email =?");
 

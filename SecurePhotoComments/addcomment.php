@@ -26,8 +26,7 @@ if(isset($_POST["submit"]))
     $name = $_SESSION["username"];
     $postDate = time();
     
-
-
+    // check username with prepared statement
     $stmt = $db->stmt_init();
     $stmt->prepare("SELECT userID FROM users WHERE username =?");
 
