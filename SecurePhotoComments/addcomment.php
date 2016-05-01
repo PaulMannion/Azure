@@ -17,24 +17,18 @@ if(isset($_POST["submit"]))
 
     $desc = $_POST['desc'];
 
-    echo "<p>desc = {$desc}</p>";
-
     // Sanitise description
-    $desc_xssafe = xssafe($desc);
-    echo "<p>desc after xssafe clean = {$desc_xssafe}</p>.";
 
-    $desc_xecho = xecho($desc);
-    echo "<p>desc after xecho clean = {$desc_xecho}</p>";
+//    $desc_xecho = xecho($desc);
 
 
 //    $desc = stripslashes($desc);
 //    $desc = mysqli_real_escape_string($db, $desc);
 
-//    echo "desc after basic clean = {$desc}";
 
-//    $desc = htmlspecialchars($desc, ENT_QUOTES);
+    $desc = htmlspecialchars($desc, ENT_QUOTES);
 
-//    echo "desc after html special = {$desc}";
+    echo "desc after html special = {$desc}";
 
 
 
