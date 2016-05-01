@@ -17,8 +17,15 @@ if(isset($_POST["submit"]))
 
     $desc = $_POST['desc'];
 
+    echo "desc = {$desc}";
+
     // Sanitise description
-    $desc = xecho($desc);
+    $desc_xssafe = xssafe($desc);
+    echo "desc after xssafe clean = {$desc_xssafe}";
+
+    $desc_xecho = xecho($desc);
+    echo "desc after xecho clean = {$desc_xecho}";
+
 
 //    $desc = stripslashes($desc);
 //    $desc = mysqli_real_escape_string($db, $desc);
@@ -31,7 +38,6 @@ if(isset($_POST["submit"]))
 
 
 
-    echo "desc after clean = {$desc}";
 
     // Sanitise photoID
     $photoID = $_POST["photoID"];
