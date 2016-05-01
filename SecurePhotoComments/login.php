@@ -31,9 +31,9 @@ error_reporting(E_ALL);
 
             echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
-            echo password_hash($pass, PASSWORD_DEFAULT)."\n";
+            $password = password_hash($pass, PASSWORD_DEFAULT);
 
- //           echo "<p>Has password been cleaned? <em>{$hash_pass}</em></p>";
+            echo "<p>Has password been cleaned? <em>{$password}</em></p>";
 
 //            $pass = md5($pass);
 
