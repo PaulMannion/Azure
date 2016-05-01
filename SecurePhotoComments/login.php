@@ -31,9 +31,7 @@ error_reporting(E_ALL);
 
             echo "<p>Has password been cleaned? <em>{$pass}</em></p>";
 
- //           $pass = md5($pass);
-
-
+            $pass = md5($pass);
 
             // Default values
             date_default_timezone_set('GMT');
