@@ -7,9 +7,16 @@ if(isset($_POST["submit"])) {
     $user = mysqli_real_escape_string($db, $user);
 
     // Sanitise email input
-    $email = $_POST["email"];
+//    $email = $_POST["email"];
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+    if ($email === false) {
+        // Not a valid email address! Handle this invalid input here.
+        $msg = "Not a valid email address, try again."
+        header("location: submit.php"); // Redirecting To Other Page
+    }
     $email = stripslashes($email);
     $email = mysqli_real_escape_string($db, $email);
+
 
     // Sanitise password input
     $password = $_POST["password"];
