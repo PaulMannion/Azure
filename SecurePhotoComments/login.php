@@ -4,7 +4,8 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
-	session_start();
+	echo phpinfo();
+    session_start();
 	include("connection.php"); //Establishing connection with our database
 
 	$error = ""; //Variable for storing our errors.
