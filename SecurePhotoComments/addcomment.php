@@ -50,23 +50,22 @@ if(isset($_POST["submit"]))
         if ($stmt->fetch()) {
 
             var_dump($desc);
-            var_dump($postDate);
             var_dump($id);
             var_dump($photoID);
             var_dump($name);
 
             /* Create the prepared statement */
 
-            if ($query = $db->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, ?, ?, ?)")) {
+            if ($query = $db->prepare("INSERT INTO comments (description, postDate, userID, photoID) values (?, now(), ?, ?)")) {
 
                 /* Bind our params */
-                $query->bind_param('siii', $desc, $postDate, $id, $photoID);
+                $query->bind_param('sii', $desc, $id, $photoID);
 
 
                 /* Execute the prepared Statement */
                 if ($query->execute())
 
-                echo "Inserted {$desc},{$postDate},{$id},{$photoID} into database\n";
+                echo "Inserted {$desc},{$id},{$photoID} into database\n";
 
                 $msg = "Thank You! comment added. click <a href='photo.php?id=".$photoID."'>here</a> to go back";
 

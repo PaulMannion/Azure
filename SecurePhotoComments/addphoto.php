@@ -77,7 +77,7 @@ if(isset($_POST["submit"]))
                                         /* Execute the prepared Statement */
                                         $query->execute();
 
-                                        echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
+                                        echo "Inserted {$title},{$desc},{$postDate},{$target_file},{$id} into database\n";
 
                                         $msg = "Thank You! The pile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
 
