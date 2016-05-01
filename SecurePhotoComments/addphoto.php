@@ -15,31 +15,54 @@ if(isset($_POST["submit"]))
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     $uploadOk = 1;
 
-    $sql="SELECT userID FROM users WHERE username='$name'";
-    $result=mysqli_query($db,$sql);
-    $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
 
-    if(mysqli_num_rows($result) == 1) {
-        //$timestamp = time();
-        //$target_file = $target_file.$timestamp;
-        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            $id = $row['userID'];
-            $addsql = "INSERT INTO photos (title, description, postDate, url, userID) VALUES ('$title','$desc',now(),'$target_file','$id')";
-            $query = mysqli_query($db, $addsql) or die(mysqli_error($db));
-            if ($query) {
-                $msg = "Thank You! The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded. click <a href='photos.php'>here</a> to go back";
-            }
+    $stmt = $db->stmt_init();
+    $stmt->prepare("SELECT userID FROM users WHERE username =?");
 
+    /* bind parameters for markers */
+    $stmt->bind_param('s', $name);
+
+    /* execute query */
+    $stmt->execute();
+
+        if ($stmt) {
+            print 'Success! The user query ran OK';
         } else {
-            $msg = "Sorry, there was an error uploading your file.";
+            print 'Error : (' . $db->errno . ') ' . $db->error;
         }
-        //echo $name." ".$email." ".$password;
+
+                /* bind variables to prepared statement */
+                $stmt->bind_result($id);
+
+                $stmt->store_result();
+
+                if ($stmt->num_rows == 1) //check a user was found
+                {
+
+                    if ($stmt->fetch()) {
+                        //$timestamp = time();
+                        //$target_file = $target_file.$timestamp;
+                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                            $id = $row['userID'];
+                            $addsql = "INSERT INTO photos (title, description, postDate, url, userID) VALUES ('$title','$desc',now(),'$target_file','$id')";
+                            $query = mysqli_query($db, $addsql) or die(mysqli_error($db));
+                            if ($query) {
+                                $msg = "Thank You! The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
+                            }
+
+                        } else {
+                            $msg = "Sorry, there was an error uploading your file.";
+                        }
+                        //echo $name." ".$email." ".$password;
 
 
-    }
-    else{
-        $msg = "You need to login first";
-    }
+                    }
+                }
+
+        else
+        {
+            $msg = "You need to login first";
+        }
 }
 
 ?>
