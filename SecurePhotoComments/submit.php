@@ -37,7 +37,7 @@ if(isset($_POST["submit"])) {
     $stmt->execute();
 
     if ($stmt) {
-        print 'Success! The user query ran OK';
+//        print 'Success! The user query ran OK';
     } else {
         print 'Error : (' . $db->errno . ') ' . $db->error;
     }
@@ -52,10 +52,6 @@ if(isset($_POST["submit"])) {
         $msg = "Sorry...This email already exists...";
     } else {
 
-        var_dump($user);
-        var_dump($email);
-        var_dump($pass);
-
         /* Create the prepared statement */
         if ($query = $db->prepare("INSERT INTO users (username, password, email) values (?, ?, ?)")) {
 
@@ -66,7 +62,7 @@ if(isset($_POST["submit"])) {
             /* Execute the prepared Statement */
             $query->execute();
 
-            echo "Inserted {$user},{$pass},{$email} into database\n";
+//            echo "Inserted {$user},{$pass},{$email} into database\n";
 
             $msg = "Thank You! you are now registered. click <a href='index.php'>here</a> to login";
 
