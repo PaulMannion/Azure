@@ -15,24 +15,17 @@ if(isset($_POST["submit"]))
         echo xssafe($data);
     }
 
-    $desc = $_POST['desc'];
-
     // Sanitise description
-
+    $desc = $_POST['desc'];
     $desc = xssafe($desc);
-
-
+    
     // Sanitise photoID
     $photoID = $_POST["photoID"];
-    $photoID = stripslashes($photoID);
-    $photoID = mysqli_real_escape_string($db, $photoID);
+    $photoID = xssafe($photoID);
 
     $name = $_SESSION["username"];
     $postDate = time();
-
-    echo "<p>Description: <em>{$desc}</em></p>";
-    echo "<p>photoID: <em>{$photoID}</em></p>";
-    echo "<p>What is postdate? <em>{$postDate}</em></p>";
+    
 
 
     $stmt = $db->stmt_init();
@@ -59,11 +52,6 @@ if(isset($_POST["submit"]))
     {
 
         if ($stmt->fetch()) {
-
-            var_dump($desc);
-            var_dump($id);
-            var_dump($photoID);
-            var_dump($name);
 
             /* Create the prepared statement */
 

@@ -5,11 +5,6 @@ include("connection.php"); //Establishing connection with our database
 $msg = ""; //Variable for storing our errors.
 if(isset($_POST["submit"]))
 {
-    // sanitise title
-    $title = $_POST["title"];
-    $title = stripslashes($title);
-    $title = mysqli_real_escape_string($db, $title);
-
     echo "title as input = {$title}";
 
     //xss mitigation
@@ -22,13 +17,13 @@ if(isset($_POST["submit"]))
         echo xssafe($title);
     }
 
-    echo "title after xss mitigation = {$title}";
-
+    //sanitise title
+    $title = $_POST["title"];
+    $title = xssafe($title);
 
     // sanitise desc
     $desc = $_POST["desc"];
-    $desc = stripslashes($desc);
-    $desc = mysqli_real_escape_string($db, $desc);
+    $desc = xssafe($desc);
 
     $url = "test";
     $name = $_SESSION["username"];
