@@ -12,7 +12,8 @@ if(isset($_POST["submit"])) {
     if ($email === false) {
         // Not a valid email address! Handle this invalid input here.
         $msg = "Not a valid email address, try again.";
-        header("location: submit.php"); // Redirect To Other Page
+        $email="";
+//        header("location: submit.php"); // Redirect To Other Page
     }
     $email = stripslashes($email);
     $email = mysqli_real_escape_string($db, $email);
