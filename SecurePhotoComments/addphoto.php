@@ -40,6 +40,8 @@ if(isset($_POST["submit"]))
                 {
 
                     if ($stmt->fetch()) {
+
+  /*
                         //$timestamp = time();
                         //$target_file = $target_file.$timestamp;
                         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -55,14 +57,50 @@ if(isset($_POST["submit"]))
                         }
                         //echo $name." ".$email." ".$password;
 
+*/
+                        var_dump($title);
+                        var_dump($desc);
+                        var_dump($postDate);
+                        var_dump($url);
+                        var_dump($id);
+
+                        /* Create the prepared statement */
+                        if ($query = $db->prepare("INSERT INTO photos (title, description, postDate, url, userID) values (?, ?, ?, ?, ?)")) {
+
+                            /* Bind our params */
+                            $query->bind_param('ssisi', $title, $desc, $postDate, $url,$id);
+
+
+                            /* Execute the prepared Statement */
+                            $query->execute();
+
+                            echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
+
+                            $msg = "Thank You! The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
+
+                            /* Close the statement */
+                            $query->close();
+                        }
+                        else {
+                            /* Error */
+                            $msg = "Sorry, there was an error uploading your file.";
+
+                        }
+
+                        /* close statement and connection */
+
+                        mysqli_stmt_close($stmt);
+
+
+                        /* close connection */
+                        mysqli_close($db);
 
                     }
                 }
-
-        else
-        {
-            $msg = "You need to login first";
-        }
+                else
+                {
+                    $msg = "You need to login first";
+                }
 }
 
 ?>
