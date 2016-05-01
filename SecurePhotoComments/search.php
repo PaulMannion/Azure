@@ -19,7 +19,7 @@ if(isset($_POST["submit"]))
     $stmt->execute();
 
         if ($stmt) {
-            print 'Success! The user query ran OK';
+//            print 'Success! The user query ran OK';
         } else {
             print 'Error : (' . $db->errno . ') ' . $db->error;
         }
@@ -47,7 +47,7 @@ if(isset($_POST["submit"]))
                         $query->execute();
 
                         if ($query) {
-                            print 'Success! The username query ran OK';
+ //                           print 'Success! The username query ran OK';
                         } else {
                             print 'Error : (' . $db->errno . ') ' . $db->error;
                         }
@@ -71,6 +71,14 @@ if(isset($_POST["submit"]))
                             $resultText = "no photos by user";
                         }
 
+                        /* close statement and connection */
+
+                        mysqli_stmt_close($query);
+
+
+                        /* close connection */
+                        mysqli_close($db);
+
                     }
                 }
                 else
@@ -78,5 +86,13 @@ if(isset($_POST["submit"]))
                     $resultText = "no user with that username";
             
                 }
+
+    /* close statement and connection */
+
+    mysqli_stmt_close($stmt);
+
+
+    /* close connection */
+    mysqli_close($db);
 }
 ?>
