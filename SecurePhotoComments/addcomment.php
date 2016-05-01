@@ -8,10 +8,13 @@ if(isset($_POST["submit"]))
 
     // Sanitise description
     $desc = $_POST['desc'];
+
+    echo "desc as input = {$desc}";
+
     $desc = stripslashes($desc);
     $desc = mysqli_real_escape_string($db, $desc);
 
-    echo "desc as input = {$desc}";
+    echo "desc after basic clean = {$desc}";
 
     //xss mitigation
     function xssafe($desc,$encoding='UTF-8')
