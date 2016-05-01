@@ -60,17 +60,17 @@ if(isset($_POST["submit"]))
 */
                         var_dump($title);
                         var_dump($desc);
-                        $postDate = date();
+                        $postDate = time();
                         $postDate = strtotime($postDate);
                         var_dump($postDate);
                         var_dump($url);
                         var_dump($id);
 
                         /* Create the prepared statement */
-                        if ($query = $db->prepare("INSERT INTO photos (title, description, postDate, url, userID) values (?, ?, ?, ?, ?)")) {
+                        if ($query = $db->prepare("INSERT INTO photos (title, description, postDate = now(), url, userID) values (?, ?, ?, ?, ?)")) {
 
                             /* Bind our params */
-                            $query->bind_param('ssssi', $title, $desc, $postDate, $url,$id);
+                            $query->bind_param('sssi', $title, $desc, $url,$id);
 
 
                             /* Execute the prepared Statement */
@@ -78,7 +78,7 @@ if(isset($_POST["submit"]))
 
                             echo "Inserted {$title},{$desc},{$postDate},{$url},{$id} into database\n";
 
-                            $msg = "Thank You! The Pile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
+                            $msg = "Thank You! The Tile " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded. click <a href='photos.php'>here</a> to go back";
 
                             /* Close the statement */
                             $query->close();
