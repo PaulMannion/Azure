@@ -9,7 +9,6 @@ error_reporting(E_ALL);
 
 	$error = ""; //Variable for storing our errors.
 
-
 	if(isset($_POST["submit"])) {
         if (empty($_POST["username"]) || empty($_POST["password"])) {
             $error = "Both fields are required.";
@@ -79,13 +78,6 @@ error_reporting(E_ALL);
                                                     $unlock_time = strtotime("+{$lockout_time} minutes", strtotime($last_login));
                                                     $timenow = time();
 
-
- /*                                                   echo "<p> This is the timenow: </p>" . date('D, d M Y H:i:s', $timenow);
-                                                    echo "<p> This is the value of timenow: </p>" . $timenow;
-                                                    echo "<p> This is the unlock time </p>" . date('D, d M Y H:i:s', $unlock_time);
-                                                    echo "<p> this is the value of unlock_time: </p>" . $unlock_time;
-                                                    echo "<p> timenow - unlock_time=" . ($timenow - $unlock_time);
-*/
                                                     $last_login = strtotime($last_login);
                                                     echo "<p> Last attempted login: </p>" . date('D, d M Y H:i:s', $last_login);
 
@@ -118,9 +110,6 @@ error_reporting(E_ALL);
                                                 else
 
                                                      {
-                                                        echo "<p>wtf!</p>";
-
- //                                                       $error = "Incorrect username or password.";
 
                                                         $error = "You have entered an incorrect password {$failed_login} times. You will be locked out after {$total_failed_login} attempts.";
 
@@ -139,7 +128,6 @@ error_reporting(E_ALL);
                                                          
                                                     }
 
-                                                    // where do we go fromm here?
                              }
 
                         }
@@ -150,13 +138,13 @@ error_reporting(E_ALL);
 
                                 $error = "Incorrect username or password. (both)";
                                  /* close statement */
-//                                 $stmt->close();
+
                              }
 
 
 
 
-                //  echo "<p>(This will be printed in any case) Number of login attempts: <em>{$failed_login}</em>.<br />Last login attempt was at: {$last_login}</em>.</p>";
+
 
 
                 // Check the database (if username matches the password)
@@ -173,8 +161,8 @@ error_reporting(E_ALL);
                                         print 'Error : (' . $db->errno . ') ' . $db->error;
                                     }
 
-//                echo "<p> Is account locked?: </p>";
-//                var_dump($account_locked);
+
+
 
                 $query->bind_result($username, $password, $last_login, $failed_login);
                 $query->store_result();
