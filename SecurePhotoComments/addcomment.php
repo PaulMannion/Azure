@@ -26,12 +26,12 @@ if(isset($_POST["submit"]))
 //    $desc = mysqli_real_escape_string($db, $desc);
 
 
-    $desc = htmlspecialchars($desc, ENT_QUOTES);
+//    $desc = htmlspecialchars($desc, ENT_QUOTES);
 
-    echo "desc after html special = {$desc}";
+//    echo "desc after html special = {$desc}";
 
 
-
+xecho($desc);
 
     // Sanitise photoID
     $photoID = $_POST["photoID"];
