@@ -31,7 +31,8 @@ if(isset($_POST["submit"]))
 //    echo "desc after html special = {$desc}";
 
 
-xecho($desc);
+$desc = xssafe($desc);
+    echo "desc after xssafe = {$desc}";
 
     // Sanitise photoID
     $photoID = $_POST["photoID"];
