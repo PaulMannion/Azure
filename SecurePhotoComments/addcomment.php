@@ -17,14 +17,14 @@ if(isset($_POST["submit"]))
 
     $desc = $_POST['desc'];
 
-    echo "desc = {$desc}";
+    echo "<p>desc = {$desc}</p>";
 
     // Sanitise description
     $desc_xssafe = xssafe($desc);
-    echo "desc after xssafe clean = {$desc_xssafe}";
+    echo "<p>desc after xssafe clean = {$desc_xssafe}</p>.";
 
     $desc_xecho = xecho($desc);
-    echo "desc after xecho clean = {$desc_xecho}";
+    echo "<p>desc after xecho clean = {$desc_xecho}</p>";
 
 
 //    $desc = stripslashes($desc);
