@@ -18,9 +18,9 @@ if(isset($_POST["submit"]))
     echo "desc as input = {$desc}";
 
     // Sanitise description
-    $func_desc = xecho($_POST['desc']);
+//    $func_desc = xecho($_POST['desc']);
 
-    $desc = stripslashes($desc);
+//    $desc = stripslashes($desc);
 //    $desc = mysqli_real_escape_string($db, $desc);
 
 //    echo "desc after basic clean = {$desc}";
@@ -31,7 +31,7 @@ if(isset($_POST["submit"]))
 
 
 
-    echo "desc after func clean = {$func_desc}";
+ //   echo "desc after func clean = {$func_desc}";
 
     // Sanitise photoID
     $photoID = $_POST["photoID"];
