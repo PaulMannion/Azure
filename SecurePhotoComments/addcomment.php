@@ -16,7 +16,6 @@ if(isset($_POST["submit"]))
     }
 
     $desc = $_POST['desc'];
-    echo "desc as input = {$desc}";
 
     // Sanitise description
     $desc = xecho($desc);
@@ -32,7 +31,7 @@ if(isset($_POST["submit"]))
 
 
 
-    echo "desc after func clean = {$desc}";
+    echo "desc after clean = {$desc}";
 
     // Sanitise photoID
     $photoID = $_POST["photoID"];
@@ -96,7 +95,7 @@ if(isset($_POST["submit"]))
                 $query->close();
             } else {
                 /* Error */
-                printf("Prepared Statement Error: %s\n", $mysqli->error);
+                printf("Prepared Statement Error: %s\n", $db->error);
 
             }
 
